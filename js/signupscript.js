@@ -18,7 +18,7 @@ function registrandose() {
     mensaje.innerHTML = ""; // Limpiar el mensaje previo
 
     if (
-        nombreusuario.value.length >= 3 &&
+        nombreusuario.value.length >= 5 &&
         nombrecompleto.value.length >= 5 &&
         email.value.length > 0 &&
         pass1.value.length >= 6 &&
@@ -28,8 +28,8 @@ function registrandose() {
         mensaje.innerHTML = "¡Todo correcto!";
         validacion = true;
     } else {
-        if (nombreusuario.value.length < 3) {
-            mensaje.innerHTML = "Su nombre de usuario debe ser de al menos 3 caracteres";
+        if (nombreusuario.value.length < 5) {
+            mensaje.innerHTML = "Su nombre de usuario debe ser de al menos 5 caracteres";
         } else if (nombrecompleto.value.length < 5) {
             mensaje.innerHTML = "Su nombre completo debe ser de al menos 5 caracteres";
         } else if (email.value.length === 0) {
@@ -63,10 +63,10 @@ bttn.addEventListener("click",function(e){
         basenombres.push({nombre_de_usuario: nombreusuario.value, numero_id: num_id});
         basepw.push({contrasena:pass1.value, numero_id:num_id});
         num_id++;
-
+        let nombreusuariocookie = nombrecompleto.value;
         document.cookie = `basenombres=${JSON.stringify(basenombres)}; path=/`;
         document.cookie = `basepw=${JSON.stringify(basepw)}; path=/`;
-
+        document.cookie = `nombrecompleto=${nombreusuariocookie}; path=/`;
         mensaje.innerHTML = "¡Has sido registrado con exito!";
 
         setTimeout(function(e){
