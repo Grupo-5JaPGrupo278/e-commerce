@@ -32,7 +32,7 @@ button.addEventListener("click",function(e){
     // Comprueba que los campos no esten vacios & Busca en los arrays matcheos de Username y Contraseña
     if((nombre.value.length > 0) && (pass1.value.length >= 6)){
         for(let i = 0; i < basenombres.length; i++){
-            if(basenombres[i].nombre_de_usuario == nombre.value){
+            if(basenombres[i].nombre_de_usuario == nombre.value){                
                 if((basenombres[i].numero_id == basepw[i].numero_id)&&(basepw[i].contrasena == pass1.value )){
                     console.log(`${nombre.value} ha iniciado sesión con exito`)
                     logued_in = true;
@@ -51,9 +51,3 @@ button.addEventListener("click",function(e){
         alert("Debe llenar los campos para iniciar sesión")
     }
 })
-/*button.addEventListener("click",function(e){
-    logued_in = true
-    console.log("la variable ha cambiado", logued_in)
-    document.cookie = `logued_in=${true}; path=/`
-})
-*/
