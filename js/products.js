@@ -63,7 +63,8 @@ document.addEventListener("keyup", function (e) {
 			if (
 				//aca busco los nombre y las descripciones las paso a minuscula y con include comparo coicidencias con lo que escribi en el buscador
 				p.querySelector("#n").innerHTML.toLowerCase().includes(e.target.value) ||
-				p.querySelector("#d").innerHTML.toLowerCase().includes(e.target.value)
+				p.querySelector("#d").innerHTML.toLowerCase().includes(e.target.value) ||
+				e.target.value === ""
 			) {
 				p.classList.remove("filtro"); //en caso de que sea verdadero le saco el filtro que el que los oculta
 			} else {
@@ -92,4 +93,24 @@ document.addEventListener("DOMContentLoaded", function (e) {
 			showProductList();
 		}
 	});
+});
+
+let checkboton = document.getElementById("bus");
+let buscador = document.getElementById("buscador");
+bus.addEventListener("click", function () {
+	if (buscador.classList.contains("MostrarBuscador")) {
+		buscador.classList.remove("MostrarBuscador");
+		checkboton.classList.remove("bus");
+	} else {
+		buscador.classList.add("MostrarBuscador");
+		checkboton.classList.add("bus");
+		buscador.focus();
+	}
+});
+
+document.addEventListener("click", function (event) {
+	if (!buscador.contains(event.target) && !bus.contains(event.target)) {
+		buscador.classList.remove("MostrarBuscador");
+		checkboton.classList.remove("bus");
+	}
 });

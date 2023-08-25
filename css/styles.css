@@ -272,7 +272,7 @@ a.custom-card:hover {
 	overflow: hidden;
 	transform: translateY(80%);
 	color: #fff !important;
-	transition: 1s;
+	transition: 0.8s;
 }
 
 .product-container:hover .product-overlay {
@@ -303,10 +303,36 @@ a.custom-card:hover {
 .filtro {
 	display: none;
 }
-
-#buscador {
-	margin-right: 3px;
+/*estilos del input search y boton */
+.buscador {
+	border-top-left-radius: 1em;
+	border-bottom-left-radius: 1em;
+	border: solid #bdb9b98d 5px;
+	border-right: none;
+	background-color: #f8f9fa;
+	outline: 0px; /**/
+	padding: 5px;
+	width: 0; /* */
+	opacity: 0; /* lo desaparezco*/
+	transition: width 0.3s ease, opacity 0.3s ease; /* le doy un tiempo para que surgan los cambios */
 }
-#lupa {
-	color: rgb(159, 39, 39);
+#buscador::-webkit-search-cancel-button {
+	display: none; /*saco la x del input search*/
+}
+.MostrarBuscador {
+	width: 250px; /*lo hago mas grande */
+	opacity: 1; /*lo muesto */
+}
+
+.busno {
+	margin-right: 1px;
+	border: none;
+	background-color: #f8f9fa;
+}
+.bus {
+	position: relative;
+	margin-right: 2px;
+	box-sizing: border-box;
+	border: solid #bdb9b98d 5px;
+	border-left: none;
 }
