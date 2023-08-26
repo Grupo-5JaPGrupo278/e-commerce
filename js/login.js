@@ -44,7 +44,7 @@ button.addEventListener("click",function(e){
                     console.log("Estado del Log-In: ", logued_in);
                     document.cookie = `logued_in=${true}; path=/`
                     setTimeout(function(){
-                        window.location = "index.html"},2000);
+                        top.window.location = "index.html"},2000);
                 } else {
                     alert("Lo sentimos, pero sus credenciales no son correctas");
                 }
