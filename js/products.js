@@ -1,4 +1,9 @@
 //const CAT_101 = "https://japceibal.github.io/emercado-api/cats_products/101.json";
+const azBtn = document.getElementById("sortAsc")
+const zaBtn	= document.getElementById("sortDesc")
+const counter = document.getElementById("rangeFilterCount")
+const minQa = document.getElementById("rangeFilterCountMin")
+const maxQa = document.getElementById("rangeFilterCountMax")
 let currentProductArray = [];
 
 function setCatID(id) {
@@ -11,11 +16,9 @@ function showProductList() {
 
 	document.getElementById("titulo").innerHTML = `<h2>Productos</h2>
         <p class="lead">Verás aquí todos los productos de la categorioa ${currentProductArray.catName}.</p>`;
-
 	for (let i = 0; i < currentProductArray.products.length; i++) {
 		let product = currentProductArray.products[i];
-
-		htmlContentToAppend += `
+			htmlContentToAppend += `
             <div onclick="setCatID(${product.id})" class="list-group-item list-group-item-action cursor-active product-container">
                 
                     
@@ -114,3 +117,21 @@ document.addEventListener("click", function (event) {
 		checkboton.classList.remove("bus");
 	}
 });
+
+
+azBtn.addEventListener("click", ()=>{
+	currentProductArray.products.sort((a,b)=> a.name.localeCompare(b.name))
+	showProductList(currentProductArray.products)
+	console.log(currentProductArray.products)
+})
+zaBtn.addEventListener("click", ()=>{
+	currentProductArray.products.sort((a,b)=> b.name.localeCompare(a.name))
+	showProductList(currentProductArray.products)
+	console.log(currentProductArray.products)
+})
+counter.addEventListener("click", ()=>{
+	let filteredProducts = currentProductArray.products.filter(product => product.cost >= minQa.value && product.cost <= maxQa.value);
+	currentProductArray.products = filteredProducts;
+	showProductList(currentProductArray.products);
+	console.log(filteredProducts);
+})

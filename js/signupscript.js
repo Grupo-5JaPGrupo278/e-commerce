@@ -70,7 +70,7 @@ bttn.addEventListener("click",function(e){
         mensaje.innerHTML = "¡Has sido registrado con exito!";
 
         setTimeout(function(e){
-            top.window.location = "credential-manager.html"},2500);
+         top.window.location = "credential-manager.html"},1000);
     } else {
         alert("Debes completar todos los campos para registrarte");
     }
