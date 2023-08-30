@@ -1,6 +1,7 @@
 //const CAT_101 = "https://japceibal.github.io/emercado-api/cats_products/101.json";
 const azBtn = document.getElementById("sortAsc")
 const zaBtn	= document.getElementById("sortDesc")
+const priceOrder = document.getElementById("sortByCount")
 const counter = document.getElementById("rangeFilterCount")
 const minQa = document.getElementById("rangeFilterCountMin")
 const maxQa = document.getElementById("rangeFilterCountMax")
@@ -129,6 +130,11 @@ zaBtn.addEventListener("click", ()=>{
 	currentProductArray.products.sort((a,b)=> b.name.localeCompare(a.name))
 	showProductList(currentProductArray.products)
 	console.log(currentProductArray.products)
+})
+priceOrder.addEventListener("click", ()=>{
+	currentProductArray.products.sort((a, b) => {return a.cost - b.cost});
+	showProductList(currentProductArray.products);
+	console.log(currentProductArray.products);
 })
 counter.addEventListener("click", ()=>{
 	let filteredProducts = currentProductArray.products.filter(product => product.cost >= minQa.value && product.cost <= maxQa.value);

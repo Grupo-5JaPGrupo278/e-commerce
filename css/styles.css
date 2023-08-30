@@ -71,6 +71,9 @@ iframe{
 .fade-out{
 	opacity: 0;
 }
+.displayNone:hover{
+	pointer-events: none;
+}
 .CMbtn{
 	margin: 2rem;
 	border-style: groove;

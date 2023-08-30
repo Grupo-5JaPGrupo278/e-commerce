@@ -12,3 +12,13 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+const button = document.getElementById("btn-presentacion");
+const displaydestacados = document.getElementById("display-principal");
+
+button.addEventListener("click",function(e){
+    displaydestacados.style.display = "block";
+    this.classList.add("fade-out")
+    setTimeout(() => {
+        this.classList.add("displayNone")
+    }, 1000);
+})
