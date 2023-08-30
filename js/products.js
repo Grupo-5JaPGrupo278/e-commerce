@@ -1,11 +1,11 @@
 //const CAT_101 = "https://japceibal.github.io/emercado-api/cats_products/101.json";
-const azBtn = document.getElementById("sortAsc")
-const zaBtn	= document.getElementById("sortDesc")
-const priceOrder = document.getElementById("sortByCount")
-const counter = document.getElementById("rangeFilterCount")
-const minQa = document.getElementById("rangeFilterCountMin")
-const maxQa = document.getElementById("rangeFilterCountMax")
-const clean = document.getElementById("clearRangeFilter")
+const PRICEASCENDBTN = document.getElementById("sortAsc")
+const PRICEDESCENDBTN	= document.getElementById("sortDesc")
+const SOLDCOUNT = document.getElementById("sortByCount")
+const COUNTER = document.getElementById("rangeFilterCount")
+const MINQA = document.getElementById("rangeFilterCountMin")
+const MAXQA = document.getElementById("rangeFilterCountMax")
+const CLEAN = document.getElementById("clearRangeFilter")
 let currentProductArray = [];
 
 function setCatID(id) {
@@ -121,30 +121,27 @@ document.addEventListener("click", function (event) {
 });
 
 
-azBtn.addEventListener("click", ()=>{
-	currentProductArray.products.sort((a,b)=> a.name.localeCompare(b.name))
-	showProductList(currentProductArray.products)
-	console.log(currentProductArray.products)
-})
-zaBtn.addEventListener("click", ()=>{
-	currentProductArray.products.sort((a,b)=> b.name.localeCompare(a.name))
-	showProductList(currentProductArray.products)
-	console.log(currentProductArray.products)
-})
-priceOrder.addEventListener("click", ()=>{
+PRICEASCENDBTN.addEventListener("click", ()=>{
 	currentProductArray.products.sort((a, b) => {return a.cost - b.cost});
 	showProductList(currentProductArray.products);
-	console.log(currentProductArray.products);
 })
-counter.addEventListener("click", ()=>{
-	let filteredProducts = currentProductArray.products.filter(product => product.cost >= minQa.value && product.cost <= maxQa.value);
+PRICEDESCENDBTN.addEventListener("click", ()=>{
+	currentProductArray.products.sort((a, b) => {return b.cost - a.cost});
+	showProductList(currentProductArray.products);
+})
+SOLDCOUNT.addEventListener("click", ()=>{
+	currentProductArray.products.sort((a, b) => {return b.soldCount - a.soldCount});
+	showProductList(currentProductArray.products);
+})
+COUNTER.addEventListener("click", ()=>{
+	let filteredProducts = currentProductArray.products.filter(product => product.cost >= MINQA.value && product.cost <= MAXQA.value);
 	currentProductArray.products = filteredProducts;
 	showProductList(currentProductArray.products);
 	console.log(filteredProducts);
 })
-clean.addEventListener("click", ()=>{
-	minQa.value = "";
-	maxQa.value = "";
+CLEAN.addEventListener("click", ()=>{
+	MINQA.value = "";
+	MAXQA.value = "";
 	getJSONData(PRODUCTS_URL + localStorage.catID + ".json").then(function (resultObj) {
 		if (resultObj.status == "ok") {
 			currentProductArray = resultObj.data;
