@@ -21,13 +21,13 @@ const EMAIL_COOKIE = document.cookie
     .find(row => row.startsWith("PASSWORD_BASE"))
     .split("=")[1];
     // Se les otorga a las cookies variables constantes para manipularlas
-    let EMAIL_BASE = "";
-    let PASSWORD_BASE = "";
-    
-button.addEventListener("click",function(e){
+    let emailbase = ""
+    let passwordbase = ""
+BUTTON.addEventListener("click",function(e){
     try{
-        EMAIL_BASE = JSON.parse(EMAIL_COOKIE);
-        PASSWORD_BASE = JSON.parse(PASSWORD_BASE);
+        emailbase = JSON.parse(EMAIL_COOKIE);
+        passwordbase = JSON.parse(PASSWORD_COOKIE);
+        console.log(emailbase,passwordbase)
     } catch {
         alert("Sus credenciales no son correctas")
     }
@@ -35,9 +35,9 @@ button.addEventListener("click",function(e){
     const PASSWORD = document.getElementById("floatingPassword");
     // Comprueba que los campos no esten vacios & Busca en los arrays matcheos de Email y Contraseña
     if((EMAIL.value.length > 0) && (PASSWORD.value.length >= 6)){
-        for(let i = 0; i < EMAIL_BASE.length; i++){
-            if(EMAIL_BASE[i].email_usuario == EMAIL.value){                
-                if((EMAIL_BASE[i].email_id == PASSWORD_BASE[i].email_id)&&(PASSWORD_BASE[i].contrasena == PASSWORD.value )){
+        for(let i = 0; i < emailbase.length; i++){
+            if(emailbase[i].email_usuario == EMAIL.value){                
+                if((emailbase[i].email_id == passwordbase[i].email_id)&&(passwordbase[i].contrasena == PASSWORD.value )){
                     console.log(`${EMAIL.value} ha iniciado sesión con exito`);
                     logued_in = true;
                     console.log("Estado del Log-In: ", logued_in);

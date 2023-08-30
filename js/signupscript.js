@@ -57,15 +57,15 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
 /*Ingreso de datos a la DataBase*/
 BTTN.addEventListener("click",function(e){
-    registrandose();
+    signUp();
     if (validation === true){
 
-        EMAIL_BASE.push({email_usuario: EMAIL.value, numero_id: id_num});
-        PASSWORD_BASE.push({contrasena:FPASSWORD.value, numero_id:id_num});
+        EMAIL_BASE.push({email_usuario: EMAIL.value, email_id: id_num});
+        PASSWORD_BASE.push({contrasena:FPASSWORD.value, email_id:id_num});
         id_num++;
         let emailcookie = EMAIL.value;
-        document.cookie = `basemail=${JSON.stringify(EMAIL_BASE)}; path=/`;
-        document.cookie = `basepw=${JSON.stringify(PASSWORD_BASE)}; path=/`;
+        document.cookie = `EMAIL_BASE=${JSON.stringify(EMAIL_BASE)}; path=/`;
+        document.cookie = `PASSWORD_BASE=${JSON.stringify(PASSWORD_BASE)}; path=/`;
         document.cookie = `email=${emailcookie}; path=/`;
         MESSAGE.innerHTML = "¡Has sido registrado con exito!";
 
