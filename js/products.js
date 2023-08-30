@@ -4,6 +4,7 @@ const zaBtn	= document.getElementById("sortDesc")
 const counter = document.getElementById("rangeFilterCount")
 const minQa = document.getElementById("rangeFilterCountMin")
 const maxQa = document.getElementById("rangeFilterCountMax")
+const clean = document.getElementById("clearRangeFilter")
 let currentProductArray = [];
 
 function setCatID(id) {
@@ -134,4 +135,14 @@ counter.addEventListener("click", ()=>{
 	currentProductArray.products = filteredProducts;
 	showProductList(currentProductArray.products);
 	console.log(filteredProducts);
+})
+clean.addEventListener("click", ()=>{
+	minQa.value = "";
+	maxQa.value = "";
+	getJSONData(PRODUCTS_URL + localStorage.catID + ".json").then(function (resultObj) {
+		if (resultObj.status == "ok") {
+			currentProductArray = resultObj.data;
+			showProductList();
+		}
+	});
 })
