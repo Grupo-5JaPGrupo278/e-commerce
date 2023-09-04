@@ -23,12 +23,8 @@ BUTTON.addEventListener("click",function(e){
     let passwordbase = JSON.parse(localStorage.getItem("PasswordBase")) || [];
 
     if (database.length == 0 && passwordbase.length == 0){
-        alert("Sus credenciales no coinciden con nuestra base de datos")
         alert("Si aún no tienes una cuenta, por favor regístrate")
-    }
-      
-      // Comprueba que los campos no esten vacios & Busca en los arrays matcheos de Email y Contraseña
-    if((EMAIL.value.length > 0) && (PASSWORD.value.length >= 6)){
+    } else if ((EMAIL.value.length > 0) && (PASSWORD.value.length >= 6)){
         for(let i = 0; i < database.length; i++){
             if(database[i].email_usuario == EMAIL.value){                
                 if((database[i].email_id == passwordbase[i].email_id)&&(passwordbase[i].contrasena == PASSWORD.value )){                    
