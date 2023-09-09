@@ -12,7 +12,7 @@ body {
 	font-weight: bold;
 }
 
-iframe{
+iframe {
 	position: relative;
 	width: fit-content;
 	height: 500px;
@@ -21,36 +21,36 @@ iframe{
 	margin-right: 11rem;
 	z-index: 1;
 }
-.list-group-item{
-	background-color: rgba(0, 0, 0, 0.308)!important;
+.list-group-item {
+	background-color: rgba(0, 0, 0, 0.308) !important;
 }
-#iframeContainer{
+#iframeContainer {
 	transform: scale(50%);
 	width: 1400px;
 	height: fit-content;
 	position: relative;
-	display:flex;
+	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	grid-template-columns: auto auto auto;
 	background-color: #ffffff6b;
 }
-.iframeContent{
+.iframeContent {
 	background-color: transparent;
 }
-.credManBody{
-	background-image: url('../img/bg_img.png');
+.credManBody {
+	background-image: url("../img/bg_img.png");
 	background-repeat: no-repeat, repeat;
-	background-size:cover;
+	background-size: cover;
 }
-#credentialsDivTitle{
+#credentialsDivTitle {
 	font: bold 120px monospace;
 	color: aliceblue;
 }
-#layerTwoCredMan{
+#layerTwoCredMan {
 	transition: translate 2s;
 	position: absolute;
-	display:inline-table;
+	display: inline-table;
 	text-align: center;
 	padding: 5rem;
 	z-index: 2;
@@ -58,23 +58,23 @@ iframe{
 	height: 950px;
 	width: 55rem;
 	background-color: rgb(70, 74, 89);
-	box-shadow: 0px 0px 19px 25px rgba(0,0,0,0.18);
-	-webkit-box-shadow: 0px 0px 19px 25px rgba(0,0,0,0.18);
-	-moz-box-shadow: 0px 0px 19px 25px rgba(0,0,0,0.18);
+	box-shadow: 0px 0px 19px 25px rgba(0, 0, 0, 0.18);
+	-webkit-box-shadow: 0px 0px 19px 25px rgba(0, 0, 0, 0.18);
+	-moz-box-shadow: 0px 0px 19px 25px rgba(0, 0, 0, 0.18);
 }
-#credentialsDivTitle{
+#credentialsDivTitle {
 	transition: opacity 1s;
 }
-#credentialsDivText{
+#credentialsDivText {
 	transition: opacity 1s;
 }
-.fade-out{
+.fade-out {
 	opacity: 0;
 }
-.displayNone:hover{
+.displayNone:hover {
 	pointer-events: none;
 }
-.CMbtn{
+.CMbtn {
 	margin: 2rem;
 	border-style: groove;
 	border-width: 10px;
@@ -84,15 +84,15 @@ iframe{
 	font-size: 24px;
 }
 
-.CMbtn:hover:enabled{
+.CMbtn:hover:enabled {
 	border-style: groove;
 	border-width: 10px;
-	border-image: linear-gradient(148deg, rgba(255,5,237,1) 45%, rgba(79,86,218,1) 52%);
+	border-image: linear-gradient(148deg, rgba(255, 5, 237, 1) 45%, rgba(79, 86, 218, 1) 52%);
 	background-color: transparent;
 	color: #adadad;
 	font-size: 24px;
 }
-.CMbtn:disabled{
+.CMbtn:disabled {
 	border-style: groove;
 	border-width: 10px;
 	border-color: transparent;
@@ -102,21 +102,21 @@ iframe{
 	font-size: 24px;
 }
 
-#loginsignupbtnContainer{
+#loginsignupbtnContainer {
 	position: sticky;
 	top: 90%;
 }
 
-#credentialsDivText{
+#credentialsDivText {
 	margin-top: 7rem;
 	font: condensed 32px monospace;
 	color: rgb(175, 179, 182);
 }
-#iframeContainerParent{
-	 height: fit-content;
-	 display: flex;
-	 align-items: center;
-	 justify-content: center;
+#iframeContainerParent {
+	height: fit-content;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 nav a {
@@ -337,7 +337,7 @@ a.custom-card:hover {
 .btn-primary {
 	background-color: #f09100;
 }
-.form-checkbox{
+.form-checkbox {
 	display: flex;
 	margin-top: 4vh;
 	margin-bottom: 4vh;
@@ -346,7 +346,7 @@ a.custom-card:hover {
 	font-size: 17px;
 }
 
-.checkBoxtnp{
+.checkBoxtnp {
 	height: 25px;
 	width: 25px;
 }
@@ -379,6 +379,9 @@ a.custom-card:hover {
 }
 
 .product-overlay {
+	display: flex;
+	flex-wrap: wrap;
+
 	position: absolute;
 	top: 0;
 	/*left: 0;*/
@@ -396,7 +399,9 @@ a.custom-card:hover {
 	color: #fff !important;
 	transition: 0.8s;
 }
-
+.product-overlay button {
+	margin: auto;
+}
 .product-container:hover .product-overlay {
 	/*display: block;*/
 	transform: translateY(0);
@@ -457,4 +462,34 @@ a.custom-card:hover {
 	box-sizing: border-box;
 	border: solid #bdb9b98d 5px;
 	border-left: none;
+}
+#contenedor-infoimagenes {
+	margin-bottom: 50px;
+	grid-row: 1;
+}
+
+#contenedor-comentarios {
+	border-left: 1px black solid;
+	border-right: 1px black solid;
+	border-top: 1px black solid;
+	padding: 0;
+}
+.conetenedorall {
+	margin-top: auto;
+	width: 80%;
+	margin: 30px auto;
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+}
+.comentario {
+	border-bottom: solid 1px black;
+	pointer-events: none;
+
+	padding: 0 1em 0 1em;
+}
+.checked {
+	color: orange;
+}
+#carrousel {
+	width: 50%;
 }

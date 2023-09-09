@@ -1,16 +1,16 @@
 //const CAT_101 = "https://japceibal.github.io/emercado-api/cats_products/101.json";
-const PRICEASCENDBTN = document.getElementById("sortAsc")
-const PRICEDESCENDBTN	= document.getElementById("sortDesc")
-const SOLDCOUNT = document.getElementById("sortByCount")
-const COUNTER = document.getElementById("rangeFilterCount")
-const MINQA = document.getElementById("rangeFilterCountMin")
-const MAXQA = document.getElementById("rangeFilterCountMax")
-const CLEAN = document.getElementById("clearRangeFilter")
+const PRICEASCENDBTN = document.getElementById("sortAsc");
+const PRICEDESCENDBTN = document.getElementById("sortDesc");
+const SOLDCOUNT = document.getElementById("sortByCount");
+const COUNTER = document.getElementById("rangeFilterCount");
+const MINQA = document.getElementById("rangeFilterCountMin");
+const MAXQA = document.getElementById("rangeFilterCountMax");
+const CLEAN = document.getElementById("clearRangeFilter");
 let currentProductArray = [];
 
 function setCatID(id) {
 	localStorage.setItem("catID", id);
-	window.location = "products.html";
+	window.location = "product-info.html";
 }
 
 function showProductList() {
@@ -20,8 +20,8 @@ function showProductList() {
         <p class="lead">Verás aquí todos los productos de la categorioa ${currentProductArray.catName}.</p>`;
 	for (let i = 0; i < currentProductArray.products.length; i++) {
 		let product = currentProductArray.products[i];
-			htmlContentToAppend += `
-            <div onclick="setCatID(${product.id})" class="list-group-item list-group-item-action cursor-active product-container">
+		htmlContentToAppend += `
+            <div class="list-group-item list-group-item-action cursor-active product-container">
                 
                     
                         <img src="${product.image}" alt="${product.name}" class=" img">
@@ -34,6 +34,7 @@ function showProductList() {
                             </div>
                          <h5 class"" id="precio"> ${product.currency} ${product.cost}</h3>
                          <p id="d">${product.description}</p>
+						 <button onclick="setCatID(${product.id})">Ver mas</button>
                         </div>
                     </div>
                 
@@ -120,26 +121,33 @@ document.addEventListener("click", function (event) {
 	}
 });
 
-
-PRICEASCENDBTN.addEventListener("click", ()=>{
-	currentProductArray.products.sort((a, b) => {return a.cost - b.cost});
+PRICEASCENDBTN.addEventListener("click", () => {
+	currentProductArray.products.sort((a, b) => {
+		return a.cost - b.cost;
+	});
 	showProductList(currentProductArray.products);
-})
-PRICEDESCENDBTN.addEventListener("click", ()=>{
-	currentProductArray.products.sort((a, b) => {return b.cost - a.cost});
+});
+PRICEDESCENDBTN.addEventListener("click", () => {
+	currentProductArray.products.sort((a, b) => {
+		return b.cost - a.cost;
+	});
 	showProductList(currentProductArray.products);
-})
-SOLDCOUNT.addEventListener("click", ()=>{
-	currentProductArray.products.sort((a, b) => {return b.soldCount - a.soldCount});
+});
+SOLDCOUNT.addEventListener("click", () => {
+	currentProductArray.products.sort((a, b) => {
+		return b.soldCount - a.soldCount;
+	});
 	showProductList(currentProductArray.products);
-})
-COUNTER.addEventListener("click", ()=>{
-	let filteredProducts = currentProductArray.products.filter(product => product.cost >= MINQA.value && product.cost <= MAXQA.value);
+});
+COUNTER.addEventListener("click", () => {
+	let filteredProducts = currentProductArray.products.filter(
+		product => product.cost >= MINQA.value && product.cost <= MAXQA.value
+	);
 	currentProductArray.products = filteredProducts;
 	showProductList(currentProductArray.products);
 	console.log(filteredProducts);
-})
-CLEAN.addEventListener("click", ()=>{
+});
+CLEAN.addEventListener("click", () => {
 	MINQA.value = "";
 	MAXQA.value = "";
 	getJSONData(PRODUCTS_URL + localStorage.catID + ".json").then(function (resultObj) {
@@ -148,4 +156,4 @@ CLEAN.addEventListener("click", ()=>{
 			showProductList();
 		}
 	});
-})
+});
