@@ -161,3 +161,19 @@ footer a{
     width:100%;
     height:40vh;
 }
+/*  ============================================ CARRUSEL ==========================================  */ 
+.img-carrusel{
+    border-radius: 15px;
+}
+
+#carouselExampleCaptions{
+    height: 450px;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.carousel-caption{
+
+    background: rgba(250, 250, 250, 0.);
+    backdrop-filter: blur(10px);
+}
