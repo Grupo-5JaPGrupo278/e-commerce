@@ -10,6 +10,8 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" type="image/x-icon" href="img\favicon.ico">
 </head>
 
 <body class="credManBody">
@@ -42,6 +44,38 @@
       <div class="alert alert-danger text-center" role="alert">
         <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
       </div>
+      
+      </div>
+      <div id="commentsArea">
+        <div id="commentContainer">
+          <div id="cmntInfo">
+            <img src="img\img_perfil.png" alt="Profile image" id="profileImage">
+            <img src="img\cmnt_user_banner.png" alt="UsrBanner" id="cmntUsrBanner">
+            <h2 class="cmntUser" id="cmntUser">User Name</h2>
+            <p id="dateTime"></p>
+            <div id="rate"></div>
+          </div>
+          <div id="cmntBtnsContainer">
+            <input type="button" name="sendBtn" id="sendBtn" class="cmntBtn" value="Publish">
+            <input type="button" name="deleteBtn" id="deleteBtn" class="cmntBtn" value="Delete">
+            <input type="button" name="privateBtn" id="privateBtn" class="cmntBtn" value="Private Comment">
+            <div class="rating">
+              <input type="radio" name="rating" id="star1"><label for="star1">
+              </label>
+              <input type="radio" name="rating" id="star2"><label for="star2">
+              </label>
+              <input type="radio" name="rating" id="star3"><label for="star3">
+              </label>
+              <input type="radio" name="rating" id="star4"><label for="star4">
+              </label>
+              <input type="radio" name="rating" id="star5"><label for="star5">
+              </label>
+            </div>
+            
+          </div>
+          <textarea id="cmntText"></textarea>
+          
+        </div>
     </div>
   </main>
   <footer class="text-muted">
