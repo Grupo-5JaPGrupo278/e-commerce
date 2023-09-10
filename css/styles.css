@@ -122,12 +122,12 @@ iframe {
 nav a {
 	text-decoration: none;
 }
-nav #log-out-btn{
-    display:none;
-    width:50px;
-    height:50px;
-    border-radius: 50%;
-    background-color: #E6CADF;
+nav #log-out-btn {
+	display: none;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: #e6cadf;
 }
 .bd-placeholder-img {
 	font-size: 1.125rem;
@@ -469,33 +469,7 @@ a.custom-card:hover {
 	border: solid #bdb9b98d 5px;
 	border-left: none;
 }
-#contenedor-infoimagenes {
-	margin-bottom: 50px;
-	grid-row: 1;
-}
 
-#contenedor-comentarios {
-	border-left: 1px black solid;
-	border-right: 1px black solid;
-	border-top: 1px black solid;
-	padding: 0;
-}
-.conetenedorall {
-	margin-top: auto;
-	width: 80%;
-	margin: 30px auto;
-	display: grid;
-	grid-template-columns: 3fr 1fr;
-}
-.comentario {
-	border-bottom: solid 1px black;
-	pointer-events: none;
-
-	padding: 0 1em 0 1em;
-}
 .checked {
 	color: orange;
-}
-#carrousel {
-	width: 50%;
 }

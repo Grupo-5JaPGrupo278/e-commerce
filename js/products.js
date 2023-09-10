@@ -34,7 +34,7 @@ function showProductList() {
                             </div>
                          <h5 class"" id="precio"> ${product.currency} ${product.cost}</h3>
                          <p id="d">${product.description}</p>
-						 <button onclick="setCatID(${product.id})">Ver mas</button>
+						 
                         </div>
                     </div>
                 

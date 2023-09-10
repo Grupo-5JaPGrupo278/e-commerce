@@ -5,11 +5,12 @@ let commentaries = [];
 function showProduct() {
 	let htmlContentToAppend = "";
 
-	document.getElementById("title").innerHTML = `${currentProduct.name}`;
+	document.getElementById("title").innerHTML = `${currentProduct.name} <hr>`;
 
 	htmlContentToAppend = `
-    <hr>
+    
     <div class="info-container">
+   
         <div class="subtitle">Precio</div>
         <div>${currentProduct.currency} ${currentProduct.cost}</div>
         <div class="subtitle">Descripción</div>
@@ -19,13 +20,39 @@ function showProduct() {
         <div class="subtitle">Cantidad de Vendidos</div>
         <div>${currentProduct.soldCount}</div>
         <div class="subtitle">Imágenes ilustrativas</div>
+     </div> 
+
+        
         <div class="image-container">
-            <img class="article-image" src="${currentProduct.images[0]}">
-            <img class="article-image" src="${currentProduct.images[1]}">
-            <img class="article-image" src="${currentProduct.images[2]}">
-            <img class="article-image" src="${currentProduct.images[3]}">
+
+        <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img  src="${currentProduct.images[0]}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img  src="${currentProduct.images[1]}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img  src="${currentProduct.images[2]}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img  src="${currentProduct.images[3]}" class="d-block w-100" alt="...">
+          </div>
         </div>
-    </div>`;
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        </div>
+    </div>
+
+
+    `;
 	CONTAINER.innerHTML = htmlContentToAppend;
 }
 
