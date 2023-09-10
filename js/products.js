@@ -8,9 +8,9 @@ const MAXQA = document.getElementById("rangeFilterCountMax")
 const CLEAN = document.getElementById("clearRangeFilter")
 let currentProductArray = [];
 
-function setCatID(id) {
-	localStorage.setItem("catID", id);
-	window.location = "products.html";
+function setProductID(id) {
+	localStorage.setItem("ProductID", id);
+	window.location = "product-info.html";
 }
 
 function showProductList() {
@@ -21,7 +21,7 @@ function showProductList() {
 	for (let i = 0; i < currentProductArray.products.length; i++) {
 		let product = currentProductArray.products[i];
 			htmlContentToAppend += `
-            <div onclick="setCatID(${product.id})" class="list-group-item list-group-item-action cursor-active product-container">
+            <div onclick="setProductID(${product.id})" class="list-group-item list-group-item-action cursor-active product-container">
                 
                     
                         <img src="${product.image}" alt="${product.name}" class=" img">
