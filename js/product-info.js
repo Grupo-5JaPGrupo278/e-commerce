@@ -61,13 +61,31 @@ function showComments() {
 
 	for (let i = 0; i < commentaries.length; i++) {
 		commentsToAppend += `
-        <div class="comment-box">
-            <div class="comment-username">${commentaries[i].user} ${commentaries[i].dateTime} ${commentaries[i].score}</div>
+       <div class="comment-box ">
+          <div class="d-flex w-100 justify-content-between">
+          <div class="d-flex">
+            <h6><b>${commentaries[i].user}</b></h6>-
+            <span  class="fa fa-star star "></span>
+            <span class="fa fa-star star"></span>
+            <span class="fa fa-star star"></span>
+            <span class="fa fa-star star"></span>
+            <span class="fa fa-star star"></span> 
+          </div>
+          <small>${commentaries[i].dateTime}</small>
+      </div>
             <div class="comment-description">${commentaries[i].description}</div>
         </div>`;
 	}
 
 	COMMENTS.innerHTML = commentsToAppend;
+
+	let coment = document.getElementsByClassName("comment-box");
+	for (let i = 0; i < coment.length; i++) {
+		let star = coment[i].getElementsByClassName("star");
+		for (let j = 0; j < commentaries[i].score; j++) {
+			star[j].classList.add("checked");
+		}
+	}
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
