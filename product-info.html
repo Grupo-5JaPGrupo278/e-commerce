@@ -9,6 +9,7 @@
 		<link href="css/font-awesome.min.css" rel="stylesheet" />
 		<link href="css/bootstrap.min.css" rel="stylesheet" />
 		<link href="css/styles.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/product-info.css" />
 	</head>
 
 	<body class="credManBody">
@@ -39,19 +40,18 @@
 						<li class="nav-item">
 							<a class="nav-link" href="credential-manager.html" id="email">Iniciar Sesión</a>
 						</li>
+						<li class="nav-item">
+							<button id="log-out-btn"></button>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 		<main>
-			<div class="container">
-				<div id="contenedor-infoproducts"></div>
-				<div id="contenedor-infoimagenes"></div>
-				<div id="contenedor-comentarios"></div>
-				<!--<div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-        </div>
-      --></div>
+			<div class="title" id="title"></div>
+			<div class="container" id="product-container"></div>
+			<div class="title">Comentarios</div>
+			<div class="comment-container" id="comments"></div>
 		</main>
 		<footer class="text-muted">
 			<div class="container">

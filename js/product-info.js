@@ -1,97 +1,59 @@
-let currentProductArray = [];
-let currentComentarios = [];
-
-function showProductList() {
+const CONTAINER = document.getElementById("product-container");
+const COMMENTS = document.getElementById("comments");
+let currentProduct = {};
+let commentaries = [];
+function showProduct() {
 	let htmlContentToAppend = "";
-	document.getElementById("contenedor-infoproducts").innerHTML += `
-    <h3><b>${currentProductArray.name}</b></h3>
-    <p><b>${currentProductArray.description}</b></p>
-    <p><b>${currentProductArray.cost}</b></p>
-    <p><b>${currentProductArray.category}</b></p>
-    <p><b>${currentProductArray.soldCount}</b></p>
-    
-    `;
-	//for (let i = 0; i < currentProductArray.images.length; i++) {
-	//let product = currentProductArray.images[i];
-	htmlContentToAppend += ` <div id="carouselExample" class="carousel slide">
-         <div class="carousel-inner">
-           <div class="carousel-item active">
-             <img src="${currentProductArray.images[0]}" class="d-block w-100" alt="...">
-           </div>
-           <div class="carousel-item">
-             <img src="${currentProductArray.images[1]}" class="d-block w-100" alt="...">
-           </div>
-           <div class="carousel-item">
-             <img src="${currentProductArray.images[2]}" class="d-block w-100" alt="...">
-           </div>
-           <div class="carousel-item">
-             <img src="${currentProductArray.images[3]}" class="d-block w-100" alt="...">
-           </div>
-         </div>
-         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-           <span class="visually-hidden">Previous</span>
-         </button>
-         <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-           <span class="visually-hidden">Next</span>
-         </button>
-       </div> `;
-	//}
 
-	document.getElementById("contenedor-infoimagenes").innerHTML = htmlContentToAppend;
-}
-function showComent() {
-	let htmlContentToAppendComent = "";
+	document.getElementById("title").innerHTML = `${currentProduct.name}`;
 
-	for (let i = 0; i < currentComentarios.length; i++) {
-		htmlContentToAppendComent += `<div class="comentario">
-        <div class="d-flex w-100 justify-content-between">
-          <h6><b>${currentComentarios[i].user}</b>-
-          <span  class="fa fa-star star "></span>
-          <span class="fa fa-star star"></span>
-          <span class="fa fa-star star"></span>
-          <span class="fa fa-star star"></span>
-          <span class="fa fa-star star"></span> </h6>
-          <small>${currentComentarios[i].dateTime}</small>
+	htmlContentToAppend = `
+    <hr>
+    <div class="info-container">
+        <div class="subtitle">Precio</div>
+        <div>${currentProduct.currency} ${currentProduct.cost}</div>
+        <div class="subtitle">Descripción</div>
+        <div>${currentProduct.description}</div>
+        <div class="subtitle">Categoría</div>
+        <div>${currentProduct.category}</div>
+        <div class="subtitle">Cantidad de Vendidos</div>
+        <div>${currentProduct.soldCount}</div>
+        <div class="subtitle">Imágenes ilustrativas</div>
+        <div class="image-container">
+            <img class="article-image" src="${currentProduct.images[0]}">
+            <img class="article-image" src="${currentProduct.images[1]}">
+            <img class="article-image" src="${currentProduct.images[2]}">
+            <img class="article-image" src="${currentProduct.images[3]}">
         </div>
-        <p>${currentComentarios[i].description}</p>
-    </div>
-    `;
+    </div>`;
+	CONTAINER.innerHTML = htmlContentToAppend;
+}
+
+function showComments() {
+	let commentsToAppend = "";
+
+	for (let i = 0; i < commentaries.length; i++) {
+		commentsToAppend += `
+        <div class="comment-box">
+            <div class="comment-username">${commentaries[i].user} ${commentaries[i].dateTime} ${commentaries[i].score}</div>
+            <div class="comment-description">${commentaries[i].description}</div>
+        </div>`;
 	}
 
-	document.getElementById("contenedor-comentarios").innerHTML = htmlContentToAppendComent;
-	/*let comentarios = document.getElementsByClassName("comentario");
-
-	for (let i = 0; i < comentarios.length; i++) {
-		let estrellas = comentarios[i].getElementsByClassName("star");
-		let score = currentComentarios[i].score;
-
-		for (let j = 0; j < score; j++) {
-			estrellas[j].classList.add("checked");
-		}
-	}*/
-
-	let coment = document.getElementsByClassName("comentario");
-	for (let i = 0; i < coment.length; i++) {
-		let star = coment[i].getElementsByClassName("star");
-		for (let j = 0; j < currentComentarios[i].score; j++) {
-			star[j].classList.add("checked");
-		}
-	}
+	COMMENTS.innerHTML = commentsToAppend;
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
-	getJSONData(PRODUCT_INFO_URL + localStorage.catID + ".json").then(function (resultObj) {
+	getJSONData(PRODUCT_INFO_URL + localStorage.ProductID + ".json").then(function (resultObj) {
 		if (resultObj.status == "ok") {
-			currentProductArray = resultObj.data;
-			showProductList();
+			currentProduct = resultObj.data;
+			showProduct();
 		}
 	});
-	getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.catID + ".json").then(function (resultComent) {
-		if (resultComent.status == "ok") {
-			currentComentarios = resultComent.data;
-			showComent();
+	getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json").then(function (result) {
+		if (result.status == "ok") {
+			commentaries = result.data;
+			showComments();
 		}
 	});
 });
