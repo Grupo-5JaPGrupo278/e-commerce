@@ -1,6 +1,8 @@
 
-/* ===========================[coments]================================ */
+/* ===========================[Variables]================================ */
 const USERNAME = document.getElementById("cmntUser");
+const STOREDUSERNAME = localStorage.getItem('username');
+const PRODID = localStorage.getItem('ProductID');
 const PROFILEIMAGE = document.getElementById("profileImage")
 const SENDBUTTON = document.getElementById("sendBtn");
 const PRIVATEBUTTON = document.getElementById("privateBtn");
@@ -9,8 +11,20 @@ const DELETEBUTTON = document.getElementById("deleteBtn");
 const RATE = document.getElementsByName("rating")
 const TEXTAREA = document.getElementById("cmntText")
 const DATETIME = document.getElementById('dateTime')
+const NEWCOMMENT = document.getElementById('newCommentBtn')
+const COMMENTAREA = document.getElementById("commentsArea")
+let hiddenArea = true;
 let NOWTIME;
 let NOWDATE;
+let COMMENTID = 0;
+const storagedComments = localStorage.getItem('comment');
+            /* ===========[Variables RadioBtn]================= */ 
+
+const STAR1 = document.getElementById("star1");
+const STAR2 = document.getElementById("star2");
+const STAR3 = document.getElementById("star3");
+const STAR4 = document.getElementById("star4");
+const STAR5 = document.getElementById("star5");
 
 /* ===========================[Date Time]============================= */
 
@@ -37,7 +51,7 @@ function updateDateTime() {
 updateDateTime();
 setInterval(updateDateTime, 1000);
 
-/* =============================[Delete]=============================== */
+/* =============================[Delete Button]=============================== */
 
 DELETEBUTTON.addEventListener("click", ()=>{
     TEXTAREA.value = "";
@@ -46,35 +60,7 @@ DELETEBUTTON.addEventListener("click", ()=>{
     }
 })
 
-/* ==============================[send]================================ */
-function saveOnLocalStorage(){
-    let comment = JSON.parse(localStorage.getItem("comment")) || [];
-
-    if (!Array.isArray(comment)) {
-        comment = [];
-    }
-
-    let newComment = {
-        "userName": USERNAME.value,
-        "date": NOWDATE,
-        "time": NOWTIME,
-        "content": TEXTAREA.value,
-        "rate": 3
-      };
-
-      comment.push(newComment);
-
-      localStorage.setItem("comment", JSON.stringify(comment))
-}
-SENDBUTTON.addEventListener("click", ()=>{
-    saveOnLocalStorage();
-    TEXTAREA.value = "";
-    for (button of RATE){
-        button.checked = false;
-    }
-})
-    
-/* ==============================[private]================================ */
+/* ==============================[private Button]================================ */
 
 PRIVATEBUTTON.addEventListener("click", () => {
     if (PRIV == false){
@@ -83,12 +69,12 @@ PRIVATEBUTTON.addEventListener("click", () => {
         PROFILEIMAGE.setAttribute("src", 'img/img_perfil_private.png');
     } else {
         PRIV = false;
-        USERNAME.innerHTML = "User Name"; 
+        USERNAME.textContent = STOREDUSERNAME; 
         PROFILEIMAGE.setAttribute("src", 'img/img_perfil.png');
     }
 });
 
-/* ==================================================================== */
+/* ==============================[show product]================================ */
 const CONTAINER = document.getElementById("product-container");
 const COMMENTS = document.getElementById("comments");
 let currentProduct = {};
@@ -147,25 +133,45 @@ function showProduct() {
 	CONTAINER.innerHTML = htmlContentToAppend;
 }
 
-function showComments() {
-	let commentsToAppend = "";
+/* ==============================[Show comment]================================ */
 
-	for (let i = 0; i < commentaries.length; i++) {
-		commentsToAppend += `
-       <div class="comment-box ">
+function showComments(array) {
+	let commentsToAppend = "";
+	for (let i = 0; i < array.length; i++) {
+    if(array[i].user == STOREDUSERNAME){
+      commentsToAppend += `
+       <div class="comment-box">
           <div class="d-flex w-100 justify-content-between">
           <div class="d-flex">
-            <h6><b>${commentaries[i].user}</b></h6>-
+            <h6><b>${array[i].user}</b></h6>-
             <span  class="fa fa-star star "></span>
             <span class="fa fa-star star"></span>
             <span class="fa fa-star star"></span>
             <span class="fa fa-star star"></span>
-            <span class="fa fa-star star"></span> 
+            <span class="fa fa-star star"></span>
           </div>
-          <small>${commentaries[i].dateTime}</small>
+          <input type="image" src="img/delete_btn.png" name="DeleteComment" class="deleteCmntBtn" data-comment-id="${array[i].commentID}" value="Delete">
+          <small>${array[i].dateTime}</small>
       </div>
-            <div class="comment-description">${commentaries[i].description}</div>
+            <div class="comment-description">${array[i].description}</div>
         </div>`;
+    }else{
+      commentsToAppend += `
+      <div class="comment-box ">
+         <div class="d-flex w-100 justify-content-between">
+         <div class="d-flex">
+           <h6><b>${array[i].user}</b></h6>-
+           <span  class="fa fa-star star "></span>
+           <span class="fa fa-star star"></span>
+           <span class="fa fa-star star"></span>
+           <span class="fa fa-star star"></span>
+           <span class="fa fa-star star"></span> 
+         </div>
+         <small>${array[i].dateTime}</small>
+     </div>
+           <div class="comment-description">${array[i].description}</div>
+       </div>`;
+    }
 	}
 
 	COMMENTS.innerHTML = commentsToAppend;
@@ -173,11 +179,15 @@ function showComments() {
 	let coment = document.getElementsByClassName("comment-box");
 	for (let i = 0; i < coment.length; i++) {
 		let star = coment[i].getElementsByClassName("star");
-		for (let j = 0; j < commentaries[i].score; j++) {
+		for (let j = 0; j < array[i].score; j++) {
 			star[j].classList.add("checked");
 		}
 	}
 }
+
+
+
+            /* ===========[list Comments]================= */
 
 document.addEventListener("DOMContentLoaded", function (e) {
 	getJSONData(PRODUCT_INFO_URL + localStorage.ProductID + ".json").then(function (resultObj) {
@@ -186,10 +196,121 @@ document.addEventListener("DOMContentLoaded", function (e) {
 			showProduct();
 		}
 	});
-	getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json").then(function (result) {
-		if (result.status == "ok") {
-			commentaries = result.data;
-			showComments();
-		}
-	});
+  getJSONData(PRODUCT_INFO_URL + localStorage.ProductID + ".json").then(function (resultObj) {
+    if (resultObj.status == "ok") {
+        currentProduct = resultObj.data;
+    }
 });
+getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json").then(function (result) {
+    if (result.status == "ok") {
+        const commentaries = result.data;
+        const combinedComments = commentaries.concat(JSON.parse(storagedComments));
+        showComments(combinedComments);
+    }
+});
+});
+            /* ===========[Update Comments]================= */ 
+
+function updateComments() {
+  getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json").then(function (result) {
+      if (result.status == "ok") {
+          const commentaries = result.data;
+          const storagedComments = localStorage.getItem('comment');
+          
+          if (storagedComments) {
+              const parsedComments = JSON.parse(storagedComments);
+              const combinedComments = commentaries.concat(parsedComments);
+              showComments(combinedComments);
+          }
+      }
+  });
+}
+
+
+/* ==================================================================== */
+
+document.addEventListener("DOMContentLoaded", ()=> {
+	USERNAME.textContent = STOREDUSERNAME;
+});
+
+/* ==============================[send Button]================================ */
+function setRateIndex(){
+  if (STAR1.checked){
+    return 5;
+  }if (STAR2.checked) {
+    return 4;
+  }if (STAR3.checked) {
+    return 3;
+  }if (STAR4.checked) {
+    return 2;
+  }if (STAR5.checked) {
+    return 1;
+  }else{
+    return 0;
+  }
+
+}
+function saveOnLocalStorage(){
+    let comment = JSON.parse(localStorage.getItem("comment")) || [];
+    
+
+    if (!Array.isArray(comment)) {
+        comment = [];
+    }
+
+    let newComment = {
+        "prodID": PRODID,
+        "commentID": COMMENTID,
+        "user": USERNAME.textContent,
+        "dateTime": NOWDATE + " " + NOWTIME,
+        "description": TEXTAREA.value,
+        "score": setRateIndex()
+      };
+
+      comment.push(newComment);
+
+      localStorage.setItem("comment", JSON.stringify(comment))
+}
+
+SENDBUTTON.addEventListener("click", ()=>{
+    let comment = JSON.parse(localStorage.getItem("comment")) || [];
+    if (Array.isArray(comment) && comment.length > 0) {
+      COMMENTID = comment[comment.length - 1].commentID + 1;
+    } else {
+      COMMENTID = 0;
+    }
+    saveOnLocalStorage();
+    COMMENTID++;
+    TEXTAREA.value = "";
+    for (button of RATE){
+        button.checked = false;
+    }
+    updateComments();
+})
+    
+            /* ===========[Delete Comments]================= */
+
+document.addEventListener("DOMContentLoaded", function (e) {
+  COMMENTS.addEventListener('click', function (event) {
+    if (event.target.classList.contains('deleteCmntBtn')) {
+      const commentId = parseInt(event.target.getAttribute('data-comment-id'));
+      const storagedComments = JSON.parse(localStorage.getItem('comment'));
+      if (Array.isArray(storagedComments)) {
+        const updatedComments = storagedComments.filter(comment => comment.commentID !== commentId);
+        localStorage.setItem('comment', JSON.stringify(updatedComments));
+        updateComments();
+      }
+    }
+  });
+});
+/* ==============================[New Comment Button]================================ */
+
+NEWCOMMENT.addEventListener("click", ()=>{
+  if (hiddenArea === true) {
+    hiddenArea = false;
+    COMMENTAREA.style.transform = "translateY(0px)"; // Corregir aquí, elimina el espacio en "translateY"
+  } else {
+    hiddenArea = true;
+    COMMENTAREA.style.transform = "translateY(300px)"; // Corregir aquí, elimina el espacio en "translateY"
+  }
+})

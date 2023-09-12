@@ -121,19 +121,49 @@ iframe{
 }
 
 /* ===========================[coments]================================ */
-
+#generalCmntsContainer{
+	height: fit-content;
+	position: static;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#newCommentBtn{
+	position: fixed;
+	height: 40px;
+	top: -40px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom: #83838300;
+	background-color: #ffffff8e;
+}
 #commentsArea{
 background-color: #ffffff8e;
+border-top-right-radius: 20px;
+border-top-left-radius: 20px;
 height: 300px;
-width: 100%;
+width: 800px;
 padding: 2vh;
 display: flex;
 justify-content: center;
+align-items: center;
 position: fixed;
 bottom: 0;
+transform: translateY(300px);
+transition: all 0.5s;
+}
+.deleteCmntBtn{
+	position: relative;
+	right: -20%;
+	height: 30px;
+	background: #a8a8a800;
 }
 #commentContainer{
-
+	padding: 20px;
+	position: relative;
+}
+.comment-box{
+ background-color: #d1d1d133;
 }
 #cmntUsrBanner{
 	position: relative;
@@ -273,6 +303,14 @@ bottom: 0;
 	opacity: 1;
 }
 
+.carousel-inner{
+	border-radius: 20px;
+	transform: scale(80%);
+	
+}
+.image-container{
+	translate: 200px;
+}
 
 /* ===========================[]================================ */
 
