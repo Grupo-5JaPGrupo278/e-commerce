@@ -2,6 +2,7 @@
 /* ===========================[Variables]================================ */
 const USERNAME = document.getElementById("cmntUser");
 const STOREDUSERNAME = localStorage.getItem('username');
+const PRODID = "";
 const PROFILEIMAGE = document.getElementById("profileImage")
 const SENDBUTTON = document.getElementById("sendBtn");
 const PRIVATEBUTTON = document.getElementById("privateBtn");
@@ -82,6 +83,7 @@ function showProduct() {
 	let htmlContentToAppend = "";
 
 	document.getElementById("title").innerHTML = `${currentProduct.name} <hr>`;
+  
 	htmlContentToAppend = `
     <div id="info-image-container">
       <div class="image-container">
@@ -122,8 +124,6 @@ function showProduct() {
         <div>${currentProduct.category}</div>
         <div class="subtitle">Cantidad de Vendidos</div>
         <div>${currentProduct.soldCount}</div>
-
-            <img  src="${currentProduct.images[0]}" class="d-block w-100" alt="...">
         <input type="button" name="addToCart" id="addToCartBtn" value="Add to cart">
         </div> 
     </div>
