@@ -2,17 +2,16 @@
 /* ===========================[Variables]================================ */
 const USERNAME = document.getElementById("cmntUser");
 const STOREDUSERNAME = localStorage.getItem('username');
-const PRODID = localStorage.getItem('ProductID');
 const PROFILEIMAGE = document.getElementById("profileImage")
 const SENDBUTTON = document.getElementById("sendBtn");
 const PRIVATEBUTTON = document.getElementById("privateBtn");
-let PRIV = false;
 const DELETEBUTTON = document.getElementById("deleteBtn");
 const RATE = document.getElementsByName("rating")
 const TEXTAREA = document.getElementById("cmntText")
 const DATETIME = document.getElementById('dateTime')
 const NEWCOMMENT = document.getElementById('newCommentBtn')
 const COMMENTAREA = document.getElementById("commentsArea")
+let PRIV = false;
 let hiddenArea = true;
 let NOWTIME;
 let NOWDATE;
@@ -83,10 +82,37 @@ function showProduct() {
 	let htmlContentToAppend = "";
 
 	document.getElementById("title").innerHTML = `${currentProduct.name} <hr>`;
-
 	htmlContentToAppend = `
-    
-    <div class="info-container">
+    <div id="info-image-container">
+      <div class="image-container">
+        <div class="subtitle">Imágenes ilustrativas</div>
+          <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img  src="${currentProduct.images[0]}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img  src="${currentProduct.images[1]}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img  src="${currentProduct.images[2]}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img  src="${currentProduct.images[3]}" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+      <div id="info-container">
    
         <div class="subtitle">Precio</div>
         <div>${currentProduct.currency} ${currentProduct.cost}</div>
@@ -96,39 +122,11 @@ function showProduct() {
         <div>${currentProduct.category}</div>
         <div class="subtitle">Cantidad de Vendidos</div>
         <div>${currentProduct.soldCount}</div>
-        <div class="subtitle">Imágenes ilustrativas</div>
-     </div> 
 
-        
-        <div class="image-container">
-
-        <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
             <img  src="${currentProduct.images[0]}" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img  src="${currentProduct.images[1]}" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img  src="${currentProduct.images[2]}" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img  src="${currentProduct.images[3]}" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-        </div>
+        <input type="button" name="addToCart" id="addToCartBtn" value="Add to cart">
+        </div> 
     </div>
-
-
     `;
 	CONTAINER.innerHTML = htmlContentToAppend;
 }
@@ -136,8 +134,11 @@ function showProduct() {
 /* ==============================[Show comment]================================ */
 
 function showComments(array) {
+  const PRODID = currentProduct.id;
+  console.log(PRODID)
 	let commentsToAppend = "";
 	for (let i = 0; i < array.length; i++) {
+   if(array[i].product == PRODID){
     if(array[i].user == STOREDUSERNAME){
       commentsToAppend += `
        <div class="comment-box">
@@ -171,6 +172,7 @@ function showComments(array) {
      </div>
            <div class="comment-description">${array[i].description}</div>
        </div>`;
+   }
     }
 	}
 
@@ -189,26 +191,25 @@ function showComments(array) {
 
             /* ===========[list Comments]================= */
 
-document.addEventListener("DOMContentLoaded", function (e) {
-	getJSONData(PRODUCT_INFO_URL + localStorage.ProductID + ".json").then(function (resultObj) {
-		if (resultObj.status == "ok") {
-			currentProduct = resultObj.data;
-			showProduct();
-		}
-	});
-  getJSONData(PRODUCT_INFO_URL + localStorage.ProductID + ".json").then(function (resultObj) {
-    if (resultObj.status == "ok") {
-        currentProduct = resultObj.data;
+document.addEventListener("DOMContentLoaded", async function (e) {
+    try {
+        const productResponse = await getJSONData(PRODUCT_INFO_URL + localStorage.ProductID + ".json");
+        if (productResponse.status == "ok") {
+            currentProduct = productResponse.data;
+            showProduct();
+        }
+
+        const commentsResponse = await getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json");
+        if (commentsResponse.status == "ok") {
+            const commentaries = commentsResponse.data;
+            const combinedComments = commentaries.concat(JSON.parse(storagedComments));
+            showComments(combinedComments);
+        }
+    } catch (error) {
+        console.error("Error en la carga de datos:", error);
     }
 });
-getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json").then(function (result) {
-    if (result.status == "ok") {
-        const commentaries = result.data;
-        const combinedComments = commentaries.concat(JSON.parse(storagedComments));
-        showComments(combinedComments);
-    }
-});
-});
+
             /* ===========[Update Comments]================= */ 
 
 function updateComments() {
@@ -252,19 +253,17 @@ function setRateIndex(){
 }
 function saveOnLocalStorage(){
     let comment = JSON.parse(localStorage.getItem("comment")) || [];
-    
-
     if (!Array.isArray(comment)) {
         comment = [];
     }
 
     let newComment = {
-        "prodID": PRODID,
-        "commentID": COMMENTID,
+        "product": currentProduct.id,
+        "score": setRateIndex(),
+        "description": TEXTAREA.value,
         "user": USERNAME.textContent,
         "dateTime": NOWDATE + " " + NOWTIME,
-        "description": TEXTAREA.value,
-        "score": setRateIndex()
+        "commentID": COMMENTID
       };
 
       comment.push(newComment);
@@ -291,6 +290,11 @@ SENDBUTTON.addEventListener("click", ()=>{
             /* ===========[Delete Comments]================= */
 
 document.addEventListener("DOMContentLoaded", function (e) {
+  let commentCreator = JSON.parse(localStorage.getItem("comment"));
+  if (!commentCreator) {
+      localStorage.setItem('comment', (JSON.stringify([])));
+  }
+
   COMMENTS.addEventListener('click', function (event) {
     if (event.target.classList.contains('deleteCmntBtn')) {
       const commentId = parseInt(event.target.getAttribute('data-comment-id'));
@@ -308,9 +312,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
 NEWCOMMENT.addEventListener("click", ()=>{
   if (hiddenArea === true) {
     hiddenArea = false;
-    COMMENTAREA.style.transform = "translateY(0px)"; // Corregir aquí, elimina el espacio en "translateY"
+    COMMENTAREA.style.transform = "translateY(0px)";
   } else {
     hiddenArea = true;
-    COMMENTAREA.style.transform = "translateY(300px)"; // Corregir aquí, elimina el espacio en "translateY"
+    COMMENTAREA.style.transform = "translateY(300px)";
   }
 })

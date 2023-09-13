@@ -11,6 +11,16 @@ body {
 .jumbotron .display-4 {
 	font-weight: bold;
 }
+.websiteFooter{
+	color: #adadad;
+	z-index: 0;
+	position: relative;
+	background-color: #3a3a3a;
+	justify-content: center;
+	display: flex;
+	height: 50px;
+	padding-top: 20px;
+}
 
 /* ===========================[credential manager]================================ */
 iframe{
@@ -40,9 +50,9 @@ iframe{
 	background-color: transparent;
 }
 .credManBody {
-	background-image: url("../img/bg_img.png");
+	background-image: url("../img/bg_img.webp");
 	background-repeat: no-repeat, repeat;
-	background-size: cover;
+	background-size:auto;
 }
 #credentialsDivTitle {
 	font: bold 120px monospace;
@@ -119,9 +129,92 @@ iframe{
 	align-items: center;
 	justify-content: center;
 }
+/* ===========================[Product info]================================ */
 
-/* ===========================[coments]================================ */
+#info-container{
+	position: relative;
+	background-color: #6e6e6e8e;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	line-height: 40px;
+	margin: 10px;
+	padding: 20px;
+	grid-column: 2;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+.image-container{
+	position: relative;
+	display: flex;
+	background-color: #6e6e6e8e;
+	text-align: center;
+	flex-direction: column;
+	margin: 10px;
+	height: 100%;
+	right: 0;
+	width: 100%;
+	grid-column: 1;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+#info-image-container{
+	border-top: 30px solid #666666;
+	border-radius: 20px;
+	position: relative;
+	height: fit-content;
+	display: grid;
+	gap: 20px 20px;
+	justify-content: center;
+	align-items: center;
+	margin: 20px;
+}
+#wholeProduct-container{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #ffffff8e;
+	height: fit-content;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+.carousel-inner{
+	border-radius: 20px;
+	transform: scale(70%);
+}
+#addToCartBtn{
+	margin-top: 20px;
+	border-radius: 20px;
+	position: relative;
+	background-color: #3a3a3a;
+	color: white;
+	left: 10%;
+	width: 80%;
+}
+/* ===========================[Product coments]================================ */
+
+#showedCommentsContainer{
+	position: relative;
+	background-color: #ffffff8e;
+	width: fit-content;
+	padding: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	bottom: 0;
+	border-radius: 20px;
+}
+.comment-container{
+	position: relative;
+	width: 600px;
+}
 #generalCmntsContainer{
+	background-color: #ffffff8e;
+	margin-bottom: 10vh;
+	z-index: 1;
 	height: fit-content;
 	position: static;
 	display: flex;
@@ -303,14 +396,6 @@ transition: all 0.5s;
 	opacity: 1;
 }
 
-.carousel-inner{
-	border-radius: 20px;
-	transform: scale(80%);
-	
-}
-.image-container{
-	translate: 200px;
-}
 
 /* ===========================[]================================ */
 
