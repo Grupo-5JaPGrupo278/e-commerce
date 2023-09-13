@@ -33,7 +33,7 @@ iframe{
 	z-index: 1;
 }
 .list-group-item {
-	background-color: rgba(0, 0, 0, 0.308) !important;
+	background-color: rgba(255, 255, 255, 0.623) !important;
 }
 #iframeContainer {
 	transform: scale(50%);
