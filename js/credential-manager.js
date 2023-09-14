@@ -48,3 +48,7 @@ btnLogin2.addEventListener("click", function(e){
 
     }
 });
+
+function closePopup() {
+    document.getElementById("termsPopup").style.display = "none";
+}
