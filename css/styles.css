@@ -44,17 +44,22 @@ iframe{
 	align-items: center;
 	justify-content: space-between;
 	grid-template-columns: auto auto auto;
-	background-color: #ffffff6b;
+	background-color: rgba(128, 128, 128, 0.8);
 }
 .iframeContent {
 	background-color: transparent;
+}
+.iframeContent div input[type='text'], .iframeContent div input[type='password'], .iframeContent div input[type='email'], .iframeContent button {
+	width: 300px;
+	height: 60px;
+	font-size: 20px;
 }
 .credManBody {
 	background-image: url("../img/bg_img.webp");
 	background-repeat: no-repeat, repeat;
 	background-size:auto;
 }
-#credentialsDivTitle {
+#credentialsDivTitle{
 	font: bold 120px monospace;
 	color: aliceblue;
 }
@@ -76,7 +81,7 @@ iframe{
 #credentialsDivTitle {
 	transition: opacity 1s;
 }
-#credentialsDivText {
+#credentialsDivText, #message {
 	transition: opacity 1s;
 }
 .fade-out {
@@ -118,10 +123,13 @@ iframe{
 	top: 90%;
 }
 
-#credentialsDivText {
+#credentialsDivText, #message {
 	margin-top: 7rem;
 	font: condensed 32px monospace;
 	color: rgb(175, 179, 182);
+}
+#message {
+	color:orange;
 }
 #iframeContainerParent {
 	height: fit-content;

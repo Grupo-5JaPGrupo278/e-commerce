@@ -37,6 +37,7 @@ BUTTON.addEventListener("click",function(e){
                     localStorage.setItem("fullname",database[i].fullname)
                     setTimeout(function(){
                         top.window.location = "index.html"},2000);
+                    break;
                 } else {
                     alert("Lo sentimos, pero sus credenciales no son correctas");
                 }

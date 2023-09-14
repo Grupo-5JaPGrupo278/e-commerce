@@ -11,7 +11,7 @@ const FULLNAME = document.getElementById("name-lastname");
 const EMAIL = document.getElementById("floatingInput");
 const FPASSWORD = document.getElementById("floatingPassword");
 const SPASSWORD = document.getElementById("floatingPassword2");
-const MESSAGE = document.getElementById("message");
+const MESSAGE = parent.document.getElementById("message");
 const CHKBOX = document.getElementById("terms");
 
 function emptyfields(){
