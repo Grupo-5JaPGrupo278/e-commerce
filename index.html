@@ -9,16 +9,35 @@
   <link href="css/styles2.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="img\favicon.ico">
+  <link href="css/menuinicio.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/e6f78feb22.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="credManBody">
   <!-- ================================ HEADER ====================================== -->
   <nav>
-      <a href="index.html">Inicio</a>
-      <a href="categories.html">Categorías</a>
-      <a href="sell.html">Vender</a>
-      <a href="credential-manager.html" id="email">Iniciar Sesión</a>
-      <button id="log-out-btn"></button>
+    <div class="wrapper">
+      <input type="checkbox" id="box">
+      <label for="box">
+        <div id="button">
+          <i class="fa fa-align-left"></i>
+        </div>
+      </label>
+      <div class="navs">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <br>
+          <li><a href="categories.html">Categorías</a></li>
+          <br>
+          <li><a href="sell.html">Vender</a></li>
+          <br>
+          <li><a href="#">Nosotros</a></li>
+        </ul>
+      </div>
+    </div>
+    <a class="nav-link" href="credential-manager.html" id="email">Iniciar Sesión</a>
+    <div class="little-div"></div>
+    <button id="log-out-btn"></button>
   </nav>
   <div class="little-div"></div>
   <!-- =============================== PRESENTACION PAGINA =====================================  -->
