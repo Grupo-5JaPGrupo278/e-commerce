@@ -1,26 +1,22 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 .wrapper, label {
     position: relative;
     display: inline-block;
-    top: 70%; /* Ajusta la distancia desde la parte superior al 50% */
-    left: 7%; /* Ajusta la distancia desde la izquierda según sea necesario */
-    transform: translate(-50%, -50%);
 }
 
 .wrapper label #button {
-    background: #aaaaaa;
+    position: relative;
+    background: var(--coloroscuro) ;
     border-radius: 100%;
     cursor: pointer;
-    width: 37px;
-    height: 37px;
+    width: 100px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    top: 2vh;
+    z-index: 2; 
+    border: var(--coloroscuro) 15px solid;
 }
 
 label #button i {
@@ -28,23 +24,28 @@ label #button i {
     transition: transform .2s linear;
     font-size: 20px;
 }
+#box:not(:checked) ~ label #button i::before {
+    content: image-set('../img/logo_e.png');
+    transition: opacity 0.3s ease;
+}
 
 #box:checked ~ label #button i::before {
-    content: '\f00d';
+    content: image-set('../img/logo_cart.png');
 }
 
 .wrapper .navs {
-    position: absolute;
-    top: 90%; /* Mostrar el menú debajo del botón */
-    right: -150%;
+    position: fixed;
+    top: 7vh; /* Mostrar el menú debajo del botón */
     transform: scaleY(0); /* Cambiar a scaleY para desplegar hacia abajo */
     transform-origin: top right;
     transition: transform .4s ease-in;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-    background: #aaaaaa;
-    padding: 10px 20%; /* Añadir espacio para el menú desplegado */
-    border-radius: 15px;
-    z-index: 2; /* Asegurar que el menú esté por encima del botón */
+    background: var(--coloroscuro);
+    left: 0;
+    border-bottom-right-radius: 15px;
+    padding-top: 5vh;
+    padding-left: 3vw;
+
 }
 
 #box:checked ~ .navs{
@@ -63,7 +64,7 @@ label #button i {
     text-transform: uppercase;
     text-decoration: none;
     font-weight: 700;
-    color: #323334;
+    color: #b8b8b8;
     font-size: 13px;
     margin: 10px -20%;
     padding: 10px 10px;
@@ -73,9 +74,7 @@ label #button i {
     display: none;
 }
 .navs ul li a:hover{
-    background: #22222b;
-    border-radius: 30px;
-    color: #aaaaaa;
+    color: #3f589b;
 }
 
 .nav-link {
@@ -84,6 +83,5 @@ label #button i {
     text-decoration: none; /* Quitar subrayado si no lo deseas */
     font-weight: normal; /* Cambiar el peso de la fuente si lo deseas */
     position: absolute; /* Establece la posición absoluta */
-    top: 30%; /* Ajusta la distancia desde la parte superior según sea necesario */
-    left: 85%; /* Ajusta la distancia desde la izquierda según sea necesario */
+    right: 8%;
 }

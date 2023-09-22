@@ -37,7 +37,7 @@ iframe{
 }
 #iframeContainer {
 	transform: scale(50%);
-	width: 1400px;
+	width: 1650px;
 	height: fit-content;
 	position: relative;
 	display: flex;
@@ -184,8 +184,11 @@ iframe{
 	align-items: center;
 	background-color: #ffffff8e;
 	height: fit-content;
+	width: 100%;
+	margin-top: 1%;
 	border-bottom-right-radius: 20px;
 	border-bottom-left-radius: 20px;
+	padding-bottom: 1%;
 }
 .carousel-inner{
 	border-radius: 20px;
@@ -411,11 +414,14 @@ nav a {
 	text-decoration: none;
 }
 nav #log-out-btn {
+	position: absolute;
+	right: .5%;
 	display: none;
-	width: 50px;
+	width: 120px;
 	height: 50px;
-	border-radius: 50%;
-	background-color: #e6cadf;
+	border-bottom-left-radius: 20px;
+	border-top-left-radius: 20px;
+	background-color: #7f7fd6;
 }
 .bd-placeholder-img {
 	font-size: 1.125rem;
@@ -629,7 +635,7 @@ a.custom-card:hover {
 	margin: -5rem;
 }
 .btn-primary {
-	background-color: #f09100;
+	background-color: #6177d8;
 }
 .form-checkbox {
 	display: flex;
