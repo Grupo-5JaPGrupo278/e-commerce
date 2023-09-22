@@ -13,7 +13,7 @@ const PRESENTATIONPARAGRAPH = document.getElementById("presentationAUP");
 const EXPERIENCETITLE = document.getElementById("experienceH2Title");
 const STUDIESLIST = document.getElementById("studiesAUP");
 const EXPERIENCEPARAGRAPH = document.getElementById("experienceAUP");
-const URL = '.vscode/about-us.json';
+const URL = 'json/about-us.json';
 let DATOSABOUTUS = [];
 
 fetch(URL)
