@@ -20,20 +20,37 @@ const OBJETIVOS = ["Desarrollarnos como profesionales en el desarrollo de pagina
                     "Aprobar el proyecto, hace una fuercita nico!",
                     "Encontrar el One Piece"]
 
-fetch(URL)
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+async function fetchData(URL){
+    try {
+        const response = await fetch(URL);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+        const data = await response.json();
+        DATOSABOUTUS = data.integrantes;
+        console.log(DATOSABOUTUS);
     }
-    return response.json();
-  })
-  .then((data) => {
-    DATOSABOUTUS = data.integrantes;
-    console.log(DATOSABOUTUS);
-  })
-  .catch((error) => {
-    console.error('There was a problem with the fetch operation:', error);
-  });
+    catch (error){
+        console.error('There was a problem with the fetch operation:', error);
+    }
+}
+
+fetchData(URL);
+
+// fetch(URL)
+//   .then((response) => {
+//     if (!response.ok) {
+//       throw new Error('Network response was not ok');
+//     }
+//     return response.json();
+//   })
+//   .then((data) => {
+//     DATOSABOUTUS = data.integrantes;
+//     console.log(DATOSABOUTUS);
+//   })
+//   .catch((error) => {
+//     console.error('There was a problem with the fetch operation:', error);
+//   });
 
 function displayData(name){
     for(element of DATOSABOUTUS){
