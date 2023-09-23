@@ -13,8 +13,12 @@ const PRESENTATIONPARAGRAPH = document.getElementById("presentationAUP");
 const EXPERIENCETITLE = document.getElementById("experienceH2Title");
 const STUDIESLIST = document.getElementById("studiesAUP");
 const EXPERIENCEPARAGRAPH = document.getElementById("experienceAUP");
+const STUDIESTITLE = document.getElementById("studiesH2Title");
 const URL = 'json/about-us.json';
 let DATOSABOUTUS = [];
+const OBJETIVOS = ["Desarrollarnos como profesionales en el desarrollo de paginas web", 
+                    "Aprobar el proyecto, hace una fuercita nico!",
+                    "Encontrar el One Piece"]
 
 fetch(URL)
   .then((response) => {
@@ -39,38 +43,79 @@ function displayData(name){
     }
 }
 
+
 function displayPerson(name, imageURL){
     PERSONIMAGE.style.opacity = 0;
-        INFOCONTAINER.style.opacity = 0;
-        setTimeout(() => {
-            NAMETITLE.textContent = displayData(name).nombre;
-            while (STUDIESLIST.firstChild) {
-                STUDIESLIST.removeChild(STUDIESLIST.firstChild);
-            }
-            PRESENTATIONPARAGRAPH.textContent = displayData(name).descripcion;
-            EXPERIENCEPARAGRAPH.textContent = displayData(name).experiencia;
-            for (element of displayData(name).estudios){
+    INFOCONTAINER.style.opacity = 0;
+    setTimeout(() => {
+        NAMETITLE.textContent = displayData(name).nombre;
+        EXPERIENCETITLE.textContent = "Experiencia";
+        STUDIESTITLE.textContent = "Estudios"
+        while (STUDIESLIST.firstChild) {
+            STUDIESLIST.removeChild(STUDIESLIST.firstChild);
+        }
+        PRESENTATIONPARAGRAPH.textContent = displayData(name).descripcion;
+        EXPERIENCEPARAGRAPH.textContent = displayData(name).experiencia;
+        for (element of displayData(name).estudios){
                 const listItem = document.createElement("li");
                 listItem.textContent = element;
                 STUDIESLIST.appendChild(listItem);
-            }
-            PERSONIMAGE.src = imageURL;
-            PERSONIMAGE.style.opacity = 1;
-            INFOCONTAINER.style.opacity = 1;
+        }
+        PERSONIMAGE.src = imageURL;  
+        PERSONIMAGE.style.height = "80%";
+            PERSONIMAGE.style.top = "5%";
+            PERSONIMAGE.style.left = "3%";
+        PERSONIMAGE.style.opacity = 1;
+        INFOCONTAINER.style.opacity = 1;
         }, 500);
 }
-
 document.addEventListener("DOMContentLoaded", ()=>{
-    PERSONIMAGE.style.opacity = 0;
-    INFOCONTAINER.style.opacity = 0;
+    HOMEBTN.checked = true;
+    if (HOMEBTN.checked) {
+        NAMETITLE.textContent = "Nosotros";
+        PRESENTATIONPARAGRAPH.textContent = "Somos un grupo de jovenes entusiastas apasionados por el mundo del desarrollo web, ansiosos por adquirir experiencia y contribuir con nuestra creatividad y habilidades tecnicas. Estamos comprometidos a mantener un aprendizaje continuo y crecer en el campo del desarrollo web, con el objetivo de ser parte de una empresa innovadora y colaborativa donde podamos aplicar nuestros conocimientos, para crear soluciones digitales de calidad";
+        EXPERIENCETITLE.textContent = "";
+        STUDIESTITLE.textContent = "Objetivos"
+        for (element of OBJETIVOS){
+                const listItem = document.createElement("li");
+                listItem.textContent = element;
+                STUDIESLIST.appendChild(listItem);
+        }
+        setTimeout(() => {
+            PERSONIMAGE.src = "img/hexagon-shadow.png"
+            INFOCONTAINER.style.opacity = 1;
+            PERSONIMAGE.style.height = "100%";
+            PERSONIMAGE.style.top = "0%";
+            PERSONIMAGE.style.left = "0%";
+            PERSONIMAGE.style.opacity = 1;
+        }, 500);
+    }
 })
-
 HOMEBTN.addEventListener("change", () => {
     if (HOMEBTN.checked) {
         PERSONIMAGE.style.opacity = 0;
         INFOCONTAINER.style.opacity = 0;
+        setTimeout(() => {
+        PERSONIMAGE.src = "img/hexagon-shadow.png"
+        NAMETITLE.textContent = "Nosotros";
+        PRESENTATIONPARAGRAPH.textContent = "Somos un grupo de jovenes entusiastas apasionados por el mundo del desarrollo web, ansiosos por adquirir experiencia y contribuir con nuestra creatividad y habilidades tecnicas. Estamos comprometidos a mantener un aprendizaje continuo y crecer en el campo del desarrollo web, con el objetivo de ser parte de una empresa innovadora y colaborativa donde podamos aplicar nuestros conocimientos, para crear soluciones digitales de calidad";
+        EXPERIENCETITLE.textContent = "";
+        STUDIESTITLE.textContent = "Objetivos"
+        for (element of OBJETIVOS){
+                const listItem = document.createElement("li");
+                listItem.textContent = element;
+                STUDIESLIST.appendChild(listItem);
+        }
+        
+            PERSONIMAGE.style.height = "100%";
+            PERSONIMAGE.style.top = "0%";
+            PERSONIMAGE.style.left = "0%";
+            PERSONIMAGE.style.opacity = 1;
+            INFOCONTAINER.style.opacity = 1;
+        }, 500);
     }
 });
+
 PERSON1BTN.addEventListener("change", () => {
     if (PERSON1BTN.checked) {
         displayPerson("Axel Palombo", "img/about-us-apalombo.png")
