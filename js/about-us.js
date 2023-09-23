@@ -44,7 +44,7 @@ function displayData(name){
 }
 
 
-function displayPerson(name, imageURL){
+function displayPerson(name){
     PERSONIMAGE.style.opacity = 0;
     INFOCONTAINER.style.opacity = 0;
     setTimeout(() => {
@@ -61,7 +61,7 @@ function displayPerson(name, imageURL){
                 listItem.textContent = element;
                 STUDIESLIST.appendChild(listItem);
         }
-        PERSONIMAGE.src = imageURL;  
+        PERSONIMAGE.src = displayData(name).imagen;  
         PERSONIMAGE.style.height = "80%";
             PERSONIMAGE.style.top = "5%";
             PERSONIMAGE.style.left = "3%";
@@ -118,36 +118,36 @@ HOMEBTN.addEventListener("change", () => {
 
 PERSON1BTN.addEventListener("change", () => {
     if (PERSON1BTN.checked) {
-        displayPerson("Axel Palombo", "img/about-us-apalombo.png")
+        displayPerson("Axel Palombo")
     }
 });
 PERSON2BTN.addEventListener("change", () => {
     if (PERSON2BTN.checked) {
-        displayPerson("Bruno Mendez", "img/about-us-bmendez.png")
+        displayPerson("Bruno Mendez")
     }
 });
 PERSON3BTN.addEventListener("change", () => {
     if (PERSON3BTN.checked) {
-        displayPerson("Bruno Moreira", "img/about-us-bmoreira.png")
+        displayPerson("Bruno Moreira")
     }
 });
 PERSON4BTN.addEventListener("change", () => {
     if (PERSON4BTN.checked) {
-        displayPerson("Franco Echaide", "img/about-us-fechaide.png")
+        displayPerson("Franco Echaide")
     }
 });
 PERSON5BTN.addEventListener("change", () => {
     if (PERSON5BTN.checked) {
-        displayPerson("German Kroger", "img/about-us-gkroger.png")
+        displayPerson("German Kroger")
     }
 });
 PERSON6BTN.addEventListener("change", () => {
     if (PERSON6BTN.checked) {
-        displayPerson("Ivan Pereira", "img/about-us-ipereira.png")
+        displayPerson("Ivan Pereira")
     }
 });
 PERSON7BTN.addEventListener("change", () => {
     if (PERSON7BTN.checked) {
-        displayPerson("Rocio De Brun", "img/about-us-rdebrun.png")
+        displayPerson("Rocio De Brun")
     }
 });
