@@ -71,7 +71,7 @@ iframe{
 	padding: 5rem;
 	z-index: 2;
 	left: 700px;
-	height: 950px;
+	height:180%;
 	width: 55rem;
 	background-color: rgb(70, 74, 89);
 	box-shadow: 0px 0px 19px 25px rgba(0, 0, 0, 0.18);
@@ -129,7 +129,7 @@ iframe{
 	color: rgb(175, 179, 182);
 }
 #message {
-	color:orange;
+	color:var(--colorrosaclaro);
 }
 #iframeContainerParent {
 	height: fit-content;
