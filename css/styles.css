@@ -203,6 +203,12 @@ iframe{
 	left: 10%;
 	width: 80%;
 }
+.image-related-product{
+	width:35%;
+}
+.related-product-container{
+	width:35%;
+}
 /* ===========================[Product coments]================================ */
 
 #showedCommentsContainer{

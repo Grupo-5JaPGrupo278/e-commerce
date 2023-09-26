@@ -18,7 +18,7 @@ let NOWTIME;
 let NOWDATE;
 let COMMENTID = 0;
 const storagedComments = localStorage.getItem('comment');
-            /* ===========[Variables RadioBtn]================= */ 
+/* ===========[Variables RadioBtn]================= */
 
 const STAR1 = document.getElementById("star1");
 const STAR2 = document.getElementById("star2");
@@ -29,49 +29,49 @@ const STAR5 = document.getElementById("star5");
 /* ===========================[Date Time]============================= */
 
 function updateDateTime() {
-    const ACTUALDATE = new Date();
-    const DAY = ACTUALDATE.getDate();
-    const MONTH = ACTUALDATE.getMonth() + 1;
-    const YEAR = ACTUALDATE.getFullYear() % 100;
-    const HOURS = ACTUALDATE.getHours();
-    const MINUTES = ACTUALDATE.getMinutes();
+  const ACTUALDATE = new Date();
+  const DAY = ACTUALDATE.getDate();
+  const MONTH = ACTUALDATE.getMonth() + 1;
+  const YEAR = ACTUALDATE.getFullYear() % 100;
+  const HOURS = ACTUALDATE.getHours();
+  const MINUTES = ACTUALDATE.getMinutes();
 
-    function formatMinutes(minutes) {
-        return minutes < 10 ? `0${minutes}` : minutes;
-    }
+  function formatMinutes(minutes) {
+    return minutes < 10 ? `0${minutes}` : minutes;
+  }
 
-    const FORMATEDDATE = `${MONTH}/${DAY}/${YEAR}`;
-    const FORMATEDHOURS = `${HOURS}:${formatMinutes(MINUTES)}`;
+  const FORMATEDDATE = `${MONTH}/${DAY}/${YEAR}`;
+  const FORMATEDHOURS = `${HOURS}:${formatMinutes(MINUTES)}`;
 
-    NOWDATE = FORMATEDDATE;
-    NOWTIME = FORMATEDHOURS;
+  NOWDATE = FORMATEDDATE;
+  NOWTIME = FORMATEDHOURS;
 
-    document.getElementById('dateTime').textContent = `${FORMATEDDATE} ${FORMATEDHOURS}`;
+  document.getElementById('dateTime').textContent = `${FORMATEDDATE} ${FORMATEDHOURS}`;
 }
 updateDateTime();
 setInterval(updateDateTime, 1000);
 
 /* =============================[Delete Button]=============================== */
 
-DELETEBUTTON.addEventListener("click", ()=>{
-    TEXTAREA.value = "";
-    for (button of RATE){
-        button.checked = false;
-    }
+DELETEBUTTON.addEventListener("click", () => {
+  TEXTAREA.value = "";
+  for (button of RATE) {
+    button.checked = false;
+  }
 })
 
 /* ==============================[private Button]================================ */
 
 PRIVATEBUTTON.addEventListener("click", () => {
-    if (PRIV == false){
-        PRIV = true;
-        USERNAME.innerHTML = "Authorless"; 
-        PROFILEIMAGE.setAttribute("src", 'img/img_perfil_private.png');
-    } else {
-        PRIV = false;
-        USERNAME.textContent = STOREDUSERNAME; 
-        PROFILEIMAGE.setAttribute("src", 'img/img_perfil.png');
-    }
+  if (PRIV == false) {
+    PRIV = true;
+    USERNAME.innerHTML = "Authorless";
+    PROFILEIMAGE.setAttribute("src", 'img/img_perfil_private.png');
+  } else {
+    PRIV = false;
+    USERNAME.textContent = STOREDUSERNAME;
+    PROFILEIMAGE.setAttribute("src", 'img/img_perfil.png');
+  }
 });
 
 /* ==============================[show product]================================ */
@@ -80,11 +80,11 @@ const COMMENTS = document.getElementById("comments");
 let currentProduct = {};
 let commentaries = [];
 function showProduct() {
-	let htmlContentToAppend = "";
+  let htmlContentToAppend = "";
 
-	document.getElementById("title").innerHTML = `${currentProduct.name} <hr>`;
-  
-	htmlContentToAppend = `
+  document.getElementById("title").innerHTML = `${currentProduct.name} <hr>`;
+
+  htmlContentToAppend = `
     <div id="info-image-container">
       <div class="image-container">
         <div class="subtitle">Imágenes ilustrativas</div>
@@ -127,8 +127,26 @@ function showProduct() {
         <input type="button" name="addToCart" id="addToCartBtn" value="Add to cart">
         </div> 
     </div>
+    <div class="image-container d-flex flex-row justify-content-center">
+      <div class="related-product-container">
+        <div>
+          ${currentProduct.relatedProducts[0].name}
+        </div>
+        <div>
+          <img class="image-related-product" src="${currentProduct.relatedProducts[0].image}" alt="producto relacionado 1">
+        </div>
+      </div>
+      <div class="related-product-container">
+        <div>
+          ${currentProduct.relatedProducts[1].name}
+        </div>
+        <div>
+          <img class="image-related-product" src="${currentProduct.relatedProducts[1].image}" alt="producto relacionado 1">
+        </div>
+      </div>
+    </div>
     `;
-	CONTAINER.innerHTML = htmlContentToAppend;
+  CONTAINER.innerHTML = htmlContentToAppend;
 }
 
 /* ==============================[Show comment]================================ */
@@ -136,11 +154,11 @@ function showProduct() {
 function showComments(array) {
   const PRODID = currentProduct.id;
   console.log(PRODID)
-	let commentsToAppend = "";
-	for (let i = 0; i < array.length; i++) {
-   if(array[i].product == PRODID){
-    if(array[i].user == STOREDUSERNAME){
-      commentsToAppend += `
+  let commentsToAppend = "";
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].product == PRODID) {
+      if (array[i].user == STOREDUSERNAME) {
+        commentsToAppend += `
        <div class="comment-box">
           <div class="d-flex w-100 justify-content-between">
           <div class="d-flex">
@@ -156,8 +174,8 @@ function showComments(array) {
       </div>
             <div class="comment-description">${array[i].description}</div>
         </div>`;
-    }else{
-      commentsToAppend += `
+      } else {
+        commentsToAppend += `
       <div class="comment-box ">
          <div class="d-flex w-100 justify-content-between">
          <div class="d-flex">
@@ -172,24 +190,24 @@ function showComments(array) {
      </div>
            <div class="comment-description">${array[i].description}</div>
        </div>`;
-   }
+      }
     }
-	}
+  }
 
-	COMMENTS.innerHTML = commentsToAppend;
+  COMMENTS.innerHTML = commentsToAppend;
 
-	let coment = document.getElementsByClassName("comment-box");
-	for (let i = 0; i < coment.length; i++) {
-		let star = coment[i].getElementsByClassName("star");
-		for (let j = 0; j < array[i].score; j++) {
-			star[j].classList.add("checked");
-		}
-	}
+  let coment = document.getElementsByClassName("comment-box");
+  for (let i = 0; i < coment.length; i++) {
+    let star = coment[i].getElementsByClassName("star");
+    for (let j = 0; j < array[i].score; j++) {
+      star[j].classList.add("checked");
+    }
+  }
 }
 
 
 
-            /* ===========[list Comments]================= */
+/* ===========[list Comments]================= */
 
 document.addEventListener("DOMContentLoaded", async function (e) {
     try {
@@ -209,22 +227,32 @@ document.addEventListener("DOMContentLoaded", async function (e) {
     } catch (error) {
         console.error("Error en la carga de datos:", error);
     }
+
+    const commentsResponse = await getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json");
+    if (commentsResponse.status == "ok") {
+      const commentaries = commentsResponse.data;
+      const combinedComments = commentaries.concat(JSON.parse(storagedComments));
+      showComments(combinedComments);
+    }
+  } catch (error) {
+    console.error("Error en la carga de datos:", error);
+  }
 });
 
-            /* ===========[Update Comments]================= */ 
+/* ===========[Update Comments]================= */
 
 function updateComments() {
   getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json").then(function (result) {
-      if (result.status == "ok") {
-          const commentaries = result.data;
-          const storagedComments = localStorage.getItem('comment');
-          
-          if (storagedComments) {
-              const parsedComments = JSON.parse(storagedComments);
-              const combinedComments = commentaries.concat(parsedComments);
-              showComments(combinedComments);
-          }
+    if (result.status == "ok") {
+      const commentaries = result.data;
+      const storagedComments = localStorage.getItem('comment');
+
+      if (storagedComments) {
+        const parsedComments = JSON.parse(storagedComments);
+        const combinedComments = commentaries.concat(parsedComments);
+        showComments(combinedComments);
       }
+    }
   });
 }
 
@@ -237,64 +265,64 @@ document.addEventListener("DOMContentLoaded", ()=> {
 });
 
 /* ==============================[send Button]================================ */
-function setRateIndex(){
-  if (STAR1.checked){
+function setRateIndex() {
+  if (STAR1.checked) {
     return 5;
-  }if (STAR2.checked) {
+  } if (STAR2.checked) {
     return 4;
-  }if (STAR3.checked) {
+  } if (STAR3.checked) {
     return 3;
-  }if (STAR4.checked) {
+  } if (STAR4.checked) {
     return 2;
-  }if (STAR5.checked) {
+  } if (STAR5.checked) {
     return 1;
-  }else{
+  } else {
     return 0;
   }
 
 }
-function saveOnLocalStorage(){
-    let comment = JSON.parse(localStorage.getItem("comment")) || [];
-    if (!Array.isArray(comment)) {
-        comment = [];
-    }
+function saveOnLocalStorage() {
+  let comment = JSON.parse(localStorage.getItem("comment")) || [];
+  if (!Array.isArray(comment)) {
+    comment = [];
+  }
 
-    let newComment = {
-        "product": currentProduct.id,
-        "score": setRateIndex(),
-        "description": TEXTAREA.value,
-        "user": USERNAME.textContent,
-        "dateTime": NOWDATE + " " + NOWTIME,
-        "commentID": COMMENTID
-      };
+  let newComment = {
+    "product": currentProduct.id,
+    "score": setRateIndex(),
+    "description": TEXTAREA.value,
+    "user": USERNAME.textContent,
+    "dateTime": NOWDATE + " " + NOWTIME,
+    "commentID": COMMENTID
+  };
 
-      comment.push(newComment);
+  comment.push(newComment);
 
-      localStorage.setItem("comment", JSON.stringify(comment))
+  localStorage.setItem("comment", JSON.stringify(comment))
 }
 
-SENDBUTTON.addEventListener("click", ()=>{
-    let comment = JSON.parse(localStorage.getItem("comment")) || [];
-    if (Array.isArray(comment) && comment.length > 0) {
-      COMMENTID = comment[comment.length - 1].commentID + 1;
-    } else {
-      COMMENTID = 0;
-    }
-    saveOnLocalStorage();
-    COMMENTID++;
-    TEXTAREA.value = "";
-    for (button of RATE){
-        button.checked = false;
-    }
-    updateComments();
+SENDBUTTON.addEventListener("click", () => {
+  let comment = JSON.parse(localStorage.getItem("comment")) || [];
+  if (Array.isArray(comment) && comment.length > 0) {
+    COMMENTID = comment[comment.length - 1].commentID + 1;
+  } else {
+    COMMENTID = 0;
+  }
+  saveOnLocalStorage();
+  COMMENTID++;
+  TEXTAREA.value = "";
+  for (button of RATE) {
+    button.checked = false;
+  }
+  updateComments();
 })
-    
-            /* ===========[Delete Comments]================= */
+
+/* ===========[Delete Comments]================= */
 
 document.addEventListener("DOMContentLoaded", function (e) {
   let commentCreator = JSON.parse(localStorage.getItem("comment"));
   if (!commentCreator) {
-      localStorage.setItem('comment', (JSON.stringify([])));
+    localStorage.setItem('comment', (JSON.stringify([])));
   }
 
   COMMENTS.addEventListener('click', function (event) {
@@ -311,7 +339,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 /* ==============================[New Comment Button]================================ */
 
-NEWCOMMENT.addEventListener("click", ()=>{
+NEWCOMMENT.addEventListener("click", () => {
   if (hiddenArea === true) {
     hiddenArea = false;
     COMMENTAREA.style.transform = "translateY(0px)";

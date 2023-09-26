@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     if (storedlogued_in) {
         console.log(storedlogued_in);
     } else {
-        console.log("No ha cargado la cookie");
+        console.log("No estás logueado");
     }
 
     logued_in = storedlogued_in === "true"; // Convertir el valor a un booleano
@@ -24,14 +24,13 @@ document.addEventListener("DOMContentLoaded", function(e) {
     }
     // Extraemos el valor del Nombre Completo de la Cookie y la insertamos en el HTML
     const storedemail = localStorage.getItem("Email");
-    console.log(storedemail);
     const emailElement = document.getElementById("email");
 
     if (storedemail) {
         emailElement.innerHTML = storedemail;
         emailElement.href = "my-profile.html"
     } else {
-        console.log("No se pudo obtener el nombre completo de las cookies");
+        console.log("No hay información guardada");
     }
 });
 
