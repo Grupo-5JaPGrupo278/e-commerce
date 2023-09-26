@@ -207,38 +207,25 @@ function showComments(array) {
 
 
 
-/* ===========[list Comments]================= */
-
-document.addEventListener("DOMContentLoaded", async function (e) {
-    try {
-        const productResponse = await getJSONData(PRODUCT_INFO_URL + localStorage.ProductID + ".json");
-        if (productResponse.status == "ok") {
-            currentProduct = productResponse.data;
-            showProduct();
-        }
-
-        const commentsResponse = await getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json");
-        if (commentsResponse.status == "ok") {
-            const commentaries = commentsResponse.data;
-            showComments(commentaries);
-            const combinedComments = commentaries.concat(JSON.parse(storagedComments));
-            showComments(combinedComments);
-        }
-    } catch (error) {
-        console.error("Error en la carga de datos:", error);
-    }
-
-    const commentsResponse = await getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json");
-    if (commentsResponse.status == "ok") {
-      const commentaries = commentsResponse.data;
-      const combinedComments = commentaries.concat(JSON.parse(storagedComments));
-      showComments(combinedComments);
-    }
+ /* ===========[list Comments]================= */
+ document.addEventListener("DOMContentLoaded", async function (e) {
+  try {
+      const productResponse = await getJSONData(PRODUCT_INFO_URL + localStorage.ProductID + ".json");
+      if (productResponse.status == "ok") {
+          currentProduct = productResponse.data;
+          showProduct();
+      }
+      const commentsResponse = await getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json");
+      if (commentsResponse.status == "ok") {
+          const commentaries = commentsResponse.data;
+          showComments(commentaries);
+          const combinedComments = commentaries.concat(JSON.parse(storagedComments));
+          showComments(combinedComments);
+      }
   } catch (error) {
-    console.error("Error en la carga de datos:", error);
+      console.error("Error en la carga de datos:", error);
   }
 });
-
 /* ===========[Update Comments]================= */
 
 function updateComments() {
@@ -259,8 +246,8 @@ function updateComments() {
 
 /* ==================================================================== */
 
-document.addEventListener("DOMContentLoaded", ()=> {
-	USERNAME.textContent = STOREDUSERNAME;
+document.addEventListener("DOMContentLoaded", () => {
+  USERNAME.textContent = STOREDUSERNAME;
 
 });
 
