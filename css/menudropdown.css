@@ -64,7 +64,7 @@ label #button i {
     text-transform: uppercase;
     text-decoration: none;
     font-weight: 700;
-    color: #b8b8b8;
+    color: var(--colorblanco);
     font-size: 13px;
     margin: 10px -20%;
     padding: 10px 10px;
@@ -74,7 +74,7 @@ label #button i {
     display: none;
 }
 .navs ul li a:hover{
-    color: #3f589b;
+    color: var(--colorprincipal);
 }
 
 .nav-link {

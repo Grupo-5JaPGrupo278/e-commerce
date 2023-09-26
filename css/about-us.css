@@ -5,7 +5,7 @@
     justify-content: space-between;
     height: 550px;
     width: 100%;
-    background-color: #3f3f3f54;
+    background-color: var(--darkalphacolor);
 }
 #personImage{
     position: absolute;
@@ -34,7 +34,7 @@
     position: relative;
     height: 80%;
     width: 3px;
-    background-color: rgb(94, 94, 94);
+    background-color: var(--colorgris);
 }
 #infoContainerLeft{
     transition: all 0.5s;

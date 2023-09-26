@@ -79,29 +79,34 @@ const CONTAINER = document.getElementById("product-container");
 const COMMENTS = document.getElementById("comments");
 let currentProduct = {};
 let commentaries = [];
+let carouselImages = "";
 function showProduct() {
-  let htmlContentToAppend = "";
+	let htmlContentToAppend = "";
 
-  document.getElementById("title").innerHTML = `${currentProduct.name} <hr>`;
-
-  htmlContentToAppend = `
+	document.getElementById("title").innerHTML = `${currentProduct.name} <hr>`;
+  let i = 0;
+  for(element of currentProduct.images){
+    if(i==0){
+      carouselImages += `
+      <div class="carousel-item active">
+        <img  src="${element}" class="d-block w-100" alt="...">
+      </div>`
+      i++
+    }else{
+      carouselImages += `
+              <div class="carousel-item">
+                <img  src="${element}" class="d-block w-100" alt="...">
+              </div>`
+    }
+    console.log(carouselImages)
+  }
+	htmlContentToAppend = `
     <div id="info-image-container">
       <div class="image-container">
         <div class="subtitle">Imágenes ilustrativas</div>
           <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img  src="${currentProduct.images[0]}" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img  src="${currentProduct.images[1]}" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img  src="${currentProduct.images[2]}" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img  src="${currentProduct.images[3]}" class="d-block w-100" alt="...">
-              </div>
+              ${carouselImages}
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -127,26 +132,8 @@ function showProduct() {
         <input type="button" name="addToCart" id="addToCartBtn" value="Add to cart">
         </div> 
     </div>
-    <div class="image-container d-flex flex-row justify-content-center">
-      <div class="related-product-container">
-        <div>
-          ${currentProduct.relatedProducts[0].name}
-        </div>
-        <div>
-          <img class="image-related-product" src="${currentProduct.relatedProducts[0].image}" alt="producto relacionado 1">
-        </div>
-      </div>
-      <div class="related-product-container">
-        <div>
-          ${currentProduct.relatedProducts[1].name}
-        </div>
-        <div>
-          <img class="image-related-product" src="${currentProduct.relatedProducts[1].image}" alt="producto relacionado 1">
-        </div>
-      </div>
-    </div>
     `;
-  CONTAINER.innerHTML = htmlContentToAppend;
+	CONTAINER.innerHTML = htmlContentToAppend;
 }
 
 /* ==============================[Show comment]================================ */

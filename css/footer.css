@@ -1,10 +1,15 @@
 :root{
-    --coloroscuro:#22222B;
-    --colorgris:#434351;
-    --colorrosa:#6267ac;
-    --colorrosaclaro:#616dd8;
-    --colorblanco:#ECE7EB;
-    font-family: Tahoma;
+    --coloroscuro:#22222B; /*var(--coloroscuro)*/
+    --colorgris:#65656d; /*var(--colorgris)*/
+    --colorprincipal:#6267ac; /*var(--colorprincipal)*/
+    --colorsecundario:#616dd8; /*var(--colorsecundario)*/
+    --colorblanco:#ECE7EB; /*var(--colorblanco)*/
+
+    --darkalphacolor: #3f3f3f54; /*var(--darkalphacolor)*/
+    --lightalphacolor: rgba(235, 235, 235, 0.342); /*var(--lightalphacolor)*/
+    --backgroundimage: url("../img/bg_img.webp");
+    --whitetext: #ffffff; /*var(--)*/
+    font-family: Tahoma; 
     font-size: 20px;
 }
 /* ============================================== F00TER  =============================================  */
@@ -19,5 +24,5 @@ footer{
 }
 footer a{
     text-decoration: none;
-    color:var(--colorrosa);
+    color: var(--colorprincipal);
 }

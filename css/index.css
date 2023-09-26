@@ -1,12 +1,4 @@
-:root{
-    --coloroscuro:#22222B;
-    --colorgris:#434351;
-    --colorrosa:#6267ac;
-    --colorrosaclaro:#616dd8;
-    --colorblanco:#ECE7EB;
-    font-family: Tahoma;
-    font-size: 20px;
-}
+
 @media (prefers-reduced-motion: no-preference) {
     * {
       scroll-behavior: smooth;
@@ -18,7 +10,7 @@ html{
 body{
     margin: 0 0;
     background-color: var(--colorgris);
-    color:var(--colorrosaclaro);
+    color: var(--colorsecundario);
     overflow-x:hidden;
 }
 
@@ -29,7 +21,7 @@ body{
     align-items: center;
 
     width: 100%;
-    background-color: rgba(235, 235, 235, 0.342);
+    background-color: var(--lightalphacolor);
 }
 #text-presentation{
     display:flex;
@@ -63,7 +55,7 @@ body{
     width:200px;
     height:60px;
     background-color: var(--coloroscuro);
-    color:var(--colorrosa);
+    color:var(--colorprincipal);
     font-size:1.5rem;
     border:none;
     border-radius: 10px;
@@ -71,9 +63,9 @@ body{
 }
 #btn-presentation:hover{
     transition:0.8s;
-    background-color:var(--colorrosa);
+    background-color:var(--colorprincipal);
     color:var(--coloroscuro);
-    border:var(--colorrosaclaro);
+    border:var(--colorsecundario);
 }
 /* ======================================== DISPLAY MAIN INDEX ======================================  */
 #main-display{
@@ -114,9 +106,9 @@ body{
 .category-image{
     width:30vw;
     height:auto;
-    border: 0.8px solid var(--colorrosaclaro);
+    border: 0.8px solid var(--colorsecundario);
     border-radius:10px;
-    box-shadow: 3px 3px var(--colorrosaclaro);
+    box-shadow: 3px 3px var(--colorsecundario);
     margin-top:1vh;
 }
 
@@ -132,6 +124,5 @@ body{
     margin-right: auto;
 }
 .carousel-caption{
-   
     text-shadow: -5px 3px 4px rgba(0,0,0,1);
 }

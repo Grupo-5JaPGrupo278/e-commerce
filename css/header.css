@@ -28,6 +28,6 @@ nav{
 
 nav a, #muchmore a{
     text-decoration: none;
-    color:var(--colorrosa);
+    color: var(--colorprincipal);
     font-size: 1.5rem;
 }
