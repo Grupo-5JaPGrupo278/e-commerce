@@ -44,11 +44,11 @@ BUTTON.addEventListener("click", function (e) {
         }
     }
 
-    if (matching === true) {
+    if (matching) {
         logued_in = true;
         // Se guarda variable Logued In y el Email del usuario.
         localStorage.setItem("loguedIn", true);
-        localStorage.setItem("Email", EMAIL.value);
+        localStorage.setItem("Email", login_credentials.email);
         // Se guardan las variables del Username && Fullname
         localStorage.setItem("username", login_credentials.username)
         localStorage.setItem("fullname", login_credentials.fullname)
