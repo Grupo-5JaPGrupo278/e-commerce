@@ -86,6 +86,7 @@ function showProduct() {
 	document.getElementById("title").innerHTML = `${currentProduct.name} <hr>`;
   let i = 0;
   for(element of currentProduct.images){
+  
     if(i==0){
       carouselImages += `
       <div class="carousel-item active">
