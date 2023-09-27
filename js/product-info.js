@@ -76,8 +76,8 @@ PRIVATEBUTTON.addEventListener("click", () => {
 
 /* ==============================[related products functionality]================================ */
 function setProductID(id) {
-	localStorage.setItem("ProductID", id);
-	window.location = "product-info.html";
+  localStorage.setItem("ProductID", id);
+  window.location = "product-info.html";
 }
 /* ==============================[show product]================================ */
 const CONTAINER = document.getElementById("product-container");
@@ -85,20 +85,21 @@ const COMMENTS = document.getElementById("comments");
 let currentProduct = {};
 let commentaries = [];
 let carouselImages = "";
+let relatedproductloop = "";
 function showProduct() {
-	let htmlContentToAppend = "";
+  let htmlContentToAppend = "";
 
-	document.getElementById("title").innerHTML = `${currentProduct.name} <hr>`;
+  document.getElementById("title").innerHTML = `${currentProduct.name} <hr>`;
   let i = 0;
-  for(element of currentProduct.images){
-  
-    if(i==0){
+  for (element of currentProduct.images) {
+
+    if (i == 0) {
       carouselImages += `
       <div class="carousel-item active">
         <img  src="${element}" class="d-block w-100" alt="...">
       </div>`
       i++
-    }else{
+    } else {
       carouselImages += `
               <div class="carousel-item">
                 <img  src="${element}" class="d-block w-100" alt="...">
@@ -106,7 +107,19 @@ function showProduct() {
     }
     console.log(carouselImages)
   }
-	htmlContentToAppend = `
+  for (relatedprod of currentProduct.relatedProducts) {
+    relatedproductloop += `
+          <div class="related-product-container">
+            <div>
+              ${relatedprod.name}
+            </div>
+            <div onclick="setProductID(${relatedprod.id})">
+              <img class="image-related-product" src="${relatedprod.image}" alt="producto relacionado 1">
+            </div>
+          </div>
+    `
+  }
+  htmlContentToAppend = `
     <div id="info-image-container">
       <div class="image-container">
         <div class="subtitle">Imágenes ilustrativas</div>
@@ -138,26 +151,16 @@ function showProduct() {
         <input type="button" name="addToCart" id="addToCartBtn" value="Add to cart">
         </div> 
     </div>
-    <div class="image-container d-flex flex-row justify-content-center">
-      <div class="related-product-container">
-        <div>
-          ${currentProduct.relatedProducts[0].name}
-        </div>
-        <div onclick="setProductID(${currentProduct.relatedProducts[0].id})">
-          <img class="image-related-product" src="${currentProduct.relatedProducts[0].image}" alt="producto relacionado 1">
-        </div>
-      </div>
-      <div class="related-product-container">
-        <div>
-          ${currentProduct.relatedProducts[1].name}
-        </div>
-        <div onclick="setProductID(${currentProduct.relatedProducts[1].id})">
-          <img class="image-related-product" src="${currentProduct.relatedProducts[1].image}" alt="producto relacionado 1">
+    <div id="relatedproducts" class="image-container relatedproducts">
+      <div class="d-flex flex-column justify-content-center">
+        <div class="h4">Related Products</div>
+        <div id="relatedproduct" class="d-flex flex-row justify-content-center">
+          ${relatedproductloop}
         </div>
       </div>
     </div>
     `;
-	CONTAINER.innerHTML = htmlContentToAppend;
+  CONTAINER.innerHTML = htmlContentToAppend;
 }
 
 /* ==============================[Show comment]================================ */
@@ -218,23 +221,23 @@ function showComments(array) {
 
 
 
- /* ===========[list Comments]================= */
- document.addEventListener("DOMContentLoaded", async function (e) {
+/* ===========[list Comments]================= */
+document.addEventListener("DOMContentLoaded", async function (e) {
   try {
-      const productResponse = await getJSONData(PRODUCT_INFO_URL + localStorage.ProductID + ".json");
-      if (productResponse.status == "ok") {
-          currentProduct = productResponse.data;
-          showProduct();
-      }
-      const commentsResponse = await getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json");
-      if (commentsResponse.status == "ok") {
-          const commentaries = commentsResponse.data;
-          showComments(commentaries);
-          const combinedComments = commentaries.concat(JSON.parse(storagedComments));
-          showComments(combinedComments);
-      }
+    const productResponse = await getJSONData(PRODUCT_INFO_URL + localStorage.ProductID + ".json");
+    if (productResponse.status == "ok") {
+      currentProduct = productResponse.data;
+      showProduct();
+    }
+    const commentsResponse = await getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json");
+    if (commentsResponse.status == "ok") {
+      const commentaries = commentsResponse.data;
+      showComments(commentaries);
+      const combinedComments = commentaries.concat(JSON.parse(storagedComments));
+      showComments(combinedComments);
+    }
   } catch (error) {
-      console.error("Error en la carga de datos:", error);
+    console.error("Error en la carga de datos:", error);
   }
 });
 /* ===========[Update Comments]================= */

@@ -160,7 +160,8 @@ iframe{
 	color: var(--whitetext);
 	text-align: center;
 	flex-direction: column;
-	margin: 10px;
+	margin-left: 10px;
+	margin-right:10px;
 	height: 100%;
 	right: 0;
 	width: 100%;
@@ -168,7 +169,7 @@ iframe{
 	border-bottom-right-radius: 20px;
 	border-bottom-left-radius: 20px;
 }
-#info-image-container{
+#info-image-container, .relatedproducts{
 	border-top: 30px solid var(--colorprincipal);
 	border-radius: 20px;
 	position: relative;
@@ -179,6 +180,10 @@ iframe{
 	align-items: center;
 	margin: 20px;
 }
+#relatedproduct {
+	padding-bottom: 15px;
+}
+
 #wholeProduct-container{
 	position: relative;
 	display: flex;
@@ -207,6 +212,8 @@ iframe{
 }
 .image-related-product{
 	width:35%;
+	border-radius: 15px;
+	border:0.5px solid var(--coloroscuro);
 }
 .related-product-container{
 	width:35%;
