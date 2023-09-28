@@ -169,6 +169,9 @@ iframe{
 	border-bottom-right-radius: 20px;
 	border-bottom-left-radius: 20px;
 }
+#relatedproducts{
+	width: 97%;
+}
 #info-image-container, .relatedproducts{
 	border-top: 30px solid var(--colorprincipal);
 	border-radius: 20px;

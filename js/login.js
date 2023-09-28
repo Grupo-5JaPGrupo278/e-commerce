@@ -39,7 +39,6 @@ BUTTON.addEventListener("click", function (e) {
                     login_credentials.fullname = database[i].fullname;
 
                 }
-
             }
         }
     }
