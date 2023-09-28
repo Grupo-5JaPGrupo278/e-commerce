@@ -46,28 +46,27 @@
       </div>
       <img id="commerceBanner" src="img\logo_commerce.png" alt="commerce-banner">
     </div>
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Usuario
-  </button>
-  <div class="dropdown-menu" aria-labelledby="userDropdown">
-    <ul>
-    <p id="email"></p>
-    <a class="dropdown-item" href="#">Mi Perfil</a>
-    <a class="dropdown-item" href="#">Mi Carrito</a>
-    <a class="dropdown-item" href="#">Mis Compras</a>
-    <a class="dropdown-item" href="#">Configuración</a>
-    <div class="dropdown-divider"></div>
-<!-- =========== Cerrar Sesion =================  -->
-    <button id="log-out-btn">Log-Out</button>
-<!-- =========== Switch Modo oscuro =================  -->
-    <div class="wrap-toggle">
-      <input type="checkbox" id="toggle" class="offscreen">
-      <label for="toggle" class="switch"></label>
+  <!-- =============================== Dropdown =====================================  -->
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Usuario
+      </button>
+      <div class="dropdown-menu" aria-labelledby="userDropdown">
+        <p id="email"></p>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+        <a class="dropdown-item" href="cart.html">Mi Carrito</a>
+        <a class="dropdown-item" href="#">Mis Compras</a>
+        <a class="dropdown-item" href="#">Configuración</a>
+        <div class="dropdown-divider"></div>
+        <button id="log-out-btn" class="dropdown-item">Log-Out</button>
+        <div class="wrap-toggle">
+          <input type="checkbox" id="toggle" class="offscreen">
+          <label for="toggle" class="switch"></label>
+        </div>
+      </div>
     </div>
-  </ul>
-  </div>
-</div>
+
     <a class="nav-link" href="credential-manager.html">Iniciar Sesión</a>
   </nav>
   <div class="little-div"></div>
@@ -138,7 +137,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
     crossorigin="anonymous"></script>
-    
   <script src="js/index.js"></script>
   <script src="js/darktheme.js"></script>
   <script src="js/init.js"></script>

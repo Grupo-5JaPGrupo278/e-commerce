@@ -25,7 +25,7 @@ button.addEventListener("click",function(e){
     }, 1000);
 })
 
-DARKMODE.addEventListener('change', ()=>{
+DARKMODE.addEventListener('change', (e)=>{
     const DARKMODE = document.getElementById('toggle');
     if(DARKMODE.checked){
         /* aqui van los estilos del modo claro */

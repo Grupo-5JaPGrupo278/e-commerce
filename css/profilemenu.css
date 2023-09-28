@@ -3,9 +3,15 @@
     padding: 10px 20px; /* Espaciado interno para los elementos del menú */
     text-decoration: none; /* Sin subrayado en los enlaces */
     display: block; /* Hacer que los enlaces ocupen todo el ancho del menú */
-    color: #333; /* Color de texto */
+    color: var(--whitetext); /* Color de texto */
+    font-size: 24px;
 }
-
+.dropdown-menu p {
+    padding: 10px 20px; /* Espaciado interno para los elementos del menú */
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    display: block; /* Hacer que los enlaces ocupen todo el ancho del menú */
+    color: var(--whitetext) /* Color de texto */
+}
 /* Estilo para el enlace activo (cuando el usuario pasa el mouse sobre el enlace) */
 .dropdown-menu a:hover {
     background-color: #f8f8f8; /* Cambiar el color de fondo cuando el mouse está encima del enlace */
@@ -30,7 +36,7 @@
 
 /* Estilo para el botón desplegable */
 .btn.dropdown-toggle {
-    background-color: #007BFF; /* Color de fondo del botón */
+    background-color: var(--colorprincipal); /* Color de fondo del botón */
     color: #fff; /* Color del texto del botón */
     border: none; /* Eliminar borde del botón */
     border-radius: 5px; /* Bordes redondeados */
@@ -39,21 +45,15 @@
 
 /* Estilo para el botón desplegable cuando el mouse está encima */
 .btn.dropdown-toggle:hover {
-    background-color: #0056b3; /* Cambiar el color de fondo al pasar el mouse sobre el botón */
+    background-color: var(--colorsecundario); /* Cambiar el color de fondo al pasar el mouse sobre el botón */
     color: #fff; /* Cambiar el color del texto al pasar el mouse sobre el botón */
 }
 
 /* Estilo para el menú desplegable en sí */
 .dropdown-menu {
-    background-color: #fff; /* Color de fondo del menú */
+    background-color: var(--coloroscuro); /* Color de fondo del menú */
     border: none; /* Eliminar borde del menú */
-    border-radius: 5px; /* Bordes redondeados del menú */
-}
-.dropdown-menu ul{
-    display: block;
-    position: relative;
-    border: none; /* Eliminar borde del menú */
-    border-radius: 5px; /* Bordes redondeados del menú */
+    border-bottom-left-radius: 15px; /* Bordes redondeados del menú */
 }
 /* Estilo para el texto dentro del botón desplegable */
 .btn.dropdown-toggle span {

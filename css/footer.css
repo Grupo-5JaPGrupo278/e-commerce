@@ -1,8 +1,8 @@
 :root{
     --coloroscuro:#22222B; /*var(--coloroscuro)*/
     --colorgris:#65656d; /*var(--colorgris)*/
-    --colorprincipal:#6267ac; /*var(--colorprincipal)*/
-    --colorsecundario:#616dd8; /*var(--colorsecundario)*/
+    --colorprincipal:#5a61be; /*var(--colorprincipal)*/
+    --colorsecundario:#7982d4; /*var(--colorsecundario)*/
     --colorblanco:#ECE7EB; /*var(--colorblanco)*/
 
     --darkalphacolor: #3f3f3f54; /*var(--darkalphacolor)*/
