@@ -36,6 +36,7 @@
 
 /* Estilo para el botón desplegable */
 .btn.dropdown-toggle {
+    display: none;
     background-color: var(--colorprincipal); /* Color de fondo del botón */
     color: #fff; /* Color del texto del botón */
     border: none; /* Eliminar borde del botón */

@@ -1,7 +1,8 @@
 // Leer cookies
 let logued_in = false
 const LOGOUT = document.getElementById("log-out-btn");
-
+const DROPDOWN = document.getElementById('userDropdown')
+const LOGIN = document.getElementById('log-in');
 document.addEventListener("DOMContentLoaded", function(e) {
     // Obtener variable logued_in almacenada en cookie
     const storedlogued_in = localStorage.getItem("loguedIn");
@@ -20,7 +21,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
             window.location = "credential-manager.html";
         }, 4000);
     } else {
+        LOGIN.style.display = "none";
+        DROPDOWN.style.display = "block";
         LOGOUT.style.display = "block";
+        DROPDOWN.innerHTML = localStorage.getItem('username')
     }
     // Extraemos el valor del Nombre Completo de la Cookie y la insertamos en el HTML
     const storedemail = localStorage.getItem("Email");

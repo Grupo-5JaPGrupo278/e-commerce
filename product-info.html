@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/product-info.css">
+  <link rel="stylesheet" href="css/profilemenu.css">
+  <link rel="stylesheet" href="css/darkmode.css">
   <!-- ================================ Stylesheets ====================================== -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
     integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
@@ -46,8 +48,27 @@
         </div>
         <img id="commerceBanner" src="img\logo_commerce.png" alt="commerce-banner">
       </div>
-      <a class="nav-link" href="credential-manager.html" id="email">Iniciar Sesión</a>
-      <button id="log-out-btn">Log-Out</button>
+    <!-- =============================== Dropdown =====================================  -->
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Usuario
+        </button>
+        <div class="dropdown-menu" aria-labelledby="userDropdown">
+          <p id="email"></p>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+          <a class="dropdown-item" href="cart.html">Mi Carrito</a>
+          <a class="dropdown-item" href="#">Mis Compras</a>
+          <a class="dropdown-item" href="#">Configuración</a>
+          <div class="dropdown-divider"></div>
+          <button id="log-out-btn" class="dropdown-item">Log-Out</button>
+          <div class="wrap-toggle">
+            <input type="checkbox" id="toggle" class="offscreen">
+            <label for="toggle" class="switch"></label>
+          </div>
+        </div>
+      </div>
+      <a class="nav-link" href="credential-manager.html" id="log-in">Iniciar Sesión</a>
     </nav>
     <div class="little-div"></div>
     <!-- =============================== PRESENTACION PAGINA =====================================  -->
