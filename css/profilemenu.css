@@ -49,7 +49,12 @@
     border: none; /* Eliminar borde del menú */
     border-radius: 5px; /* Bordes redondeados del menú */
 }
-
+.dropdown-menu ul{
+    display: block;
+    position: relative;
+    border: none; /* Eliminar borde del menú */
+    border-radius: 5px; /* Bordes redondeados del menú */
+}
 /* Estilo para el texto dentro del botón desplegable */
 .btn.dropdown-toggle span {
     margin-right: 5px; /* Espaciado entre el ícono y el texto del botón */
