@@ -9,6 +9,7 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/styles2.css" rel="stylesheet">
   <link href="css/menuinicio.css" rel="stylesheet">
+  <link href="css/profilemenu.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="img\favicon.ico">
   <script src="https://kit.fontawesome.com/e6f78feb22.js" crossorigin="anonymous"></script>
 </head>
@@ -36,8 +37,24 @@
       </div>
       <img id="commerceBanner" src="img\logo_commerce.png" alt="commerce-banner">
     </div>
-    <a class="nav-link" href="credential-manager.html" id="email">Iniciar Sesión</a>
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Usuario
+  </button>
+  <div class="dropdown-menu" aria-labelledby="userDropdown">
+    <ul>
+    <a class="dropdown-item" href="#">Mi Perfil</a>
+    <a class="dropdown-item" href="#">Mi Carrito</a>
+    <a class="dropdown-item" href="#">Mis Compras</a>
+    <a class="dropdown-item" href="#">Configuración</a>
+    <div class="dropdown-divider"></div>
     <button id="log-out-btn">Log-Out</button>
+  </ul>
+  </div>
+</div>
+
+    <a class="nav-link" href="credential-manager.html" id="email">Iniciar Sesión</a>
+    
   </nav>
   <div class="little-div"></div>
   <!-- =============================== PRESENTACION PAGINA =====================================  -->
