@@ -105,7 +105,6 @@ function showProduct() {
                 <img  src="${element}" class="d-block w-100" alt="...">
               </div>`
     }
-    console.log(carouselImages)
   }
   for (relatedprod of currentProduct.relatedProducts) {
     relatedproductloop += `
@@ -148,7 +147,7 @@ function showProduct() {
         <div>${currentProduct.category}</div>
         <div class="subtitle">Cantidad de Vendidos</div>
         <div>${currentProduct.soldCount}</div>
-        <input type="button" name="addToCart" id="addToCartBtn" value="Add to cart">
+        <input onClick="addToCart()" type="button" name="addToCart" id="addToCartBtn" value="Add to cart">
         </div> 
     </div>
     <div id="relatedproducts" class="image-container relatedproducts">
@@ -162,12 +161,33 @@ function showProduct() {
     `;
   CONTAINER.innerHTML = htmlContentToAppend;
 }
+/* ==============================[ADD TO CART BUTTON]================================ */
+function addToCart() {
+  const CARTLIST = JSON.parse(localStorage.getItem('cartlist')) || [];
+  /* Verifica que no exista ya un artículo con misma ID*/
+  for (let i = 0; i < CARTLIST.length; i++){
+    if ( CARTLIST[i].id === currentProduct.id){
+      console.log('No puedes agregar el mismo artículo nuevamente')
+      return
+    }
+  }
+  /* Setea la información del artículo dentro del objeto */
+  let iteminfo = {
+    id: currentProduct.id,
+    imgsource: currentProduct.images[0],
+    name: currentProduct.name,
+    currency: currentProduct.currency,
+    cost: currentProduct.cost
+  }
+  /* Prepara todo para mandarlo al LocalStorage */
+  CARTLIST.push(iteminfo);
+  localStorage.setItem('cartlist', JSON.stringify(CARTLIST))
+}
 
 /* ==============================[Show comment]================================ */
 
 function showComments(array) {
   const PRODID = currentProduct.id;
-  console.log(PRODID)
   let commentsToAppend = "";
   for (let i = 0; i < array.length; i++) {
     if (array[i].product == PRODID) {
