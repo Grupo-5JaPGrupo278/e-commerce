@@ -11,7 +11,7 @@ body {
 .jumbotron .display-4 {
 	font-weight: bold;
 }
-.websiteFooter{
+.websiteFooter {
 	color: #adadad;
 	z-index: 0;
 	position: relative;
@@ -23,7 +23,7 @@ body {
 }
 
 /* ===========================[credential manager]================================ */
-iframe{
+iframe {
 	position: relative;
 	width: fit-content;
 	height: 500px;
@@ -49,7 +49,10 @@ iframe{
 .iframeContent {
 	background-color: transparent;
 }
-.iframeContent div input[type='text'], .iframeContent div input[type='password'], .iframeContent div input[type='email'], .iframeContent button {
+.iframeContent div input[type="text"],
+.iframeContent div input[type="password"],
+.iframeContent div input[type="email"],
+.iframeContent button {
 	width: 300px;
 	height: 60px;
 	font-size: 20px;
@@ -58,8 +61,9 @@ iframe{
 	background-image: var(--backgroundimage);
 	background-repeat: no-repeat, repeat;
 	background-size: cover;
+	transition: background-image 1s;
 }
-#credentialsDivTitle{
+#credentialsDivTitle {
 	font: bold 120px monospace;
 	color: var(--whitetext);
 }
@@ -71,7 +75,7 @@ iframe{
 	padding: 5rem;
 	z-index: 2;
 	left: 700px;
-	height:180%;
+	height: 180%;
 	width: 55rem;
 	background-color: var(--colorgris);
 	box-shadow: 0px 0px 19px 25px rgba(0, 0, 0, 0.18);
@@ -81,7 +85,8 @@ iframe{
 #credentialsDivTitle {
 	transition: opacity 1s;
 }
-#credentialsDivText, #message {
+#credentialsDivText,
+#message {
 	transition: opacity 1s;
 }
 .fade-out {
@@ -123,13 +128,14 @@ iframe{
 	top: 90%;
 }
 
-#credentialsDivText, #message {
+#credentialsDivText,
+#message {
 	margin-top: 7rem;
 	font: condensed 32px monospace;
 	color: var(--whitetext);
 }
 #message {
-	color:var(--colorrosaclaro);
+	color: var(--colorrosaclaro);
 }
 #iframeContainerParent {
 	height: fit-content;
@@ -139,7 +145,7 @@ iframe{
 }
 /* ===========================[Product info]================================ */
 
-#info-container{
+#info-container {
 	position: relative;
 	background-color: var(--colorgris);
 	color: var(--whitetext);
@@ -153,7 +159,7 @@ iframe{
 	border-bottom-right-radius: 20px;
 	border-bottom-left-radius: 20px;
 }
-.image-container{
+.image-container {
 	position: relative;
 	display: flex;
 	background-color: var(--colorgris);
@@ -161,7 +167,7 @@ iframe{
 	text-align: center;
 	flex-direction: column;
 	margin-left: 10px;
-	margin-right:10px;
+	margin-right: 10px;
 	height: 100%;
 	right: 0;
 	width: 100%;
@@ -169,10 +175,11 @@ iframe{
 	border-bottom-right-radius: 20px;
 	border-bottom-left-radius: 20px;
 }
-#relatedproducts{
+#relatedproducts {
 	width: 97%;
 }
-#info-image-container, .relatedproducts{
+#info-image-container,
+.relatedproducts {
 	border-top: 30px solid var(--colorprincipal);
 	border-radius: 20px;
 	position: relative;
@@ -187,7 +194,7 @@ iframe{
 	padding-bottom: 15px;
 }
 
-#wholeProduct-container{
+#wholeProduct-container {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -200,11 +207,11 @@ iframe{
 	border-bottom-left-radius: 20px;
 	padding-bottom: 1%;
 }
-.carousel-inner{
+.carousel-inner {
 	border-radius: 20px;
 	transform: scale(70%);
 }
-#addToCartBtn{
+#addToCartBtn {
 	margin-top: 20px;
 	border-radius: 20px;
 	position: relative;
@@ -213,17 +220,17 @@ iframe{
 	left: 10%;
 	width: 80%;
 }
-.image-related-product{
-	width:35%;
+.image-related-product {
+	width: 35%;
 	border-radius: 15px;
-	border:0.5px solid var(--coloroscuro);
+	border: 0.5px solid var(--coloroscuro);
 }
-.related-product-container{
-	width:35%;
+.related-product-container {
+	width: 35%;
 }
 /* ===========================[Product coments]================================ */
 
-#showedCommentsContainer{
+#showedCommentsContainer {
 	position: relative;
 	background-color: var(--lightalphacolor);
 	width: fit-content;
@@ -236,11 +243,11 @@ iframe{
 	bottom: 0;
 	border-radius: 20px;
 }
-.comment-container{
+.comment-container {
 	position: relative;
 	width: 600px;
 }
-#generalCmntsContainer{
+#generalCmntsContainer {
 	background-color: #ffffff8e;
 	margin-bottom: 10vh;
 	z-index: 1;
@@ -250,7 +257,7 @@ iframe{
 	flex-direction: column;
 	align-items: center;
 }
-#newCommentBtn{
+#newCommentBtn {
 	position: fixed;
 	height: 40px;
 	top: -40px;
@@ -259,84 +266,84 @@ iframe{
 	border-bottom: #83838300;
 	background-color: #ffffff8e;
 }
-#commentsArea{
-background-color: #ffffff8e;
-border-top-right-radius: 20px;
-border-top-left-radius: 20px;
-height: 300px;
-width: 800px;
-padding: 2vh;
-display: flex;
-justify-content: center;
-align-items: center;
-position: fixed;
-bottom: 0;
-transform: translateY(300px);
-transition: all 0.5s;
+#commentsArea {
+	background-color: #ffffff8e;
+	border-top-right-radius: 20px;
+	border-top-left-radius: 20px;
+	height: 300px;
+	width: 800px;
+	padding: 2vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+	transform: translateY(300px);
+	transition: all 0.5s;
 }
-.deleteCmntBtn{
+.deleteCmntBtn {
 	position: relative;
 	right: -20%;
 	height: 30px;
 	background: #a8a8a800;
 }
-#commentContainer{
+#commentContainer {
 	padding: 20px;
 	position: relative;
 }
-.comment-box{
- background-color: #d1d1d133;
+.comment-box {
+	background-color: #d1d1d133;
 }
-#cmntUsrBanner{
+#cmntUsrBanner {
 	position: relative;
 	height: 80px;
 	left: -75px;
 }
-#profileImage{
+#profileImage {
 	position: absolute;
 	background: #ffffff;
 	height: 45px;
 	left: -60px;
 }
-#cmntInfo{
+#cmntInfo {
 	position: relative;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap; 
-    height: 50px;
-    width: 500px;
-    margin: 5px;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: nowrap;
+	height: 50px;
+	width: 500px;
+	margin: 5px;
 }
-#cmntInfo .cmntUser{
-    flex: 1; 
-    text-align: left; 
+#cmntInfo .cmntUser {
+	flex: 1;
+	text-align: left;
 	margin: 1vh;
 }
 
 #cmntInfo #dateTime {
-    text-align: right;
+	text-align: right;
 	transform: translate(-200px);
 	margin: 1vh;
 }
-.cmntUser{
- 	position: absolute;
+.cmntUser {
+	position: absolute;
 	color: #f8f9fa;
 	left: 10px;
 	font-size: 24px;
 }
-#dateTime{
+#dateTime {
 	display: flex;
 	justify-content: space-between;
 	width: 100px;
-	position:sticky;
+	position: sticky;
 	color: #f8f9fa;
-	text-align: right; 
-    white-space: nowrap; 
-    text-overflow: ellipsis;
+	text-align: right;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
-#cmntBtnsContainer{
+#cmntBtnsContainer {
 	width: 420px;
 	position: relative;
 	margin: 5px;
@@ -345,7 +352,7 @@ transition: all 0.5s;
 	align-items: center;
 	justify-content: space-between;
 }
-.cmntBtn{
+.cmntBtn {
 	position: relative;
 	color: #f8f9fa;
 	top: -7px;
@@ -354,7 +361,7 @@ transition: all 0.5s;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
-.cmntBtn:hover{
+.cmntBtn:hover {
 	position: relative;
 	color: #f8f9fa;
 	top: -7px;
@@ -364,11 +371,10 @@ transition: all 0.5s;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
-#rate{
-
+#rate {
 }
 
-#cmntText{
+#cmntText {
 	position: relative;
 	margin: 5px;
 	margin-top: 0;
@@ -383,48 +389,46 @@ transition: all 0.5s;
 	padding: 10px;
 	border-radius: 20px;
 }
-.rating{
+.rating {
 	position: relative;
-	display:flex;
+	display: flex;
 	flex-direction: row-reverse;
 	justify-content: space-between;
 	top: -5px;
 	left: 20px;
 }
-.rating input{
- display: none;
+.rating input {
+	display: none;
 }
-.rating label{
+.rating label {
 	display: block;
 	cursor: pointer;
 	width: 25px;
 }
-.rating label:before{
-	content: '\f005';
+.rating label:before {
+	content: "\f005";
 	position: relative;
 	font-family: fontAwesome;
 	font-size: 20px;
 	display: block;
 	color: #101010;
 }
-.rating label:after{
-	content: '\f005';
-	position:absolute;
+.rating label:after {
+	content: "\f005";
+	position: absolute;
 	font-family: fontAwesome;
 	font-size: 20px;
 	display: block;
 	color: #ffd61f;
 	top: 0;
 	opacity: 0;
-	transition: .5s;
+	transition: 0.5s;
 	text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 .rating label:hover:after,
-.rating input:checked ~ label:after
-{
+.rating input:checked ~ label:after {
 	opacity: 1;
 }
-
 
 /* ===========================[]================================ */
 
@@ -433,7 +437,7 @@ nav a {
 }
 nav #log-out-btn {
 	position: absolute;
-	right: .5%;
+	right: 0.5%;
 	display: none;
 	width: 120px;
 	height: 50px;
@@ -467,6 +471,7 @@ nav #log-out-btn {
 	background-repeat: no-repeat;
 	color: black;
 	font-weight: bold;
+	transition: background 1.5s;
 }
 
 @media (min-width: 768px) {
