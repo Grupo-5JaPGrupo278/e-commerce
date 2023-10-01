@@ -15,6 +15,13 @@ function DeleteCartItem(e) {
     location.reload();
 }
 function QuantityChange(e) {
+  // Agregar Item Quantity al LS y reimprimirlo continuamente
+    for (let i = 0; i < INFO.length; i++){
+      if ( INFO[i].id == e.target.id){
+        INFO[i].quantity = e.target.valueAsNumber;
+        localStorage.setItem('cartlist',JSON.stringify(INFO))
+      }
+    }
     const quantity = e.target.valueAsNumber;
     const row = e.target.parentElement.parentElement; // Obtén la fila actual
     const cost = parseFloat(row.querySelector('.cost').textContent.replace(/\D/g, ''));
@@ -34,10 +41,10 @@ function ShowCart() {
                 <input 
                 onChange="QuantityChange(event)" 
                 type="number" 
-                value="1"
-                class="input-quantity"
+                value="${INFO[i].quantity}"
+                class="input-quantity text-center"
                 min="1"
-                id="quantity-${INFO[i].id}"
+                id="${INFO[i].id}"
                 ></input>
               </td>
               <td class="subtotal">${INFO[i].currency} ${INFO[i].cost}</td>
