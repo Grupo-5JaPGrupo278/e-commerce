@@ -15,17 +15,20 @@ function setcount() {
 	}
 }
 
-function setcount2() {
+function setcount2(num) {
 	const SUBTOTAL2 = document.getElementsByClassName("subTotal2");
 	const input2 = document.getElementsByClassName("input2");
 	let userDeNuevo = buscoUser(CarritoUser);
 	//let currentSubtotal = parseFloat(SUBTOTAL.textContent);
-	if (input2 != 0) {
+	if (input2[num] != 0) {
 		// Realiza la multiplicación
-		let currentSubtotal = CarritoUser[userDeNuevo].articles[0].unitCost * input2;
+		let currentSubtotal = CarritoUser[userDeNuevo].articles[num].unitCost * input2[num].value;
 
 		// Actualiza el contenido del elemento <td id="subTotal">
-		SUBTOTAL2.innerHTML = `${CarritoUser[userDeNuevo].articles[0].currency} ${currentSubtotal}`;
+		SUBTOTAL2[num].innerHTML = `${CarritoUser[userDeNuevo].articles[num].currency} ${currentSubtotal}`;
+
+		CarritoUser[userDeNuevo].articles[num].count = input2[num].value;
+		localStorage.setItem("Carrito", JSON.stringify(CarritoUser));
 	}
 }
 function userTieneCarrito(arreglo) {
@@ -84,8 +87,13 @@ document.addEventListener("keyup", function (e) {
 	//detecta el teclado y procede a hacer una accion
 	if (e.target.matches("#input")) {
 		setcount();
-	} else if (e.target.matches(".input2")) {
-		setcount2();
+	} else {
+		const input2 = document.getElementsByClassName("input2");
+		for (let i = 0; i < input2.length; i++) {
+			if (e.target === input2[i]) {
+				setcount2(i);
+			}
+		}
 	}
 });
 document.addEventListener("DOMContentLoaded", () => {
