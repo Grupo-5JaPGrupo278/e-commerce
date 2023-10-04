@@ -47,7 +47,7 @@ function ShowCart() {
                 id="${INFO[i].id}"
                 ></input>
               </td>
-              <td class="subtotal">${INFO[i].currency} ${INFO[i].cost}</td>
+              <td class="subtotal">${INFO[i].currency} ${INFO[i].cost * INFO[i].quantity}</td>
               <td>
                 <input
                 onClick="DeleteCartItem(event)"
@@ -99,5 +99,6 @@ function ShowCart() {
 
 
     CONTAINER.innerHTML = htmlContentToAppend
+    
 }
 document.addEventListener('DOMContentLoaded', ShowCart);
