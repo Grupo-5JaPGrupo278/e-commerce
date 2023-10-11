@@ -399,7 +399,6 @@ function agregarProductoCarrito() {
 		carritoCompra.push(objeto);
 
 		localStorage.setItem("Carrito", JSON.stringify(carritoCompra));
-		alert("Producto agregado Correctamente");
 	} else if (!productoEsta(carritoCompra[buscoUser(carritoCompra)].articles)) {
 		let pCarrito = {
 			idProd: localStorage.getItem("ProductID"),
@@ -412,8 +411,5 @@ function agregarProductoCarrito() {
 		carritoCompra[buscoUser(carritoCompra)].articles.push(pCarrito);
 
 		localStorage.setItem("Carrito", JSON.stringify(carritoCompra));
-		alert("Producto agregado Correctamente");
-	} else {
-		alert("Este producto ya fue agregado al carrito");
 	}
 }

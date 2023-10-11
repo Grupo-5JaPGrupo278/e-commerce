@@ -20,7 +20,7 @@ function setcount2(num) {
 	const input2 = document.getElementsByClassName("input2");
 	let userDeNuevo = buscoUser(CarritoUser);
 	//let currentSubtotal = parseFloat(SUBTOTAL.textContent);
-	if (input2[num].value != 0) {
+	if (input2[num] != 0) {
 		// Realiza la multiplicación
 		let currentSubtotal = CarritoUser[userDeNuevo].articles[num].unitCost * input2[num].value;
 
