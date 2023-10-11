@@ -8,6 +8,7 @@ body {
 	width: 100vw;
 	overflow-x: hidden;
 }
+
 .jumbotron .display-4 {
 	font-weight: bold;
 }
@@ -59,6 +60,7 @@ iframe{
 	background-repeat: no-repeat, repeat;
 	background-size: cover;
 }
+
 #credentialsDivTitle{
 	font: bold 120px monospace;
 	color: var(--whitetext);
