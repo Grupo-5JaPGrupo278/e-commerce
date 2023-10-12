@@ -526,6 +526,7 @@ footer p {
 }
 
 main {
+	min-width: 400px;
 	min-height: calc(100vh - 210px);
 }
 
