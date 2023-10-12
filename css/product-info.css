@@ -7,10 +7,10 @@ main {
 .title {
 	font-size: 30px;
 }
-#product-container {
+/*#product-container {
 	/* width:100%;
-    font-size: 20px;*/
-}
+    font-size: 20px;
+}*/
 .info-container {
 	width: 85%;
 	margin-left: 17vw;
@@ -132,12 +132,6 @@ main {
 	}
 }
 
-/* Media Query para pantallas grandes */
-@media (min-width: 992px) {
-	#info-image-container {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
 /*cometarios css*/
 
 #showedCommentsContainer {
@@ -181,7 +175,8 @@ main {
 	border-top-right-radius: 20px;
 	border-top-left-radius: 20px;
 	height: 300px;
-	width: 800px;
+	width: 50%;
+	min-width: 350px;
 	padding: 2vh;
 	display: flex;
 	justify-content: center;
@@ -201,6 +196,7 @@ main {
 	padding: 20px;
 	position: relative;
 	min-width: 300px;
+	width: 75%;
 }
 .comment-box {
 	background-color: #d1d1d133;
@@ -226,7 +222,7 @@ main {
 	align-items: center;
 	flex-wrap: nowrap;
 	height: 50px;
-	width: 500px;
+	width: 85%;
 	margin: 5px;
 }
 #cmntInfo .cmntUser {
@@ -284,8 +280,6 @@ main {
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
-#rate {
-}
 
 #cmntText {
 	position: relative;
@@ -295,7 +289,7 @@ main {
 	height: 100px;
 	resize: none;
 	overflow-y: none;
-	width: 500px;
+	width: 100%;
 	max-width: 500px;
 	white-space: pre-wrap;
 	font-size: 12px;
