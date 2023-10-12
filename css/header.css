@@ -26,13 +26,6 @@ nav {
 	top: -20px;
 }
 
-<<<<<<< Updated upstream
-nav a, #muchmore a{
-    text-decoration: none;
-    color: var(--colorprincipal);
-    font-size: 1.5rem;
-}
-=======
 nav a,
 #muchmore a {
 	text-decoration: none;
@@ -51,4 +44,3 @@ nav a,
 		position: relative;
 	}
 }
->>>>>>> Stashed changes
