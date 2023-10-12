@@ -64,9 +64,11 @@ function displayPerson(name){
                 STUDIESLIST.appendChild(listItem);
         }
         PERSONIMAGE.src = displayData(name).imagen;  
+        PERSONIMAGE.style.transform = "rotate(0deg)";
+        PERSONIMAGE.style.marginBottom = "0%";
         PERSONIMAGE.style.height = "80%";
-            PERSONIMAGE.style.top = "5%";
-            PERSONIMAGE.style.left = "3%";
+        PERSONIMAGE.style.top = "5%";
+        PERSONIMAGE.style.left = "3%";
         PERSONIMAGE.style.opacity = 1;
         INFOCONTAINER.style.opacity = 1;
         }, 500);
@@ -77,7 +79,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
         NAMETITLE.textContent = "Nosotros";
         PRESENTATIONPARAGRAPH.textContent = "Somos un grupo de jovenes entusiastas apasionados por el mundo del desarrollo web, ansiosos por adquirir experiencia y contribuir con nuestra creatividad y habilidades tecnicas. Estamos comprometidos a mantener un aprendizaje continuo y crecer en el campo del desarrollo web, con el objetivo de ser parte de una empresa innovadora y colaborativa donde podamos aplicar nuestros conocimientos, para crear soluciones digitales de calidad";
         EXPERIENCETITLE.textContent = "";
-        STUDIESTITLE.textContent = "Objetivos"
+        EXPERIENCEPARAGRAPH.textContent = "";
+        STUDIESTITLE.textContent = "Objetivos";
         for (element of OBJETIVOS){
                 const listItem = document.createElement("li");
                 listItem.textContent = element;
@@ -90,6 +93,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
             PERSONIMAGE.style.top = "0%";
             PERSONIMAGE.style.left = "0%";
             PERSONIMAGE.style.opacity = 1;
+            if(window.innerWidth < 1180){
+                PERSONIMAGE.style.transform = "rotate(90deg) translate(-31%)";
+                PERSONIMAGE.style.marginBottom = "-45%";
+                PERSONIMAGE.style.top = "20%";
+                PERSONIMAGE.style.left = "0%";
+                PERSONIMAGE.style.opacity = 1;
+                INFOCONTAINER.style.opacity = 1;
+                }
         }, 500);
     }
 })
@@ -102,18 +113,27 @@ HOMEBTN.addEventListener("change", () => {
         NAMETITLE.textContent = "Nosotros";
         PRESENTATIONPARAGRAPH.textContent = "Somos un grupo de jovenes entusiastas apasionados por el mundo del desarrollo web, ansiosos por adquirir experiencia y contribuir con nuestra creatividad y habilidades tecnicas. Estamos comprometidos a mantener un aprendizaje continuo y crecer en el campo del desarrollo web, con el objetivo de ser parte de una empresa innovadora y colaborativa donde podamos aplicar nuestros conocimientos, para crear soluciones digitales de calidad";
         EXPERIENCETITLE.textContent = "";
+        EXPERIENCEPARAGRAPH.textContent = "";
         STUDIESTITLE.textContent = "Objetivos"
         for (element of OBJETIVOS){
                 const listItem = document.createElement("li");
                 listItem.textContent = element;
                 STUDIESLIST.appendChild(listItem);
         }
-        
+
             PERSONIMAGE.style.height = "100%";
             PERSONIMAGE.style.top = "0%";
             PERSONIMAGE.style.left = "0%";
             PERSONIMAGE.style.opacity = 1;
             INFOCONTAINER.style.opacity = 1;
+            if(window.innerWidth < 1180){
+                PERSONIMAGE.style.transform = "rotate(90deg) translate(-31%)";
+                PERSONIMAGE.style.marginBottom = "-45%";
+                PERSONIMAGE.style.top = "20%";
+                PERSONIMAGE.style.left = "0%";
+                PERSONIMAGE.style.opacity = 1;
+                INFOCONTAINER.style.opacity = 1;
+                }
         }, 500);
     }
 });

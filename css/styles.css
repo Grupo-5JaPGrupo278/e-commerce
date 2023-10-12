@@ -8,6 +8,7 @@ body {
 	width: 100vw;
 	overflow-x: hidden;
 }
+
 .jumbotron .display-4 {
 	font-weight: bold;
 }
@@ -325,6 +326,7 @@ footer p {
 }
 
 main {
+	min-width: 400px;
 	min-height: calc(100vh - 210px);
 }
 
