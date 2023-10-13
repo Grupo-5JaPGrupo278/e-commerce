@@ -146,7 +146,7 @@ function showProduct() {
         <div>${currentProduct.category}</div>
         <div class="subtitle">Cantidad de Vendidos</div>
         <div>${currentProduct.soldCount}</div>
-        <div>
+        <div id="quantity-container">
           <div class="subtitle text-center">Cantidad a comprar</div>
           <input onChange="quantityChange(event)" class="text-center" id="quantity-box" type="number" value="1" min="1" max="99"></input>
         </div>

@@ -36,17 +36,6 @@ iframe {
 .list-group-item {
 	background-color: rgba(255, 255, 255, 0.623) !important;
 }
-#iframeContainer {
-	transform: scale(50%);
-	width: 1650px;
-	height: fit-content;
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	grid-template-columns: auto auto auto;
-	background-color: rgba(128, 128, 128, 0.8);
-}
 .iframeContent {
 	background-color: transparent;
 }
@@ -137,16 +126,42 @@ iframe {
 #message {
 	color: var(--colorrosaclaro);
 }
-#iframeContainerParent {
-	height: fit-content;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
 /* ===========================[Product info]================================ */
+#quantity-container{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#quantity-box{
+	width: 50px;
+}
+#blank-categories{
+	width:100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 3vh;
+	min-width: 375px;
+	background-color: var(--lightalphacolor);
+}
 
 /* ===========================[Product coments]================================ */
-
+/* ===========================[Categories MOBILE]================================ */
+@media (max-width:680px){
+	.category-mobile{
+		margin-top: 1vh;
+	}
+	.mobile-header{
+		font-size: 21px;
+		margin-top:10px;
+	}
+	.mobile-text{
+		font-size: 10px;
+	}
+	.description-mobile{
+		display:none;
+	}
+}
 /* ===========================[]================================ */
 
 nav a {
@@ -374,6 +389,11 @@ a.custom-card:hover {
 	text-align: center;
 	transform: scale(50%);
 	margin: -5rem;
+}
+@media (max-width:680px){
+	.imagen_login {		
+		transform: scale(40%);
+	}
 }
 .btn-primary {
 	background-color: #6177d8;
