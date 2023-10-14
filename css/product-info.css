@@ -336,7 +336,13 @@ main {
 .rating input:checked ~ label:after {
 	opacity: 1;
 }
-
+#cmntBtnsGroup{
+	position: relative;
+	height: fit-content;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
 @media (min-width: 375px) {
 	.comment-box {
 		font-size: 12px;
@@ -351,5 +357,29 @@ main {
 @media (min-width: 992px) {
 	.comment-box {
 		font-size: 18px;
+		
+	}
+	
+}
+@media (max-width: 680px) {
+	#cmntBtnsContainer {
+		width: 420px;
+		flex-direction: column;
+		position: relative;
+		margin: 5px;
+		height: fit-content;
+		display: flex;
+		align-items:flex-start;
+		justify-content: start;
+	}
+	#cmntBtnsGroup{
+		font-size: 15px;
+	}
+	#cmntUser{
+		font-size: 18px;
+	}
+	#commentsArea {
+		width: 100%;
+		
 	}
 }

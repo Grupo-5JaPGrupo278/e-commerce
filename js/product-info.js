@@ -393,3 +393,13 @@ NEWCOMMENT.addEventListener("click", () => {
 		COMMENTAREA.style.transform = "translateY(300px)";
 	}
 });
+
+if (window.innerWidth < 680) {
+    // El ancho de la pantalla es menor a 680 píxeles
+    // Puedes realizar acciones específicas para pantallas pequeñas aquí
+    console.log("La pantalla es pequeña");
+} else {
+    // El ancho de la pantalla es mayor o igual a 680 píxeles
+    // Puedes realizar acciones específicas para pantallas grandes aquí
+    console.log("La pantalla es lo suficientemente grande");
+}
