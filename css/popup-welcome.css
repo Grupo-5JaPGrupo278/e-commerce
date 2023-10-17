@@ -64,3 +64,6 @@
     margin-right: 10px; /* Espacio entre el checkbox y el texto */
     margin-top: 15px;
 }
+#logo_e, #logo_commerce  {
+    height: 2rem;
+}
