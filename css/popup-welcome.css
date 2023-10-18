@@ -11,9 +11,9 @@
 
 .popup-content {
     background-color: rgba(33, 36, 43, 0.899);
-    width: 600px;
-    max-width: 60%;
-    height: 80%;
+    width: 700px;
+    max-width: 70%;
+    height: 45rem;
     margin: 100px auto;
     padding: 20px;
     border-radius: 5px;
@@ -25,9 +25,9 @@
 #terminos {
     position: relative;
     resize: none;
-    height: 80%;
+    height: 65%;
     overflow: auto;
-    text-align: left;
+    text-align: center;
     color: white;
 }
 #button-close {
@@ -64,6 +64,6 @@
     margin-right: 10px;
     margin-top: 15px;
 }
-#logo_e, #logo_commerce  {
-    height: 2rem;
+#logo_commerce  {
+    height: 7rem;
 }
