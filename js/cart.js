@@ -23,79 +23,61 @@ function QuantityChange(e) {
       }
     }
     const quantity = e.target.valueAsNumber;
-    const row = e.target.parentElement.parentElement; // Obtén la fila actual
-    const cost = parseFloat(row.querySelector('.cost').textContent.replace(/\D/g, ''));
+    const cardselected = e.target.parentElement.parentElement; // Obtén la carta actual
+    const cost = parseFloat(cardselected.querySelector('.cost').textContent);
     const subtotal = quantity * cost;
-    row.querySelector('.subtotal').textContent = `${INFO[row.rowIndex - 1].currency} ${subtotal}`;
+    cardselected.querySelector('.subtotal').textContent = `${subtotal}`;
 }
 // Impresora de artículos en el Carrito
 function ShowCart() {
     let htmlContentToAppend = '';
-    let cartitemrows = '';
+    let cartitemcards = '';
     for (let i = 0; i < INFO.length; i++) {
-        cartitemrows += `
-        <tr>
-              <td scope="row"><img class="little-cart-item" src="${INFO[i].imgsource}" alt="cart item"></td>
-              <td>${INFO[i].name}</td>
-              <td class="cost">${INFO[i].currency} ${INFO[i].cost}</td>
-              <td>
-                <input 
-                onChange="QuantityChange(event)" 
-                type="number" 
-                value="${INFO[i].quantity}"
-                class="input-quantity text-center"
-                min="1"
-                id="${INFO[i].id}"
-                ></input>
-              </td>
-              <td class="subtotal">${INFO[i].currency} ${INFO[i].cost * INFO[i].quantity}</td>
-              <td>
-                <input
-                onClick="DeleteCartItem(event)"
-                type="image" 
-                src="img/delete_btn.png" 
-                class="deleteCartItemBtn" 
-                cart-id="${INFO[i].id}"
-                >
-              </td>
-            </tr>
-        `
+        cartitemcards += `<article  class="article-preview">
+        <figure>
+            <img
+                src="${INFO[i].imgsource}"
+                alt="${INFO[i].name}"
+                title="${INFO[i].name}"
+            />
+        </figure>
+        <div>
+            <h2>${INFO[i].name}</h2>
+            <p>${INFO[i].currency} <span class="cost">${INFO[i].cost}</span></p>
+            <hr>
+            <div class="card-order">
+              <p>Cantidad: </p>
+              <input 
+              onChange="QuantityChange(event)" 
+              type="number" 
+              value="${INFO[i].quantity}"
+              class="input-quantity text-center"
+              min="1"
+              id="${INFO[i].id}"
+              />
+            </div>
+            <hr>
+            <div class="card-order">
+              <p>${INFO[i].currency} <span class="subtotal">${INFO[i].cost * INFO[i].quantity}</span></p>
+              <input
+                  onClick="DeleteCartItem(event)"
+                  type="image" 
+                  src="img/delete_btn.png" 
+                  class="deleteCartItemBtn" 
+                  cart-id="${INFO[i].id}"
+                  />
+            </div>
+            
+        </div>
+    </article>`
     }
 
-    if (cartitemrows === '') {
+    if (cartitemcards === '') {
         htmlContentToAppend = `
-    <table class="table">
-          <thead>
-            <tr>
-              <th></th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Costo</th>
-              <th scope="col">Cantidad</th>
-              <th scope="col">Subtotal</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
         <p>No se encontraron artículos agregados al carrito</p>
     `
     } else {
-        htmlContentToAppend = `
-    <table class="table">
-          <thead>
-            <tr>
-              <th></th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Costo</th>
-              <th scope="col">Cantidad</th>
-              <th scope="col">Subtotal</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${cartitemrows}
-          </tbody>
-        </table>
-    `
+        htmlContentToAppend = `${cartitemcards}`
     }
 
 
