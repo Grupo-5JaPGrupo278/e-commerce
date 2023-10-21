@@ -102,27 +102,37 @@ function ShowCart() {
 }
 document.addEventListener("DOMContentLoaded", ShowCart);
 
+/*------------------------------Mostrando Precio Final---------------------------------*/
+
 function changeTotalFinal() {
-	let t =
-		parseFloat(document.getElementById("CostoEnvio").textContent.replace(/\D/g, "")) +
-		parseFloat(document.getElementById("Total-Productos").textContent.replace(/\D/g, ""));
-	document.getElementById("Total").innerHTML = "U$D " + t;
+	let totalC=document.getElementById("CostoEnvio").textContent.match(/U\$D (\d+\.\d+)/);
+	let totalE=document.getElementById("Total-Productos").textContent.match(/U\$D (\d+\.\d+)/);
+	let t =parseFloat(totalC[1])+parseFloat(totalE[1]);
+		
+	document.getElementById("Total").innerHTML = "U$D " + t.toFixed(2);
 }
 
 function changeTotalCost() {
 	const cart = document.getElementsByClassName("subtotal");
 	let costTotal = 0;
+	let match 
 	for (let i = 0; i < cart.length; i++) {
-		costTotal += parseFloat(cart[i].textContent.replace(/\D/g, ""));
+		match = cart[i].textContent.match(/([A-Z]{3}) (\d+)/);
+		if(match[1]=="UYU"){
+			costTotal += (parseInt(match[2]) / 41);
+		}else{
+			costTotal += parseInt(match[2]);
+		}
+		
 	}
 
-	document.getElementById("Total-Productos").innerHTML = "U$D " + costTotal;
+	document.getElementById("Total-Productos").innerHTML = "U$D " + costTotal.toFixed(2);
 	ChangeCostoEnvio();
 	changeTotalFinal();
 }
 
 function ChangeCostoEnvio() {
-	let totalC = parseFloat(document.getElementById("Total-Productos").textContent.replace(/\D/g, ""));
+	let totalC = document.getElementById("Total-Productos").textContent.match(/U\$D (\d+\.\d+)/);
 	const CostoEnvio = document.getElementsByClassName("custom-control-input");
 	let inputEnvios;
 	for (let i = 0; i < CostoEnvio.length; i++) {
@@ -131,20 +141,16 @@ function ChangeCostoEnvio() {
 		}
 	}
 	if (inputEnvios.id === "goldradio") {
-		document.getElementById("CostoEnvio").innerHTML = "U$D " + Math.round(totalC * 0.13);
+		document.getElementById("CostoEnvio").innerHTML = "U$D " + (parseFloat(totalC[1]) * 0.13).toFixed(2);
 	} else if (inputEnvios.id === "premiumradio") {
-		document.getElementById("CostoEnvio").innerHTML = "U$D " + Math.round(totalC * 0.07);
+		document.getElementById("CostoEnvio").innerHTML = "U$D " + (parseFloat(totalC[1]) * 0.07).toFixed(2);
 	} else {
-		document.getElementById("CostoEnvio").innerHTML = "U$D " + Math.round(totalC * 0.03);
+		document.getElementById("CostoEnvio").innerHTML = "U$D " + (parseFloat(totalC[1]) * 0.03).toFixed(2);
 	}
 
 	changeTotalFinal();
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-	changeTotalCost();
+document.addEventListener("DOMContentLoaded", changeTotalCost,ChangeCostoEnvio,changeTotalFinal);
 
-	ChangeCostoEnvio();
-
-	changeTotalFinal();
-});
+/*----------------------------------------Ata aca---------------------------------------------*/
