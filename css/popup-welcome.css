@@ -13,7 +13,7 @@
     background-color: rgba(33, 36, 43, 0.899);
     width: 700px;
     max-width: 70%;
-    height: 45rem;
+    height: 35rem;
     margin: 100px auto;
     padding: 20px;
     border-radius: 5px;
@@ -25,7 +25,7 @@
 #terminos {
     position: relative;
     resize: none;
-    height: 65%;
+    height: 55%;
     overflow: auto;
     text-align: center;
     color: white;
@@ -56,8 +56,8 @@
     background-color: #41000000;
   }
 #button-close:hover {
-    background-color: rgb(133, 133, 133);
-    color: black;
+    background-color: #5261b6;
+   /*  background-color: rgb(133, 133, 133);*/ 
 }
 #no-mostrar{
     color: #ffffff;
@@ -66,4 +66,7 @@
 }
 #logo_commerce  {
     height: 7rem;
+}
+div {
+    color: #5261b6;
 }
