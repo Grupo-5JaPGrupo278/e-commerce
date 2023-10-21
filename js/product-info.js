@@ -1,24 +1,24 @@
-
 /* ===========================[Variables]================================ */
 const USERNAME = document.getElementById("cmntUser");
-const STOREDUSERNAME = localStorage.getItem('username');
+const STOREDUSERNAME = localStorage.getItem("username");
 const PRODID = "";
-const PROFILEIMAGE = document.getElementById("profileImage")
+const PROFILEIMAGE = document.getElementById("profileImage");
 const SENDBUTTON = document.getElementById("sendBtn");
 const PRIVATEBUTTON = document.getElementById("privateBtn");
 const DELETEBUTTON = document.getElementById("deleteBtn");
-const RATE = document.getElementsByName("rating")
-const TEXTAREA = document.getElementById("cmntText")
-const DATETIME = document.getElementById('dateTime')
-const NEWCOMMENT = document.getElementById('newCommentBtn')
-const COMMENTAREA = document.getElementById("commentsArea")
+const RATE = document.getElementsByName("rating");
+const TEXTAREA = document.getElementById("cmntText");
+const DATETIME = document.getElementById("dateTime");
+const NEWCOMMENT = document.getElementById("newCommentBtn");
+const COMMENTAREA = document.getElementById("commentsArea");
 let PRIV = false;
 let hiddenArea = true;
 let NOWTIME;
 let NOWDATE;
 let COMMENTID = 0;
 const storagedComments = localStorage.getItem('comment');
-            /* ===========[Variables RadioBtn]================= */ 
+let quantityBoxValue = 0
+/* ===========[Variables RadioBtn]================= */
 
 const STAR1 = document.getElementById("star1");
 const STAR2 = document.getElementById("star2");
@@ -29,79 +29,101 @@ const STAR5 = document.getElementById("star5");
 /* ===========================[Date Time]============================= */
 
 function updateDateTime() {
-    const ACTUALDATE = new Date();
-    const DAY = ACTUALDATE.getDate();
-    const MONTH = ACTUALDATE.getMonth() + 1;
-    const YEAR = ACTUALDATE.getFullYear() % 100;
-    const HOURS = ACTUALDATE.getHours();
-    const MINUTES = ACTUALDATE.getMinutes();
+	const ACTUALDATE = new Date();
+	const DAY = ACTUALDATE.getDate();
+	const MONTH = ACTUALDATE.getMonth() + 1;
+	const YEAR = ACTUALDATE.getFullYear() % 100;
+	const HOURS = ACTUALDATE.getHours();
+	const MINUTES = ACTUALDATE.getMinutes();
 
-    function formatMinutes(minutes) {
-        return minutes < 10 ? `0${minutes}` : minutes;
-    }
+	function formatMinutes(minutes) {
+		return minutes < 10 ? `0${minutes}` : minutes;
+	}
 
-    const FORMATEDDATE = `${MONTH}/${DAY}/${YEAR}`;
-    const FORMATEDHOURS = `${HOURS}:${formatMinutes(MINUTES)}`;
+	const FORMATEDDATE = `${MONTH}/${DAY}/${YEAR}`;
+	const FORMATEDHOURS = `${HOURS}:${formatMinutes(MINUTES)}`;
 
-    NOWDATE = FORMATEDDATE;
-    NOWTIME = FORMATEDHOURS;
+	NOWDATE = FORMATEDDATE;
+	NOWTIME = FORMATEDHOURS;
 
-    document.getElementById('dateTime').textContent = `${FORMATEDDATE} ${FORMATEDHOURS}`;
+	document.getElementById("dateTime").textContent = `${FORMATEDDATE} ${FORMATEDHOURS}`;
 }
 updateDateTime();
 setInterval(updateDateTime, 1000);
 
 /* =============================[Delete Button]=============================== */
 
-DELETEBUTTON.addEventListener("click", ()=>{
-    TEXTAREA.value = "";
-    for (button of RATE){
-        button.checked = false;
-    }
-})
+DELETEBUTTON.addEventListener("click", () => {
+	TEXTAREA.value = "";
+	for (button of RATE) {
+		button.checked = false;
+	}
+});
 
 /* ==============================[private Button]================================ */
 
 PRIVATEBUTTON.addEventListener("click", () => {
-    if (PRIV == false){
-        PRIV = true;
-        USERNAME.innerHTML = "Authorless"; 
-        PROFILEIMAGE.setAttribute("src", 'img/img_perfil_private.png');
-    } else {
-        PRIV = false;
-        USERNAME.textContent = STOREDUSERNAME; 
-        PROFILEIMAGE.setAttribute("src", 'img/img_perfil.png');
-    }
+	if (PRIV == false) {
+		PRIV = true;
+		USERNAME.innerHTML = "Authorless";
+		PROFILEIMAGE.setAttribute("src", "img/img_perfil_private.png");
+	} else {
+		PRIV = false;
+		USERNAME.textContent = STOREDUSERNAME;
+		PROFILEIMAGE.setAttribute("src", "img/img_perfil.png");
+	}
 });
 
+/* ==============================[related products functionality]================================ */
+function setProductID(id) {
+	localStorage.setItem("ProductID", id);
+	window.location = "product-info.html";
+}
 /* ==============================[show product]================================ */
 const CONTAINER = document.getElementById("product-container");
 const COMMENTS = document.getElementById("comments");
 let currentProduct = {};
 let commentaries = [];
+let carouselImages = "";
+let relatedproductloop = "";
 function showProduct() {
 	let htmlContentToAppend = "";
 
 	document.getElementById("title").innerHTML = `${currentProduct.name} <hr>`;
-  
+	let i = 0;
+	for (element of currentProduct.images) {
+		if (i == 0) {
+			carouselImages += `
+      <div class="carousel-item active">
+        <img  src="${element}" class="d-block w-100" alt="...">
+      </div>`;
+			i++;
+		} else {
+			carouselImages += `
+              <div class="carousel-item">
+                <img  src="${element}" class="d-block w-100" alt="...">
+              </div>`
+    }
+  }
+  for (relatedprod of currentProduct.relatedProducts) {
+    relatedproductloop += `
+          <div class="related-product-container">
+            <div>
+              ${relatedprod.name}
+            </div>
+            <div onclick="setProductID(${relatedprod.id})">
+              <img class="image-related-product" src="${relatedprod.image}" alt="producto relacionado 1">
+            </div>
+          </div>
+    `;
+	}
 	htmlContentToAppend = `
     <div id="info-image-container">
       <div class="image-container">
         <div class="subtitle">Imágenes ilustrativas</div>
           <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img  src="${currentProduct.images[0]}" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img  src="${currentProduct.images[1]}" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img  src="${currentProduct.images[2]}" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img  src="${currentProduct.images[3]}" class="d-block w-100" alt="...">
-              </div>
+              ${carouselImages}
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -124,23 +146,78 @@ function showProduct() {
         <div>${currentProduct.category}</div>
         <div class="subtitle">Cantidad de Vendidos</div>
         <div>${currentProduct.soldCount}</div>
-        <input type="button" name="addToCart" id="addToCartBtn" value="Add to cart">
+        <div id="quantity-container">
+          <div class="subtitle text-center">Cantidad a comprar</div>
+          <input onChange="quantityChange(event)" class="text-center" id="quantity-box" type="number" value="1" min="1" max="99"></input>
+        </div>
+        <input onClick="addToCart()" type="button" name="addToCart" id="addToCartBtn" value="Add to cart">
         </div> 
+    </div>
+    <div id="relatedproduct" class="image-container relatedproducts">
+        <div class="h4">Related Products</div>
+        <div id="relatedproduct" class="d-flex flex-row justify-content-center">
+          ${relatedproductloop}
+        </div>
+      
     </div>
     `;
 	CONTAINER.innerHTML = htmlContentToAppend;
+}
+/* =========================[Quantity Change on Cart]============================ */
+function quantityChange(e){
+  quantityBoxValue = e.target.valueAsNumber;
+}
+/* ==============================[ADD TO CART BUTTON]================================ */
+function addToCart() {
+  const CARTLIST = JSON.parse(localStorage.getItem('cartlist')) || [];
+  let iteminfo = {};
+  /* Verifica que no exista ya un artículo con misma ID*/
+  for (let i = 0; i < CARTLIST.length; i++){
+    if ( CARTLIST[i].id === currentProduct.id){
+      // Verifica que las cantidades sean correctas
+      if ( CARTLIST[i].quantity !== quantityBoxValue){
+        CARTLIST[i] = {
+          id: currentProduct.id,
+          imgsource: currentProduct.images[0],
+          name: currentProduct.name,
+          quantity: quantityBoxValue,
+          currency: currentProduct.currency,
+          cost: currentProduct.cost
+        }
+        localStorage.setItem('cartlist', JSON.stringify(CARTLIST));
+        alert('Cantidad actualizada correctamente')
+        return
+      } else {
+        console.log('No puedes agregar el mismo artículo nuevamente')
+        return
+      }
+      
+    }
+  }
+  /* Setea la información del artículo dentro del objeto */
+  iteminfo = {
+    id: currentProduct.id,
+    imgsource: currentProduct.images[0],
+    name: currentProduct.name,
+    quantity: quantityBoxValue,
+    currency: currentProduct.currency,
+    cost: currentProduct.cost
+  }
+  /* Prepara todo para mandarlo al LocalStorage */
+  CARTLIST.push(iteminfo);
+  localStorage.setItem('cartlist', JSON.stringify(CARTLIST));
+  alert('Artículo agregado con exito al carrito!');
 }
 
 /* ==============================[Show comment]================================ */
 
 function showComments(array) {
   const PRODID = currentProduct.id;
-  console.log(PRODID)
-	let commentsToAppend = "";
-	for (let i = 0; i < array.length; i++) {
-   if(array[i].product == PRODID){
-    if(array[i].user == STOREDUSERNAME){
-      commentsToAppend += `
+  let commentsToAppend = "";
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].product == PRODID) {
+      if (array[i].user == STOREDUSERNAME) {
+        commentsToAppend += `
        <div class="comment-box">
           <div class="d-flex w-100 justify-content-between">
           <div class="d-flex">
@@ -156,8 +233,8 @@ function showComments(array) {
       </div>
             <div class="comment-description">${array[i].description}</div>
         </div>`;
-    }else{
-      commentsToAppend += `
+			} else {
+				commentsToAppend += `
       <div class="comment-box ">
          <div class="d-flex w-100 justify-content-between">
          <div class="d-flex">
@@ -172,8 +249,8 @@ function showComments(array) {
      </div>
            <div class="comment-description">${array[i].description}</div>
        </div>`;
-   }
-    }
+			}
+		}
 	}
 
 	COMMENTS.innerHTML = commentsToAppend;
@@ -187,134 +264,142 @@ function showComments(array) {
 	}
 }
 
-
-
-            /* ===========[list Comments]================= */
-
+/* ===========[list Comments]================= */
 document.addEventListener("DOMContentLoaded", async function (e) {
-    try {
-        const productResponse = await getJSONData(PRODUCT_INFO_URL + localStorage.ProductID + ".json");
-        if (productResponse.status == "ok") {
-            currentProduct = productResponse.data;
-            showProduct();
-        }
-
-        const commentsResponse = await getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json");
-        if (commentsResponse.status == "ok") {
-            const commentaries = commentsResponse.data;
-            const combinedComments = commentaries.concat(JSON.parse(storagedComments));
-            showComments(combinedComments);
-        }
-    } catch (error) {
-        console.error("Error en la carga de datos:", error);
-    }
+	try {
+		const productResponse = await getJSONData(PRODUCT_INFO_URL + localStorage.ProductID + ".json");
+		if (productResponse.status == "ok") {
+			currentProduct = productResponse.data;
+			showProduct();
+		}
+		const commentsResponse = await getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json");
+		if (commentsResponse.status == "ok") {
+			const commentaries = commentsResponse.data;
+			showComments(commentaries);
+			const combinedComments = commentaries.concat(JSON.parse(storagedComments));
+			showComments(combinedComments);
+		}
+	} catch (error) {
+		console.error("Error en la carga de datos:", error);
+	}
 });
-
-            /* ===========[Update Comments]================= */ 
+/* ===========[Update Comments]================= */
 
 function updateComments() {
-  getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json").then(function (result) {
-      if (result.status == "ok") {
-          const commentaries = result.data;
-          const storagedComments = localStorage.getItem('comment');
-          
-          if (storagedComments) {
-              const parsedComments = JSON.parse(storagedComments);
-              const combinedComments = commentaries.concat(parsedComments);
-              showComments(combinedComments);
-          }
-      }
-  });
-}
+	getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json").then(function (result) {
+		if (result.status == "ok") {
+			const commentaries = result.data;
+			const storagedComments = localStorage.getItem("comment");
 
+			if (storagedComments) {
+				const parsedComments = JSON.parse(storagedComments);
+				const combinedComments = commentaries.concat(parsedComments);
+				showComments(combinedComments);
+			}
+		}
+	});
+}
 
 /* ==================================================================== */
 
-document.addEventListener("DOMContentLoaded", ()=> {
+document.addEventListener("DOMContentLoaded", () => {
 	USERNAME.textContent = STOREDUSERNAME;
 });
 
 /* ==============================[send Button]================================ */
-function setRateIndex(){
-  if (STAR1.checked){
-    return 5;
-  }if (STAR2.checked) {
-    return 4;
-  }if (STAR3.checked) {
-    return 3;
-  }if (STAR4.checked) {
-    return 2;
-  }if (STAR5.checked) {
-    return 1;
-  }else{
-    return 0;
-  }
-
+function setRateIndex() {
+	if (STAR1.checked) {
+		return 5;
+	}
+	if (STAR2.checked) {
+		return 4;
+	}
+	if (STAR3.checked) {
+		return 3;
+	}
+	if (STAR4.checked) {
+		return 2;
+	}
+	if (STAR5.checked) {
+		return 1;
+	} else {
+		return 0;
+	}
 }
-function saveOnLocalStorage(){
-    let comment = JSON.parse(localStorage.getItem("comment")) || [];
-    if (!Array.isArray(comment)) {
-        comment = [];
-    }
+function saveOnLocalStorage() {
+	let comment = JSON.parse(localStorage.getItem("comment")) || [];
+	if (!Array.isArray(comment)) {
+		comment = [];
+	}
 
-    let newComment = {
-        "product": currentProduct.id,
-        "score": setRateIndex(),
-        "description": TEXTAREA.value,
-        "user": USERNAME.textContent,
-        "dateTime": NOWDATE + " " + NOWTIME,
-        "commentID": COMMENTID
-      };
+	let newComment = {
+		product: currentProduct.id,
+		score: setRateIndex(),
+		description: TEXTAREA.value,
+		user: USERNAME.textContent,
+		dateTime: NOWDATE + " " + NOWTIME,
+		commentID: COMMENTID,
+	};
 
-      comment.push(newComment);
+	comment.push(newComment);
 
-      localStorage.setItem("comment", JSON.stringify(comment))
+	localStorage.setItem("comment", JSON.stringify(comment));
 }
 
-SENDBUTTON.addEventListener("click", ()=>{
-    let comment = JSON.parse(localStorage.getItem("comment")) || [];
-    if (Array.isArray(comment) && comment.length > 0) {
-      COMMENTID = comment[comment.length - 1].commentID + 1;
-    } else {
-      COMMENTID = 0;
-    }
-    saveOnLocalStorage();
-    COMMENTID++;
-    TEXTAREA.value = "";
-    for (button of RATE){
-        button.checked = false;
-    }
-    updateComments();
-})
-    
-            /* ===========[Delete Comments]================= */
+SENDBUTTON.addEventListener("click", () => {
+	let comment = JSON.parse(localStorage.getItem("comment")) || [];
+	if (Array.isArray(comment) && comment.length > 0) {
+		COMMENTID = comment[comment.length - 1].commentID + 1;
+	} else {
+		COMMENTID = 0;
+	}
+	saveOnLocalStorage();
+	COMMENTID++;
+	TEXTAREA.value = "";
+	for (button of RATE) {
+		button.checked = false;
+	}
+	updateComments();
+});
+
+/* ===========[Delete Comments]================= */
 
 document.addEventListener("DOMContentLoaded", function (e) {
-  let commentCreator = JSON.parse(localStorage.getItem("comment"));
-  if (!commentCreator) {
-      localStorage.setItem('comment', (JSON.stringify([])));
-  }
+	let commentCreator = JSON.parse(localStorage.getItem("comment"));
+	if (!commentCreator) {
+		localStorage.setItem("comment", JSON.stringify([]));
+	}
 
-  COMMENTS.addEventListener('click', function (event) {
-    if (event.target.classList.contains('deleteCmntBtn')) {
-      const commentId = parseInt(event.target.getAttribute('data-comment-id'));
-      const storagedComments = JSON.parse(localStorage.getItem('comment'));
-      if (Array.isArray(storagedComments)) {
-        const updatedComments = storagedComments.filter(comment => comment.commentID !== commentId);
-        localStorage.setItem('comment', JSON.stringify(updatedComments));
-        updateComments();
-      }
-    }
-  });
+	COMMENTS.addEventListener("click", function (event) {
+		if (event.target.classList.contains("deleteCmntBtn")) {
+			const commentId = parseInt(event.target.getAttribute("data-comment-id"));
+			const storagedComments = JSON.parse(localStorage.getItem("comment"));
+			if (Array.isArray(storagedComments)) {
+				const updatedComments = storagedComments.filter(comment => comment.commentID !== commentId);
+				localStorage.setItem("comment", JSON.stringify(updatedComments));
+				updateComments();
+			}
+		}
+	});
 });
 /* ==============================[New Comment Button]================================ */
 
-NEWCOMMENT.addEventListener("click", ()=>{
-  if (hiddenArea === true) {
-    hiddenArea = false;
-    COMMENTAREA.style.transform = "translateY(0px)";
-  } else {
-    hiddenArea = true;
-    COMMENTAREA.style.transform = "translateY(300px)";
-  }
-})
+NEWCOMMENT.addEventListener("click", () => {
+	if (hiddenArea === true) {
+		hiddenArea = false;
+		COMMENTAREA.style.transform = "translateY(0px)";
+	} else {
+		hiddenArea = true;
+		COMMENTAREA.style.transform = "translateY(300px)";
+	}
+});
+
+if (window.innerWidth < 680) {
+    // El ancho de la pantalla es menor a 680 píxeles
+    // Puedes realizar acciones específicas para pantallas pequeñas aquí
+    console.log("La pantalla es pequeña");
+} else {
+    // El ancho de la pantalla es mayor o igual a 680 píxeles
+    // Puedes realizar acciones específicas para pantallas grandes aquí
+    console.log("La pantalla es lo suficientemente grande");
+}

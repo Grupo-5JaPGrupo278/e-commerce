@@ -1,12 +1,4 @@
-:root{
-    --coloroscuro:#22222B;
-    --colorgris:#434351;
-    --colorrosa:#AC6291;
-    --colorrosaclaro:#E6CADF;
-    --colorblanco:#ECE7EB;
-    font-family: Tahoma;
-    font-size: 20px;
-}
+
 @media (prefers-reduced-motion: no-preference) {
     * {
       scroll-behavior: smooth;
@@ -14,36 +6,29 @@
   }
 html{
     box-sizing: border-box;
+    
 }
 body{
     margin: 0 0;
     background-color: var(--colorgris);
-    color:var(--colorrosaclaro);
+    color: var(--colorsecundario);
     overflow-x:hidden;
 }
-/* ============================================== HEADER ============================================ */
-nav{
-    width:100vw;
-    height:6vh;
-    background-color: var(--coloroscuro);
-    display:flex;
-    justify-content: space-evenly;
-    align-items: center;
-    position:fixed;
-    z-index:2;
+@media(max-width: 680px){
+    body{
+        width: 100vw;
+        min-width: 400px;
+    }
+
 }
-nav a, #muchmore a{
-    text-decoration: none;
-    color:var(--colorrosa);
-    font-size: 1.5rem;
-}
+
 /* ======================================== PRESENTACION E-COMMERCE ======================================  */
 #presentation{
     display:flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-left:8vw;
-    margin-right:8vw;
+    width: 100%;
+    background-color: var(--lightalphacolor);
 }
 #text-presentation{
     display:flex;
@@ -52,8 +37,8 @@ nav a, #muchmore a{
     position:relative;
 }
 #presentation h1{
-    width:60vw;
-    height:auto;
+    width:80%;
+    height: 3em;
     font-size:5rem;
     text-align: center;
 }
@@ -74,10 +59,10 @@ nav a, #muchmore a{
 #btn-presentation{
     position:relative;
     bottom:8vh;
-    width:10vw;
-    height:6vh;
+    width:200px;
+    height:60px;
     background-color: var(--coloroscuro);
-    color:var(--colorrosa);
+    color:var(--colorprincipal);
     font-size:1.5rem;
     border:none;
     border-radius: 10px;
@@ -85,12 +70,28 @@ nav a, #muchmore a{
 }
 #btn-presentation:hover{
     transition:0.8s;
-    background-color:var(--colorrosa);
+    background-color:var(--colorprincipal);
     color:var(--coloroscuro);
-    border:var(--colorrosaclaro);
+    border:var(--colorsecundario);
+}
+@media(max-width: 680px){
+    #presentation h1{
+        height: auto;
+        font-size:2.7rem;
+    }
+    #presentation p{
+        font-size: 1.3rem;
+
+    }
+    #btn-presentation{
+        width:150px;
+        height:30px;
+        font-size:1rem;
+
+    }
 }
 /* ======================================== DISPLAY MAIN INDEX ======================================  */
-main{
+#main-display{
     display:none;
 }
 #category-container{
@@ -128,35 +129,44 @@ main{
 .category-image{
     width:30vw;
     height:auto;
-    border: 0.8px solid var(--colorrosaclaro);
+    border: 0.8px solid var(--colorsecundario);
     border-radius:10px;
-    box-shadow: 3px 3px var(--colorrosaclaro);
+    box-shadow: 3px 3px var(--colorsecundario);
     margin-top:1vh;
 }
-/* ============================================== F00TER  =============================================  */
-footer{
-    width:100vw;
-    height:10vh;
-    background-color: var(--coloroscuro);
-    display:flex;
-    justify-content: space-evenly;
-    align-items: center;
-    font-size: 1.2rem;
+
+/*  ============================================ CARRUSEL ==========================================  */ 
+.img-carrusel{
+    border-radius: 15px;
 }
-footer a{
-    text-decoration: none;
-    color:var(--colorrosa);
+
+#carouselExampleCaptions{
+    height: 450px;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
-/* ============================================ DISEÑOS DIVS ==========================================  */
-.little-div{
-    width:100%;
-    height:10vh;
+.carousel-caption{
+    text-shadow: -5px 3px 4px rgba(0,0,0,1);
 }
-.medium-div{
-    width:100%;
-    height:25vh;
-}
-.big-div{
-    width:100%;
-    height:40vh;
+
+@media(max-width: 680px){
+    /* #carouselExampleCaptions{
+        height: 200px;
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    } */
+    #carouselExampleCaptions {
+        height: 300px;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .img-carrusel {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+
 }

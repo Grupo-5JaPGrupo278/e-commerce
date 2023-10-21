@@ -21,7 +21,7 @@ function showProductList() {
 	for (let i = 0; i < currentProductArray.products.length; i++) {
 		let product = currentProductArray.products[i];
 		htmlContentToAppend += `
-            <div onclick="setProductID(${product.id})" class="list-group-item list-group-item-action cursor-active product-container">
+            <div onclick="setProductID(${product.id})" class=" cursor-active product-container">
                 
                     
                         <img src="${product.image}" alt="${product.name}" class=" img">
@@ -45,20 +45,6 @@ function showProductList() {
 	document.getElementById("contenedor-articulo").innerHTML = htmlContentToAppend;
 }
 
-/*document.getElementById("but").addEventListener("click", function () {
-	for (let i = 0; i < currentProductArray.products.length; i++) {
-		for (let j = 0; j < currentProductArray.products.length - 1; j++) {
-			if (currentProductArray.products[j].cost > currentProductArray.products[j + 1].cost) {
-				let aux = currentProductArray.products[j];
-				currentProductArray.products[j] = currentProductArray.products[j + 1];
-				currentProductArray.products[j + 1] = aux;
-			}
-		}
-	}
-
-	showProductList();
-});*/
-
 document.addEventListener("keyup", function (e) {
 	//detecta el teclado y procede a hacer una accion
 	if (e.target.matches("#buscador")) {
@@ -77,19 +63,6 @@ document.addEventListener("keyup", function (e) {
 				p.classList.add("filtro"); //aca se los agrego porque no coincide
 			}
 		}
-
-		/*document.querySelectorAll(".product-container").forEach(producto => {
-			if (
-				producto.querySelector("#n").innerHTML.toLowerCase().includes(e.target.value) ||
-				producto.querySelector("#d").innerHTML.toLowerCase().includes(e.target.value)
-			) {
-				producto.classList.remove("filtro");
-			} else {
-				producto.classList.add("filtro");
-			}
-
-			//console.log(producto.querySelector("#n").innerHTML.toLowerCase().includes(e.target.value));
-		});*/
 	}
 });
 document.addEventListener("DOMContentLoaded", function (e) {
