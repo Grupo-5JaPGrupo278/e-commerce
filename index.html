@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/darkmode.css">
   <link rel="stylesheet" href="css/gallery.css">
-  <!-- ================================ Stylesheets ====================================== -->
+  <link rel="stylesheet" href="css/popup-welcome.css">
   <link rel="icon" type="image/x-icon" href="img\favicon.ico">
   <script src="https://kit.fontawesome.com/e6f78feb22.js" crossorigin="anonymous"></script>
 </head>
@@ -81,7 +81,36 @@
       <button id="btn-presentation">¡A comprar!</button>
     </div>
   </section>
-  <div class="medium-div"></div>
+  <div class="big-div"></div>
+</div>
+
+<!-- =============================== POPUP DE BIEVENIDA =====================================  -->
+<div class="popup" id="termsPopup">
+ <div class="popup-content">
+  <div class="logotype">
+    <img src="../img/login.png" id="logo_commerce" alt="logo_commerce">
+  </div>
+     <h2 id="titulo">¡Bienvenido a E-Commerce!</h2>
+     <p id="terminos">
+      <br>
+      Descubre una amplia gama de productos y servicios de alta calidad. Encuentra las mejores ofertas y oportunidades de compra y venta en un solo lugar.
+      <br>
+      <br>
+      Explora nuestra selección, compra con confianza y vende tus productos de manera segura. En E-Commerce, hacemos que la experiencia de comprar y vender sea fácil y emocionante.
+      <br>
+      <br>
+      ¿Estás buscando algo en particular? Usa nuestra barra de búsqueda para encontrar exactamente lo que necesitas. Y si eres un vendedor, ¡publica tus productos y llega a una audiencia global!
+      <br>
+      <br>
+      Gracias por unirte a nuestra comunidad. Estamos aquí para ayudarte en cada paso del camino. ¡Felices compras y ventas!</p>
+      <div>
+       <button id="button-close"onclick="closePopup()">Cerrar</button>
+       <br> 
+       <input type="checkbox" id="no-mostrar">No volver a mostrar
+      </div>  
+ </div>
+</div>
+
   <!-- =============================== SECCION PRINCIPAL ======================================= -->
   <main id="main-display">
     <section class="gallery">
@@ -217,6 +246,7 @@
   <script src="js/darktheme.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cookies.js"></script>
+  <script src="js/"></script>
 </body>
 
 </html>
