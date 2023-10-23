@@ -85,3 +85,65 @@ function ShowCart() {
     
 }
 document.addEventListener('DOMContentLoaded', ShowCart);
+
+
+// Función para ocultar los metodos de pago
+
+document.addEventListener("DOMContentLoaded", () => {
+    const MASTER = document.getElementById("mastercardBtn");
+    const VISA = document.getElementById("visaBtn");
+    const MAESTRO = document.getElementById("maestroBtn");
+    const PAYPAL = document.getElementById("paypalBtn")
+  
+    MASTER.addEventListener("click", () => {
+      if (!document.getElementById("mastercard").classList.contains("show")) {
+        // Mostrar MasterCard
+        document.getElementById("mastercard").classList.add("show");
+        // Ocultar Visa
+        document.getElementById("visa").classList.remove("show");
+
+        document.getElementById("paypal").classList.remove("show");
+
+        document.getElementById("maestro").classList.remove("show");
+      }
+    });
+  
+    VISA.addEventListener("click", () => {
+      if (!document.getElementById("visa").classList.contains("show")) {
+        // Mostrar Visa
+        document.getElementById("visa").classList.add("show");
+        // Ocultar MasterCard
+        document.getElementById("mastercard").classList.remove("show");
+
+        document.getElementById("paypal").classList.remove("show");
+
+        document.getElementById("maestro").classList.remove("show");
+      }
+    });
+
+    MAESTRO.addEventListener("click", () => {
+        if (!document.getElementById("maestro").classList.contains("show")) {
+          // Mostrar MasterCard
+          document.getElementById("maestro").classList.add("show");
+          // Ocultar Visa
+          document.getElementById("visa").classList.remove("show");
+
+          document.getElementById("mastercard").classList.remove("show");
+
+          document.getElementById("paypal").classList.remove("show");
+        }
+    });
+      
+    PAYPAL.addEventListener("click", () => {
+        if (!document.getElementById("paypal").classList.contains("show")) {
+          // Mostrar MasterCard
+          document.getElementById("paypal").classList.add("show");
+          // Ocultar Visa
+          document.getElementById("visa").classList.remove("show");
+
+          document.getElementById("maestro").classList.remove("show");
+
+          document.getElementById("mastercard").classList.remove("show");
+        }
+    });
+  });

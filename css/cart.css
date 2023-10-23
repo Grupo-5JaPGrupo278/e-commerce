@@ -131,3 +131,36 @@ article:hover img {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+
+/* ================ [Metodo de pago] ================*/
+
+.paymethodIcons{
+    height: 50px;
+}
+
+.generalInfoContainer{
+    position: relative;
+    width: 90%;
+    height: fit-content;
+    border: 2px solid var(--colorsecundario);
+    border-radius: 15px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.methodInfoContainer{
+    position: relative;
+    width: 90%;
+    height: fit-content;
+    border-radius: 15px;
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+}
+.transformationBtn{
+    transform: translateY(-35px);
+}

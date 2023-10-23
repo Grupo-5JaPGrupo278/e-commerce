@@ -142,9 +142,114 @@
             </div>
             <div class="col">
               <div class="col text-end">U$D 000</div>
-            </div>
-        </div>
+            </div> 
+          </div>
 
+  <!-- ==============================[informacion de pago]====================================== -->
+
+          <div class="row cost-container">
+            <div class="col">
+              <div class="row row-cols-1 text-start"><p>Seleccione Metodo de pago</p></div>
+
+              <div class="row row-cols-1 text-start">
+
+                <div class="generalInfoContainer">
+          <!-- =========--===========[botones]======================= -->
+                <div>
+                  <p class="d-inline-flex gap-1">
+                    <a class="btn btn-primary transformationBtn" data-bs-toggle="collapse" href="#mastercard" role="button" aria-expanded="false" aria-controls="mastercard" id="mastercardBtn">
+                      <img src="img\mastercard-icon.png" alt="mastercard-icon" class="paymethodIcons">
+                    </a>
+
+                    <a class="btn btn-primary transformationBtn" data-bs-toggle="collapse" href="#visa" role="button" aria-expanded="false" aria-controls="visa" id="visaBtn">
+                      <img src="img\visa-Icon.png" alt="visa-icon" class="paymethodIcons">
+                    </a>
+
+                    <a class="btn btn-primary transformationBtn" data-bs-toggle="collapse" href="#maestro" role="button" aria-expanded="false" aria-controls="maestro" id="maestroBtn">
+                      <img src="img\maestro-icon.png" alt="maestro-icon" class="paymethodIcons">
+                    </a>
+
+                    <a class="btn btn-primary transformationBtn" data-bs-toggle="collapse" href="#paypal" role="button" aria-expanded="false" aria-controls="paypal" id="paypalBtn">
+                      <img src="img\paypal-icon.png" alt="paypal-icon" class="paymethodIcons">
+                    </a>
+                  </p>
+          <!-- =========--===========[cuadros de informacion]======================= -->
+                <div class="methodInfoContainer">
+                  <!-- ============[MasterCard]============== -->
+                  <div class="collapse" id="mastercard">
+                    <form class="row g-3">
+                      <div class="col-12">
+                        <label for="masterinputCardNumber" class="form-label">Nro de Tarjeta</label>
+                        <input type="text" class="form-control" id="masterinputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx">
+                      </div>
+                      <div class="col-12">
+                        <label for="masterinputName" class="form-label">Nombre del titular</label>
+                        <input type="text" class="form-control mb-0" id="masterinputName">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="masterExplirationDate" class="form-label">Fecha de Expiracion</label>
+                        <input type="email" class="form-control" id="masterExplirationDate">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="masterCVC" class="form-label">CVC</label>
+                        <input type="password" class="form-control" id="masterCVC">
+                      </div>
+                    </form>
+                  </div>
+                   <!-- ============[Visa]============== -->
+                  <div class="collapse" id="visa">
+                    <form class="row g-3">
+                      <div class="col-12">
+                        <label for="visainputCardNumber" class="form-label">Nro de Tarjeta</label>
+                        <input type="text" class="form-control" id="visainputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx">
+                      </div>
+                      <div class="col-12">
+                        <label for="visainputName" class="form-label">Nombre</label>
+                        <input type="text" class="form-control mb-0" id="visainputName">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="visaExplirationDate" class="form-label">Fecha de Expiracion</label>
+                        <input type="email" class="form-control" id="visaExplirationDate">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="visaCVC" class="form-label">CVC</label>
+                        <input type="password" class="form-control" id="visaCVC">
+                      </div>
+                    </form>
+                  </div>
+                  <!-- ============[Maestro]============== -->
+                  <div class="collapse" id="maestro">
+                    <form class="row g-3">
+                      <div class="col-12">
+                        <label for="maestroinputCardNumber" class="form-label">Nro de Tarjeta</label>
+                        <input type="text" class="form-control" id="maestroinputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx">
+                      </div>
+                      <div class="col-12">
+                        <label for="maestroinputName" class="form-label">Nombre</label>
+                        <input type="text" class="form-control mb-0" id="maestroinputName">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="maestroExplirationDate" class="form-label">Fecha de Expiracion</label>
+                        <input type="email" class="form-control" id="maestroExplirationDate">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="maestroCVC" class="form-label">CVC</label>
+                        <input type="password" class="form-control" id="maestroCVC">
+                      </div>
+                    </form>
+                  </div>
+                  <!-- ============[PayPal]============== -->
+                  <div class="collapse" id="paypal">
+                      <img src="img\commingsoon-img.png" alt="Commingsoon">
+                  </div>
+                </div>
+          <!-- =========--===========[fin del contenido del cuadro]======================= -->
+                </div>
+              </div>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
 
