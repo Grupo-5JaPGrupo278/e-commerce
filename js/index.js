@@ -1,5 +1,4 @@
-const DARKMODE = document.getElementById('toggle');
-
+// Funcionamiento de la Galería - Asigna CatID a cada una de las cartas
 document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("cars").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
@@ -13,7 +12,33 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
+    document.getElementById("tools").addEventListener("click", function() {
+        localStorage.setItem("catID", 104);
+        window.location = "products.html"
+    });
+    document.getElementById("computers").addEventListener("click", function() {
+        localStorage.setItem("catID", 105);
+        window.location = "products.html"
+    });
+    document.getElementById("clothes").addEventListener("click", function() {
+        localStorage.setItem("catID", 106);
+        window.location = "products.html"
+    });
+    document.getElementById("electrodomestics").addEventListener("click", function() {
+        localStorage.setItem("catID", 107);
+        window.location = "products.html"
+    });
+    document.getElementById("sports").addEventListener("click", function() {
+        localStorage.setItem("catID", 108);
+        window.location = "products.html"
+    });
+    document.getElementById("cellphones").addEventListener("click", function() {
+        localStorage.setItem("catID", 109);
+        window.location = "products.html"
+    });
 });
+// Funcionamiento de la Galería - Asigna CatID a cada una de las cartas
+// Funcionamiento de botón 'A comprar' - desbloquea contenido principal
 const button = document.getElementById("btn-presentation");
 const displaydestacados = document.getElementById("main-display");
 
@@ -24,7 +49,8 @@ button.addEventListener("click",function(e){
         this.classList.add("displayNone")
     }, 1000);
 })
-
+// Funcionamiento de botón 'A comprar' - desbloquea contenido principal
+// Funcionamiento de 'No volver a mostrar' en Pop Up de presentación de la página
 document.addEventListener("DOMContentLoaded", function() {
     const closeButton = document.getElementById("button-close");
     const noMostrarCheckbox = document.getElementById("no-mostrar");
@@ -47,6 +73,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Cerrar el popup al hacer clic en el botón "Cerrar"
     closeButton.addEventListener("click", closePopup);
 });
+// Funcionamiento de 'No volver a mostrar' en Pop Up de presentación de la página
+// Setter de tema // Cambia las variables en el Root según el tema preferido
+const DARKMODE = document.getElementById('toggle');
 DARKMODE.addEventListener('change', (e)=>{
     const DARKMODE = document.getElementById('toggle');
     if(DARKMODE.checked){
@@ -70,3 +99,4 @@ document.addEventListener("DOMContentLoaded", ()=>{
         DARKMODE.checked = false;
     }
 })
+// Setter de tema // Cambia las variables en el Root según el tema preferido

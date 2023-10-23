@@ -71,7 +71,7 @@ function ShowCart() {
         </div>
     </article>`
     }
-
+// Si no hay artículos en el carrito, se muestra el siguiente mensaje
     if (cartitemcards === '') {
         htmlContentToAppend = `
         <p>No se encontraron artículos agregados al carrito</p>
