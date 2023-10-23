@@ -93,7 +93,7 @@ figure {
 
 figure img {
     height: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 11 / 9;
     overflow: hidden;
     object-fit:contain;
 }
