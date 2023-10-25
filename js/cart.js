@@ -39,6 +39,14 @@ function QuantityChange(e) {
 function ShowCart() {
     let htmlContentToAppend = '';
     let cartitemcards = '';
+
+    function Tousd(curr, val){
+      if (curr !== 'USD'){
+        return val/41;
+      } else {
+        return val
+      }
+    }
     for (let i = 0; i < INFO.length; i++) {
         cartitemcards += `<article  class="article-preview">
         <figure>
@@ -50,7 +58,7 @@ function ShowCart() {
         </figure>
         <div>
             <h2>${INFO[i].name}</h2>
-            <p>${INFO[i].currency} <span class="cost">${INFO[i].cost}</span></p>
+            <p> USD <span class="cost">${parseInt(Tousd(INFO[i].currency,INFO[i].cost))}</span></p>
             <hr>
             <div class="card-order">
               <p>Cantidad: </p>
@@ -69,8 +77,8 @@ function ShowCart() {
 
             
               <div class="d-flex">
-              <p class="Moneda">${INFO[i].currency}</p> 
-              <span class="subtotal ms-1">${INFO[i].cost * INFO[i].quantity}</span>
+              <p class="Moneda">USD</p> 
+              <span class="subtotal ms-1">${parseInt(Tousd(INFO[i].currency,INFO[i].cost * INFO[i].quantity))}</span>
               </div>
               <input
                   onClick="DeleteCartItem(event)"
