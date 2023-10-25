@@ -149,7 +149,7 @@ article:hover img {
     margin-left: auto;
     margin-right: auto;
 }
-.methodInfoContainer{
+#methodInfoContainer{
     position: relative;
     width: 90%;
     height: fit-content;

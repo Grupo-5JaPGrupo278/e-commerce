@@ -156,56 +156,78 @@ document.addEventListener("DOMContentLoaded", () => {
     const VISA = document.getElementById("visaBtn");
     const MAESTRO = document.getElementById("maestroBtn");
     const PAYPAL = document.getElementById("paypalBtn")
-  
+    const CONTAINER = document.getElementById("methodInfoContainer");
+
     MASTER.addEventListener("click", () => {
-      if (!document.getElementById("mastercard").classList.contains("show")) {
-        // Mostrar MasterCard
-        document.getElementById("mastercard").classList.add("show");
-        // Ocultar Visa
-        document.getElementById("visa").classList.remove("show");
-
-        document.getElementById("paypal").classList.remove("show");
-
-        document.getElementById("maestro").classList.remove("show");
-      }
+      CONTAINER.innerHTML = `<div id="mastercard">
+      <form class="row g-3">
+        <div class="col-12">
+          <label for="masterinputCardNumber" class="form-label">Nro de Tarjeta</label>
+          <input type="text" class="form-control" id="masterinputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx">
+        </div>
+        <div class="col-12">
+          <label for="masterinputName" class="form-label">Nombre del titular</label>
+          <input type="text" class="form-control mb-0" id="masterinputName">
+        </div>
+        <div class="col-md-6">
+          <label for="masterExplirationDate" class="form-label">Fecha de Expiracion</label>
+          <input type="email" class="form-control" id="masterExplirationDate">
+        </div>
+        <div class="col-md-6">
+          <label for="masterCVC" class="form-label">CVC</label>
+          <input type="password" class="form-control" id="masterCVC">
+        </div>
+      </form>
+    </div>`
     });
-  
     VISA.addEventListener("click", () => {
-      if (!document.getElementById("visa").classList.contains("show")) {
-        // Mostrar Visa
-        document.getElementById("visa").classList.add("show");
-        // Ocultar MasterCard
-        document.getElementById("mastercard").classList.remove("show");
-
-        document.getElementById("paypal").classList.remove("show");
-
-        document.getElementById("maestro").classList.remove("show");
-      }
+      CONTAINER.innerHTML = `<div id="visa">
+      <form class="row g-3">
+        <div class="col-12">
+          <label for="visainputCardNumber" class="form-label">Nro de Tarjeta</label>
+          <input type="text" class="form-control" id="visainputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx">
+        </div>
+        <div class="col-12">
+          <label for="visainputName" class="form-label">Nombre</label>
+          <input type="text" class="form-control mb-0" id="visainputName">
+        </div>
+        <div class="col-md-6">
+          <label for="visaExplirationDate" class="form-label">Fecha de Expiracion</label>
+          <input type="email" class="form-control" id="visaExplirationDate">
+        </div>
+        <div class="col-md-6">
+          <label for="visaCVC" class="form-label">CVC</label>
+          <input type="password" class="form-control" id="visaCVC">
+        </div>
+      </form>
+    </div>`
     });
-
     MAESTRO.addEventListener("click", () => {
-        if (!document.getElementById("maestro").classList.contains("show")) {
-          // Mostrar MasterCard
-          document.getElementById("maestro").classList.add("show");
-          // Ocultar Visa
-          document.getElementById("visa").classList.remove("show");
-
-          document.getElementById("mastercard").classList.remove("show");
-
-          document.getElementById("paypal").classList.remove("show");
-        }
+      CONTAINER.innerHTML = `<div id="maestro">
+      <form class="row g-3">
+        <div class="col-12">
+          <label for="maestroinputCardNumber" class="form-label">Nro de Tarjeta</label>
+          <input type="text" class="form-control" id="maestroinputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx">
+        </div>
+        <div class="col-12">
+          <label for="maestroinputName" class="form-label">Nombre</label>
+          <input type="text" class="form-control mb-0" id="maestroinputName">
+        </div>
+        <div class="col-md-6">
+          <label for="maestroExplirationDate" class="form-label">Fecha de Expiracion</label>
+          <input type="email" class="form-control" id="maestroExplirationDate">
+        </div>
+        <div class="col-md-6">
+          <label for="maestroCVC" class="form-label">CVC</label>
+          <input type="password" class="form-control" id="maestroCVC">
+        </div>
+      </form>
+    </div>`
     });
-      
     PAYPAL.addEventListener("click", () => {
-        if (!document.getElementById("paypal").classList.contains("show")) {
-          // Mostrar MasterCard
-          document.getElementById("paypal").classList.add("show");
-          // Ocultar Visa
-          document.getElementById("visa").classList.remove("show");
-
-          document.getElementById("maestro").classList.remove("show");
-
-          document.getElementById("mastercard").classList.remove("show");
-        }
+      CONTAINER.innerHTML = `<div id="paypal">
+      <img src="img/commingsoon-img.png" alt="Commingsoon">
+  </div>`
     });
+    
   });
