@@ -31,10 +31,6 @@ function QuantityChange(e) {
 }
 
 
-
-
-
-
 // Impresora de artículos en el Carrito
 function ShowCart() {
     let htmlContentToAppend = '';
@@ -168,68 +164,141 @@ document.addEventListener("DOMContentLoaded", () => {
 
     MASTER.addEventListener("click", () => {
       CONTAINER.innerHTML = `<div id="mastercard">
-      <form class="row g-3">
+        <div class="row g-3">
         <div class="col-12">
           <label for="masterinputCardNumber" class="form-label">Nro de Tarjeta</label>
-          <input type="text" class="form-control" id="masterinputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx">
+          <input type="text" class="form-control" id="masterinputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx" minlength="17" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            Ingrese Nro de Tarjeta
+          </div>
         </div>
         <div class="col-12">
           <label for="masterinputName" class="form-label">Nombre del titular</label>
-          <input type="text" class="form-control mb-0" id="masterinputName">
+          <input type="text" class="form-control mb-0" id="masterinputName" required>
+          <div class="valid-feedback">
+            Valido!
+          </div>
+          <div class="invalid-feedback">
+            Nombre de titular
+          </div>
         </div>
         <div class="col-md-6">
           <label for="masterExplirationDate" class="form-label">Fecha de Expiracion</label>
-          <input type="email" class="form-control" id="masterExplirationDate">
+          <input type="email" class="form-control" id="masterExplirationDate" required>
+          <div class="valid-feedback">
+            Valido!
+          </div>
+          <div class="invalid-feedback">
+            Ingrese fecha
+          </div>
         </div>
         <div class="col-md-6">
           <label for="masterCVC" class="form-label">CVC</label>
-          <input type="password" class="form-control" id="masterCVC">
+          <input type="password" class="form-control" id="masterCVC" required>
+          <div class="valid-feedback">
+            Valido!
+          </div>
+          <div class="invalid-feedback">
+            Ingrese CVC
+          </div>
         </div>
-      </form>
+      </div>
     </div>`
     });
     VISA.addEventListener("click", () => {
       CONTAINER.innerHTML = `<div id="visa">
-      <form class="row g-3">
+      <div class="row g-3">
         <div class="col-12">
           <label for="visainputCardNumber" class="form-label">Nro de Tarjeta</label>
-          <input type="text" class="form-control" id="visainputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx">
+          <input type="text" class="form-control" id="visainputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx" minlength="17" required>
+          <div class="valid-feedback">
+            Valido!
+          </div>
+          <div class="invalid-feedback">
+            Ingrese Nro de Tarjeta
+          </div>
         </div>
+      
         <div class="col-12">
           <label for="visainputName" class="form-label">Nombre</label>
-          <input type="text" class="form-control mb-0" id="visainputName">
+          <input type="text" class="form-control mb-0" id="visainputName" required>
+          <div class="valid-feedback">
+            Valido!
+          </div>
+          <div class="invalid-feedback">
+            Nombre de titular
+          </div>
         </div>
         <div class="col-md-6">
           <label for="visaExplirationDate" class="form-label">Fecha de Expiracion</label>
-          <input type="email" class="form-control" id="visaExplirationDate">
+          <input type="email" class="form-control" id="visaExplirationDate" required>
+          <div class="valid-feedback">
+            Valido!
+          </div>
+          <div class="invalid-feedback">
+            Ingrese fecha
+          </div>
         </div>
         <div class="col-md-6">
           <label for="visaCVC" class="form-label">CVC</label>
-          <input type="password" class="form-control" id="visaCVC">
+          <input type="password" class="form-control" id="visaCVC" required>
+          <div class="valid-feedback">
+            Valido!
+          </div>
+          <div class="invalid-feedback">
+            Ingrese CVC
+          </div>
         </div>
-      </form>
+      </div>
     </div>`
     });
     MAESTRO.addEventListener("click", () => {
       CONTAINER.innerHTML = `<div id="maestro">
-      <form class="row g-3">
+      <div class="row g-3">
         <div class="col-12">
           <label for="maestroinputCardNumber" class="form-label">Nro de Tarjeta</label>
-          <input type="text" class="form-control" id="maestroinputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx">
+          <input type="text" class="form-control" id="maestroinputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx" minlength="17" required>
+          <div class="valid-feedback">
+            Valido!
+          </div>
+          <div class="invalid-feedback">
+            Ingrese Nro de Tarjeta
+          </div>
         </div>
         <div class="col-12">
           <label for="maestroinputName" class="form-label">Nombre</label>
-          <input type="text" class="form-control mb-0" id="maestroinputName">
+          <input type="text" class="form-control mb-0" id="maestroinputName" required>
+          <div class="valid-feedback">
+            Valido!
+          </div>
+          <div class="invalid-feedback">
+            Nombre de titular
+          </div>
         </div>
         <div class="col-md-6">
           <label for="maestroExplirationDate" class="form-label">Fecha de Expiracion</label>
-          <input type="email" class="form-control" id="maestroExplirationDate">
+          <input type="email" class="form-control" id="maestroExplirationDate" required>
+          <div class="valid-feedback">
+            Valido!
+          </div>
+          <div class="invalid-feedback">
+            Ingrese fecha
+          </div>
         </div>
         <div class="col-md-6">
           <label for="maestroCVC" class="form-label">CVC</label>
-          <input type="password" class="form-control" id="maestroCVC">
+          <input type="password" class="form-control" id="maestroCVC" required>
+          <div class="valid-feedback">
+            Valido!
+          </div>
+          <div class="invalid-feedback">
+            Ingrese CVC
+          </div>
         </div>
-      </form>
+      </div>
     </div>`
     });
     PAYPAL.addEventListener("click", () => {
@@ -239,3 +308,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
   });
+(() => {
+  'use strict'
+  
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (INFO.length === 0){
+        alert("Debes agregar al menos un articulo para realizar la compra");
+      };
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
