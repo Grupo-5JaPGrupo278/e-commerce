@@ -330,6 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         alert('Has realizado la compra con exito')
         let emptycart = [];
+        // Aquí hay que agregar objeto con artículos comprados + user
         localStorage.setItem('cartlist', JSON.stringify(emptycart));
       }
 
