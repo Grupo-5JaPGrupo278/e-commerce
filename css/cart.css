@@ -42,6 +42,7 @@ table tr td, table tr th {
     display: flex;
     justify-items: center;
     align-items: center;
+    flex-direction: column;
     /* grid-template-columns: auto 2fr 3fr;
     grid-template-rows: 3fr;
     gap: 20px;

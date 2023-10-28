@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="row g-3">
         <div class="col-12">
           <label for="masterinputCardNumber" class="form-label">Nro de Tarjeta</label>
-          <input type="text" class="form-control" id="masterinputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx" minlength="17" required>
+          <input type="text" class="form-control" id="masterinputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx" minlength="16" maxlength="16" required>
           <div class="valid-feedback">
             Looks good!
           </div>
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="col-md-6">
           <label for="masterExplirationDate" class="form-label">Fecha de Expiracion</label>
-          <input type="email" class="form-control" id="masterExplirationDate" required>
+          <input type="month" class="form-control" id="masterExplirationDate" required>
           <div class="valid-feedback">
             Valido!
           </div>
@@ -209,11 +209,12 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>`
     });
     VISA.addEventListener("click", () => {
+      MASTER.classList.remove('active');
       CONTAINER.innerHTML = `<div id="visa">
       <div class="row g-3">
         <div class="col-12">
           <label for="visainputCardNumber" class="form-label">Nro de Tarjeta</label>
-          <input type="text" class="form-control" id="visainputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx" minlength="17" required>
+          <input type="text" class="form-control" id="visainputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx" minlength="16" maxlength="16" required>
           <div class="valid-feedback">
             Valido!
           </div>
@@ -234,7 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="col-md-6">
           <label for="visaExplirationDate" class="form-label">Fecha de Expiracion</label>
-          <input type="email" class="form-control" id="visaExplirationDate" required>
+          <input type="month" class="form-control" id="visaExplirationDate" required>
           <div class="valid-feedback">
             Valido!
           </div>
@@ -256,11 +257,12 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>`
     });
     MAESTRO.addEventListener("click", () => {
+      MASTER.classList.remove('active');
       CONTAINER.innerHTML = `<div id="maestro">
       <div class="row g-3">
         <div class="col-12">
           <label for="maestroinputCardNumber" class="form-label">Nro de Tarjeta</label>
-          <input type="text" class="form-control" id="maestroinputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx" minlength="17" required>
+          <input type="text" class="form-control" id="maestroinputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx" minlength="16" maxlength="16" required>
           <div class="valid-feedback">
             Valido!
           </div>
@@ -280,7 +282,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="col-md-6">
           <label for="maestroExplirationDate" class="form-label">Fecha de Expiracion</label>
-          <input type="email" class="form-control" id="maestroExplirationDate" required>
+          <input type="month" class="form-control" id="maestroExplirationDate" required>
           <div class="valid-feedback">
             Valido!
           </div>
@@ -302,6 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>`
     });
     PAYPAL.addEventListener("click", () => {
+      MASTER.classList.remove('active');
       CONTAINER.innerHTML = `<div id="paypal">
       <img src="img/commingsoon-img.png" alt="Commingsoon">
   </div>`
@@ -324,6 +327,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!form.checkValidity()) {
         event.preventDefault()
         event.stopPropagation()
+      } else {
+        alert('Has realizado la compra con exito')
+        let emptycart = [];
+        localStorage.setItem('cartlist', JSON.stringify(emptycart));
       }
 
       form.classList.add('was-validated')

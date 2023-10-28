@@ -180,7 +180,7 @@
             <!-- =========--===========[botones]======================= -->
                   <div>
                     <p class="d-inline-flex gap-1">
-                      <a class="btn btn-primary transformationBtn" data-bs-toggle="collapse" href="#mastercard" role="button" aria-expanded="false" aria-controls="mastercard" id="mastercardBtn">
+                      <a class="btn btn-primary transformationBtn active" data-bs-toggle="collapse" href="#mastercard" role="button" aria-expanded="false" aria-controls="mastercard" id="mastercardBtn">
                         <img src="img\mastercard-icon.png" alt="mastercard-icon" class="paymethodIcons">
                       </a>
 
@@ -203,7 +203,7 @@
                       <div class="row g-3">
                         <div class="col-12">
                           <label for="masterinputCardNumber" class="form-label">Nro de Tarjeta</label>
-                          <input type="text" class="form-control" id="masterinputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx" minlength="17" required>
+                          <input type="text" class="form-control" id="masterinputCardNumber" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx" minlength="16" maxlength="16" required>
                           <div class="valid-feedback">
                             Valido!
                           </div>
@@ -223,7 +223,7 @@
                         </div>
                         <div class="col-md-6">
                           <label for="masterExplirationDate" class="form-label">Fecha de Expiracion</label>
-                          <input type="email" class="form-control" id="masterExplirationDate" required>
+                          <input type="month" class="form-control" min="2022-12" max="2099-12" id="masterExplirationDate" required>
                           <div class="valid-feedback">
                             Valido!
                           </div>
@@ -274,6 +274,9 @@
       <div></div>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
