@@ -92,7 +92,7 @@
                   <div class="d-flex flex-column align-items-center text-center">
                     <img src="./img/img_perfil.png" alt="Admin" width="150">
                     <div class="mt-3">
-                      <h4>Ivan Pereira</h4>
+                      <h4 id="fullname">Ivan Pereira</h4>
                     </div>
                     <textarea placeholder="Sobre Mi" class="description" id="description"></textarea>
                     <div id="buttonsDescription">
@@ -128,44 +128,66 @@
               </div>
               </div>
             </div>
-            <div class="col-md-8">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Nombre</h6>
-                    </div>
-                    <div class="col-sm-9 textsecondary">
-                      Ivan Pereira
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Nombre de usuario</h6>
-                    </div>
-                    <div class="col-sm-9 textsecondary">
-                      IvanPereira
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
-                    </div>
-                    <div class="col-sm-9 textsecondary">
-                      ivanpereira@gmail.com
-                    </div>
-                  </div>
-                  <hr>
-                  
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank" >Editar</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+           
+
+  <div class="col-md-8">
+    <div class="card mb-3">
+      <div class="card-body">
+        <form action="tu_script_de_procesamiento.php" method="POST">
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Nombre de usuario</h6>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" name="nombre_usuario" value="" >
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Primer Nombre *</h6>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" name="primer_nombre" value="">
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Segundo Nombre</h6>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" name="segundo_nombre" value="">
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Primer Apellido *</h6>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" name="primer_apellido" value="">
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Email *</h6>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" name="email" value="">
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0 " >Telefono de Contacto</h6>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" name="telefono_de_contacto" value="">
+            </div>
+          </div>
+          <hr>
 
               <div class="row gutters-sm">
                 <div class="col-sm-6 mb-3">
@@ -281,5 +303,3 @@
   <script src="js/darktheme.js"></script>
   <script src="js/cookies.js"></script>
 </body>
-
-</html>

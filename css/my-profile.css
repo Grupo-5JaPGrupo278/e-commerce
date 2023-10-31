@@ -91,7 +91,6 @@ h6, small, hr, h4{
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 20px;
 }
-
 .progress-bar {
     background-color: rgba(1, 1, 1, 0.913);
 }
@@ -114,5 +113,19 @@ h6, small, hr, h4{
     background-color: black;
 }
 
-
-
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+  }
