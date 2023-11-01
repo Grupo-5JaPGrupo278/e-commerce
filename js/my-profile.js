@@ -6,6 +6,8 @@ const primer_nombre = document.querySelector('input[name="primer_nombre"]');
 const segundo_nombre = document.querySelector('input[name="segundo_nombre"]');
 const primer_apellido = document.querySelector('input[name="primer_apellido"]');
 const email = document.querySelector('input[name="email"]');
+const descripcionTextarea = document.getElementById('description');
+
 
 
   editarBtn.addEventListener("click", function() {
@@ -60,3 +62,48 @@ if (fullname !== null) {
   const nombrecompleto = document.getElementById("fullname");
   nombrecompleto.textContent = fullname;
 }
+
+
+
+
+
+
+guardarBtn.addEventListener('click', function() {
+  //username
+  const nuevoNombreUsuario = nombre_usuario.value;
+  if (nuevoNombreUsuario.trim() !== '') {
+    localStorage.setItem('username', nuevoNombreUsuario);
+  } else {
+    alert('Por favor, ingresa un nombre de usuario válido.');
+  };
+
+
+  //email
+  const nuevoEmail = email.value;
+  if (nuevoEmail.trim() !== '') {
+    localStorage.setItem('Email', nuevoEmail);
+  } else {
+    alert('Por favor, ingresa un Email válido.');
+  }
+
+  const aboutMeText = descripcionTextarea.value;
+  localStorage.setItem('aboutme', aboutMeText);
+
+
+    const telefonoDeContacto = telefonoInput.value;
+
+  localStorage.setItem('telefono_contacto', telefonoDeContacto);
+
+});
+
+window.addEventListener('load', function() {
+  const aboutMeText = localStorage.getItem('aboutme');
+  if (aboutMeText) {
+    descripcionTextarea.value = aboutMeText;
+  }
+
+  const telefonoDeContacto = localStorage.getItem('telefono_contacto');
+  if (telefonoDeContacto) {
+    telefonoInput.value = telefonoDeContacto;
+  }
+});
