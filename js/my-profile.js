@@ -10,13 +10,16 @@ const descripcionTextarea = document.getElementById('description');
 
 
 
+
   editarBtn.addEventListener("click", function() {
     telefonoInput.removeAttribute("disabled");
     nombre_usuario.removeAttribute("disabled");
     primer_nombre.removeAttribute("disabled");
-    segundo_nombre.removeAttribute("disabled");
-    primer_apellido.removeAttribute("disabled");
     email.removeAttribute("disabled");
+    primer_apellido.removeAttribute("disabled");
+    descripcionTextarea.removeAttribute("disabled");
+    segundo_nombre.removeAttribute("disabled");
+
 
   });
 
@@ -24,9 +27,11 @@ const descripcionTextarea = document.getElementById('description');
     telefonoInput.setAttribute("disabled", "disabled");
     nombre_usuario.setAttribute("disabled", "disabled");
     primer_nombre.setAttribute("disabled", "disabled");
-    segundo_nombre.setAttribute("disabled", "disabled");
-    primer_apellido.setAttribute("disabled", "disabled");
     email.setAttribute("disabled", "disabled");
+    primer_apellido.setAttribute("disabled", "disabled");
+    descripcionTextarea.setAttribute("disabled", "disabled");
+    segundo_nombre.setAttribute("disabled", "disabled");
+
 
 });
 
