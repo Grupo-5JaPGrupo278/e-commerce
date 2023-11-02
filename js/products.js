@@ -17,7 +17,7 @@ function showProductList() {
 	let htmlContentToAppend = "";
 
 	document.getElementById("titulo").innerHTML = `<h2>Productos</h2>
-        <p class="lead">Verás aquí todos los productos de la categorioa ${currentProductArray.catName}.</p>`;
+        <p class="lead">Verás aquí todos los productos de la categorias ${currentProductArray.catName}.</p>`;
 	for (let i = 0; i < currentProductArray.products.length; i++) {
 		let product = currentProductArray.products[i];
 		htmlContentToAppend += `
