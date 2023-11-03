@@ -119,9 +119,9 @@ const profileImage = document.getElementById('profile-image');
 
 
 imageInput.addEventListener('change', function () {
-  const selectedImage = imageInput.files[0];
-  if (selectedImage) {
-    const imageUrl = URL.createObjectURL(selectedImage);
+  const imagenseleccionada = imageInput.files[0];
+  if (imagenseleccionada) {
+    const imageUrl = URL.createObjectURL(imagenseleccionada);
     profileImage.src = imageUrl;
 
     localStorage.setItem('profile_image', imageUrl);
@@ -129,8 +129,8 @@ imageInput.addEventListener('change', function () {
 });
 
 window.addEventListener('load', function () {
-  const storedImage = localStorage.getItem('profile_image');
-  if (storedImage) {
-    profileImage.src = storedImage;
+  const imagenGuardada = localStorage.getItem('profile_image');
+  if (imagenGuardada) {
+    profileImage.src = imagenGuardada;
   }
 });
