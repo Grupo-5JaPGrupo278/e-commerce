@@ -109,3 +109,28 @@ window.addEventListener('load', function() {
     telefonoInput.value = telefonoDeContacto;
   }
 });
+
+
+// Foto de Perfil
+
+const editImageLabel = document.getElementById('edit-image-label');
+const imageInput = document.getElementById('image-input');
+const profileImage = document.getElementById('profile-image');
+
+
+imageInput.addEventListener('change', function () {
+  const selectedImage = imageInput.files[0];
+  if (selectedImage) {
+    const imageUrl = URL.createObjectURL(selectedImage);
+    profileImage.src = imageUrl;
+
+    localStorage.setItem('profile_image', imageUrl);
+  }
+});
+
+window.addEventListener('load', function () {
+  const storedImage = localStorage.getItem('profile_image');
+  if (storedImage) {
+    profileImage.src = storedImage;
+  }
+});
