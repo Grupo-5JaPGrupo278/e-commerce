@@ -134,3 +134,30 @@ window.addEventListener('load', function () {
     profileImage.src = imagenGuardada;
   }
 });
+
+
+function editLink(element) {
+  const linkId = element.getAttribute("data-link-id");
+  const linkText = document.getElementById(linkId);
+
+  const newLink = prompt('Ingresa el nuevo enlace:', linkText.href);
+  if (newLink !== null) {
+    linkText.href = newLink;
+
+    localStorage.setItem(linkId, newLink);
+  }
+}
+
+const editButtons = document.querySelectorAll("button[data-link-id]");
+editButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    editLink(this);
+  });
+});
+
+for (const linkId of Object.keys(localStorage)) {
+  const linkText = document.getElementById(linkId);
+  if (linkText) {
+    linkText.href = localStorage.getItem(linkId);
+  }
+}
