@@ -121,12 +121,14 @@ SOLDCOUNT.addEventListener("click", () => {
 // Funcionalidades Sort Ascendente y Descendente, así como por cantidad de vendidos
 // Sistema de filtrado por rango de costos
 COUNTER.addEventListener("click", () => {
+	if(MAXQA.value!="" && MINQA.value!=""){
 	let filteredProducts = currentProductArray.products.filter(
 		product => product.cost >= MINQA.value && product.cost <= MAXQA.value
 	);
 	currentProductArray.products = filteredProducts;
 	showProductList(currentProductArray.products);
 	console.log(filteredProducts);
+}
 });
 // Sistema de filtrado por rango de costos
 // Funcionalidad de filtrado 
