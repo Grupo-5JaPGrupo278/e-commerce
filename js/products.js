@@ -55,8 +55,8 @@ document.addEventListener("keyup", function (e) {
 			//recorro los productos
 			if (
 				//aca busco los nombre y las descripciones las paso a minuscula y con include comparo coicidencias con lo que escribi en el buscador
-				p.querySelector("#n").innerHTML.toLowerCase().includes(e.target.value) ||
-				p.querySelector("#d").innerHTML.toLowerCase().includes(e.target.value) ||
+				p.querySelector("#n").innerHTML.toLowerCase().includes(e.target.value.toLowerCase()) ||
+				p.querySelector("#d").innerHTML.toLowerCase().includes(e.target.value.toLowerCase()) ||
 				e.target.value === ""
 			) {
 				p.classList.remove("filtro"); //en caso de que sea verdadero le saco el filtro que el que los oculta

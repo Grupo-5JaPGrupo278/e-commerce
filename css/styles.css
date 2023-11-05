@@ -525,3 +525,8 @@ a.custom-card:hover {
 	border: solid #bdb9b98d 5px;
 	border-left: none;
 }
+
+#CountCart{
+	background-color: white;
+	color: black;
+}
