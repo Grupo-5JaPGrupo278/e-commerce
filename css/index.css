@@ -101,7 +101,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-#gallery-message {
+#gallery-message, .gallery-subtitle {
     width: 90vw;
     position: absolute;
     margin-right:auto;
@@ -113,6 +113,9 @@ body{
     top: -15vh;
     left: 5vw;
     transition: all 1s;
+}
+.gallery-subtitle{
+    display: none;
 }
 #category-container{
     display:flex;
