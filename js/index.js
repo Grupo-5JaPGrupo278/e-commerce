@@ -235,29 +235,4 @@ document.addEventListener("DOMContentLoaded", function () {
     closeButton.addEventListener("click", closePopup);
 });
 // Funcionamiento de 'No volver a mostrar' en Pop Up de presentación de la página
-// Setter de tema // Cambia las variables en el Root según el tema preferido
-const DARKMODE = document.getElementById('toggle');
-DARKMODE.addEventListener('change', (e) => {
-    const DARKMODE = document.getElementById('toggle');
-    if (DARKMODE.checked) {
-        /* aqui van los estilos del modo claro */
-        localStorage.setItem('theme', "light");
-        root.style.setProperty('--coloroscuro', '#b5b5db');
-        root.style.setProperty('--backgroundimage', 'url("../img/bg_img_light.webp")');
-    } else {
-        localStorage.setItem('theme', "dark");
-        root.style.setProperty('--coloroscuro', '#22222B');
-        root.style.setProperty('--backgroundimage', 'url("../img/bg_img.webp")');
 
-    }
-})
-
-document.addEventListener("DOMContentLoaded", () => {
-    let theme = localStorage.getItem('theme');
-    if (theme == "light") {
-        DARKMODE.checked = true;
-    } else if (theme == "dark") {
-        DARKMODE.checked = false;
-    }
-})
-// Setter de tema // Cambia las variables en el Root según el tema preferido
