@@ -117,7 +117,6 @@ const editImageLabel = document.getElementById('edit-image-label');
 const imageInput = document.getElementById('image-input');
 const profileImage = document.getElementById('profile-image');
 
-
 imageInput.addEventListener('change', function () {
   const imagenseleccionada = imageInput.files[0];
   if (imagenseleccionada) {
@@ -125,6 +124,7 @@ imageInput.addEventListener('change', function () {
     profileImage.src = imageUrl;
 
     localStorage.setItem('profile_image', imageUrl);
+    console.log('Imagen guardada en el almacenamiento local.');
   }
 });
 
@@ -132,32 +132,51 @@ window.addEventListener('load', function () {
   const imagenGuardada = localStorage.getItem('profile_image');
   if (imagenGuardada) {
     profileImage.src = imagenGuardada;
+    console.log('Imagen cargada desde el almacenamiento local.');
   }
 });
 
 
 function editLink(element) {
+  // Obtener el identificador único del enlace
   const linkId = element.getAttribute("data-link-id");
+  
+  // Obtener el elemento del enlace usando el identificador
   const linkText = document.getElementById(linkId);
-
+  
+  // Solicitar al usuario que ingrese el nuevo enlace mediante un cuadro de diálogo
   const newLink = prompt('Ingresa el nuevo enlace:', linkText.href);
+  
+  // Verificar si el usuario ingresó una nueva URL
   if (newLink !== null) {
-    linkText.href = newLink;
-
-    localStorage.setItem(linkId, newLink);
+    // Agregar el protocolo si no está presente
+    const formattedLink = newLink.startsWith('http://') || newLink.startsWith('https://') ? newLink : 'http://' + newLink;
+    
+    // Asignar la nueva URL al enlace
+    linkText.href = formattedLink;
+    
+    // Guardar la nueva URL en el almacenamiento local para recordarla después
+    localStorage.setItem(linkId, formattedLink);
   }
 }
 
+// Obtener todos los botones con el atributo 'data-link-id'
 const editButtons = document.querySelectorAll("button[data-link-id]");
+
+// Agregar un evento a cada botón para llamar a la función editLink
 editButtons.forEach((button) => {
   button.addEventListener("click", function () {
     editLink(this);
   });
 });
 
+// Restaurar las URL almacenadas en el almacenamiento local
 for (const linkId of Object.keys(localStorage)) {
   const linkText = document.getElementById(linkId);
+  
+  // Verificar si el enlace todavía existe en la página
   if (linkText) {
+    // Restaurar la URL desde el almacenamiento local
     linkText.href = localStorage.getItem(linkId);
   }
 }
