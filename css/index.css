@@ -118,7 +118,6 @@ body{
 @media (max-width: 400px){
     #gallery-message, .gallery-subtitle{
         font-size: 2rem;
-    }
 }
 .gallery-subtitle{
     display: none;
@@ -126,8 +125,6 @@ body{
 
 #category-container{
     display:flex;
-    flex-direction: column;
-    position: static;
 }
 #muchmore{
 
@@ -164,4 +161,5 @@ body{
     border-radius:10px;
     box-shadow: 3px 3px var(--colorsecundario);
     margin-top:1vh;
+}
 }
