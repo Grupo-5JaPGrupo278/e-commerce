@@ -95,7 +95,7 @@ guardarBtn.addEventListener('click', function() {
    if (nuevoNombreCompleto.trim() !== '') {
      localStorage.setItem('fullname', nuevoNombreCompleto);
    } 
-
+   location.reload();
 });
 
 window.addEventListener('load', function() {
