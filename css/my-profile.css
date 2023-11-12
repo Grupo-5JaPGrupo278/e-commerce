@@ -2,7 +2,7 @@ body{
     width:100%;
     color: #1a202c;
     text-align: left;
-    background-image: url(../img/bg_img.png);   
+    background-image: url(--backgroundimage1);   
     background-repeat: no-repeat;
     background-size: cover;
 }

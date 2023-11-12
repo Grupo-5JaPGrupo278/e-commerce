@@ -19,6 +19,7 @@ DARKMODE.addEventListener('change', (e) => {
         root.style.setProperty('--backgroundimage', 'url("../img/bg_img.webp")');
 
     }
+    location.reload();
 })
 
 document.addEventListener("DOMContentLoaded", () => {

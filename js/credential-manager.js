@@ -67,15 +67,26 @@ function closePopup() {
 }
 // Aquí se puede cerrar el PopUp de Terms & Conditions si lo clickean en el SignUp
 
-REGISTERNAVBTN.addEventListener("click", ()=>{
-    REGISTERNAVBTN.classList.add("active")
-    LOGINNAVBTN.classList.remove("active")
-    FRAMELOGIN.style.display = "none"
-    FRAMEREGISTER.style.display = "block"
-})
-LOGINNAVBTN.addEventListener("click", ()=>{
-    LOGINNAVBTN.classList.add("active")
-    REGISTERNAVBTN.classList.remove("active")
-    FRAMEREGISTER.style.display = "none"
-    FRAMELOGIN.style.display = "block"
-})
+//============================ Nav de login y registro responsive =============================
+
+
+
+    REGISTERNAVBTN.addEventListener("click", ()=>{
+
+            REGISTERNAVBTN.classList.add("active");
+            LOGINNAVBTN.classList.remove("active");
+            FRAMELOGIN.style.display = "none";
+            FRAMEREGISTER.style.display = "block";
+
+
+    })
+    LOGINNAVBTN.addEventListener("click", ()=>{
+
+            LOGINNAVBTN.classList.add("active");
+            REGISTERNAVBTN.classList.remove("active");
+            FRAMEREGISTER.style.display = "none";
+            FRAMELOGIN.style.display = "block";
+        
+    })
+    
+

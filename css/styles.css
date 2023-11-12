@@ -48,9 +48,11 @@ iframe {
 	font-size: 20px;
 }
 .credManBody {
-	background-image: var(--backgroundimage);
+	background-image: 
+        var(--backgroundimage1),   /* Primera imagen */
+        var(--backgroundimage2);   /* Segunda imagen */
 	background-repeat: no-repeat, repeat;
-	background-size: cover;
+	background-size:  auto; /* La primera imagen se cubre, la segunda se repite automáticamente */
 }
 #credentialsDivTitle {
 	font: bold 120px monospace;
