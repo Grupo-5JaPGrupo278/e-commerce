@@ -57,6 +57,17 @@ table tr td, table tr th {
     grid-column: 2;
 }
 /* ================ [CART ITEM CARDS DISPLAY] ================*/
+.corner-banner-cart-card{
+    position: absolute;
+	height: 40%;
+    z-index: 0;
+	right: 0;
+    top: 0;
+}
+.card-figure{
+    position: relative;
+    z-index: 1;
+}
 article {
     max-width: 300px;
     cursor: pointer;
@@ -85,7 +96,7 @@ article h2 {
   
 .article-preview {
     padding: 24px;
-    background: rgba(255, 255, 255, 0.753);
+    background: var(--coloroscuro);
 }
 
 figure {

@@ -34,7 +34,7 @@ function showProductList() {
                             </div>
                          <h5 class"" id="precio"> ${product.currency} ${product.cost}</h3>
                          <p id="d">${product.description}</p>
-						 
+						 <img src="img/overlay-corner-img.png" alt="filters-banner" class="filters-banner">
                         </div>
                     </div>
                 

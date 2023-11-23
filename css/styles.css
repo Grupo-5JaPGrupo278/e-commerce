@@ -445,7 +445,12 @@ a.custom-card:hover {
 
 .img {
 	width: 100%;
+	height: 100%;
 	border-radius: 0.5rem;
+	object-fit: 100%;
+    object-fit: cover; /* Ajustar la imagen sin deformarla */
+    top: 0;
+    left: 0;
 }
 
 .product-overlay {
@@ -537,4 +542,32 @@ a.custom-card:hover {
 #CountCart{
 	background-color: white;
 	color: black;
+}
+
+.filtersContainer{
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: fit-content;
+	background-color: rgba(43, 42, 42, 0.747);
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+    margin-bottom: 20px;
+	z-index: 2;
+}
+
+.filters-banner{
+	position: absolute;
+	z-index: -1;
+	height: 100%;
+	right: 0;
+}
+
+.corner-banner{
+	position: absolute;
+	z-index: -1;
+	height: 40%;
+	right: 0;
+	top: 0;
 }
