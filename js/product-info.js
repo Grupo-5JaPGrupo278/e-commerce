@@ -1,4 +1,5 @@
 /* ===========================[Variables]================================ */
+let CARTLIST;
 const USERNAME = document.getElementById("cmntUser");
 const STOREDUSERNAME = localStorage.getItem("username");
 const PRODID = "";
@@ -18,6 +19,7 @@ let NOWDATE;
 let COMMENTID = 0;
 const storagedComments = localStorage.getItem('comment');
 let quantityBoxValue = 1
+
 /* ===========[Variables RadioBtn]================= */
 
 const STAR1 = document.getElementById("star1");
@@ -103,10 +105,10 @@ function showProduct() {
               <div class="carousel-item">
                 <img  src="${element}" class="d-block w-100" alt="...">
               </div>`
-    }
-  }
-  for (relatedprod of currentProduct.relatedProducts) {
-    relatedproductloop += `
+		}
+	}
+	for (relatedprod of currentProduct.relatedProducts) {
+		relatedproductloop += `
           <div class="related-product-container">
             <div>
               ${relatedprod.name}
@@ -164,60 +166,88 @@ function showProduct() {
 	CONTAINER.innerHTML = htmlContentToAppend;
 }
 /* =========================[Quantity Change on Cart]============================ */
-function quantityChange(e){
-  quantityBoxValue = e.target.valueAsNumber;
+function quantityChange(e) {
+	quantityBoxValue = e.target.valueAsNumber;
+
+	
 }
 /* ==============================[ADD TO CART BUTTON]================================ */
 function addToCart() {
-  const CARTLIST = JSON.parse(localStorage.getItem('cartlist')) || [];
-  let iteminfo = {};
-  /* Verifica que no exista ya un artículo con misma ID*/
-  for (let i = 0; i < CARTLIST.length; i++){
-    if ( CARTLIST[i].id === currentProduct.id){
-      // Verifica que las cantidades sean correctas
-      if ( CARTLIST[i].quantity !== quantityBoxValue){
-        CARTLIST[i] = {
-          id: currentProduct.id,
-          imgsource: currentProduct.images[0],
-          name: currentProduct.name,
-          quantity: quantityBoxValue,
-          currency: currentProduct.currency,
-          cost: currentProduct.cost
+	fetchWithOpts(CARTLIST_URL, optsGET).then( (data) => {
+		if (data.status === 'ok'){
+		  CARTLIST = data.data;
+		}
+	})
+    const itemInfo = {
+        id: currentProduct.id,
+        imgsource: currentProduct.images[0],
+        name: currentProduct.name,
+        quantity: quantityBoxValue,
+        currency: currentProduct.currency,
+        cost: currentProduct.cost,
+    };
+	console.log(CARTLIST);
+    const existingItemIndex = CARTLIST.findIndex(item => item.id === currentProduct.id);
+
+    if (existingItemIndex !== -1) {
+        const existingItem = CARTLIST[existingItemIndex];
+
+        if (existingItem.quantity !== quantityBoxValue) {
+            const optsPUT = {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    "access-token": JSON.parse(localStorage.getItem("token")),
+                },
+                body: JSON.stringify(itemInfo),
+            };
+
+            fetchWithOpts(CARTLIST_URL + existingItem.id, optsPUT)
+                .then(() => {
+                    console.log('Cantidad actualizada correctamente');
+                    alert('Cantidad actualizada correctamente');
+                })
+                .catch(error => {
+                    console.error('Error al actualizar la cantidad:', error);
+                    alert('Hubo un error al actualizar la cantidad del artículo');
+                });
+        } else {
+            console.log('No puedes agregar el mismo artículo nuevamente');
+            alert('No puedes agregar el mismo artículo nuevamente');
         }
-        localStorage.setItem('cartlist', JSON.stringify(CARTLIST));
-        alert('Cantidad actualizada correctamente')
-        return
-      } else {
-        console.log('No puedes agregar el mismo artículo nuevamente')
-        return
-      }
-      
+    } else {
+        const optsPOST = {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+                "access-token": JSON.parse(localStorage.getItem("token")),
+            },
+            body: JSON.stringify(itemInfo),
+        };
+
+        fetchWithOpts(CARTLIST_URL, optsPOST)
+            .then(() => {
+                console.log('Artículo agregado con éxito al carrito!');
+                alert('Artículo agregado con éxito al carrito!');
+            })
+            .catch(error => {
+                console.error('Error al agregar el artículo al carrito:', error);
+                alert('Hubo un error al agregar el artículo al carrito');
+            });
     }
-  }
-  /* Setea la información del artículo dentro del objeto */
-  iteminfo = {
-    id: currentProduct.id,
-    imgsource: currentProduct.images[0],
-    name: currentProduct.name,
-    quantity: quantityBoxValue,
-    currency: currentProduct.currency,
-    cost: currentProduct.cost
-  }
-  /* Prepara todo para mandarlo al LocalStorage */
-  CARTLIST.push(iteminfo);
-  localStorage.setItem('cartlist', JSON.stringify(CARTLIST));
-  alert('Artículo agregado con exito al carrito!');
 }
+
 
 /* ==============================[Show comment]================================ */
 
 function showComments(array) {
-  const PRODID = currentProduct.id;
-  let commentsToAppend = "";
-  for (let i = 0; i < array.length; i++) {
-    if (array[i].product == PRODID) {
-      if (array[i].user == STOREDUSERNAME) {
-        commentsToAppend += `
+	const PRODID = currentProduct.id;
+	let commentsToAppend = "";
+	for (let i = 0; i < array.length; i++) {
+		if (array[i].product == PRODID) {
+			if (array[i].user == STOREDUSERNAME) {
+				commentsToAppend += `
        <div class="comment-box">
           <div class="d-flex w-100 justify-content-between">
           <div class="d-flex">
@@ -266,13 +296,26 @@ function showComments(array) {
 
 /* ===========[list Comments]================= */
 document.addEventListener("DOMContentLoaded", async function (e) {
+	let optsGET = {
+		method: "GET",
+		mode: "cors",
+		headers: {
+			"Content-Type": "application/json",
+			"access-token": JSON.parse(localStorage.getItem("token")),
+		},
+	}
 	try {
-		const productResponse = await getJSONData(PRODUCT_INFO_URL + localStorage.ProductID + ".json");
+		fetchWithOpts(CARTLIST_URL, optsGET).then( (data) => {
+			if (data.status === 'ok'){
+			  CARTLIST = data.data;
+			}
+		});
+		const productResponse = await getJSONData(PRODUCT_INFO_URL + localStorage.ProductID);
 		if (productResponse.status == "ok") {
 			currentProduct = productResponse.data;
 			showProduct();
 		}
-		const commentsResponse = await getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json");
+		const commentsResponse = await getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID);
 		if (commentsResponse.status == "ok") {
 			const commentaries = commentsResponse.data;
 			showComments(commentaries);
@@ -286,7 +329,7 @@ document.addEventListener("DOMContentLoaded", async function (e) {
 /* ===========[Update Comments]================= */
 
 function updateComments() {
-	getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID + ".json").then(function (result) {
+	getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.ProductID).then(function (result) {
 		if (result.status == "ok") {
 			const commentaries = result.data;
 			const storagedComments = localStorage.getItem("comment");
@@ -395,11 +438,11 @@ NEWCOMMENT.addEventListener("click", () => {
 });
 
 if (window.innerWidth < 680) {
-    // El ancho de la pantalla es menor a 680 píxeles
-    // Puedes realizar acciones específicas para pantallas pequeñas aquí
-    console.log("La pantalla es pequeña");
+	// El ancho de la pantalla es menor a 680 píxeles
+	// Puedes realizar acciones específicas para pantallas pequeñas aquí
+	console.log("La pantalla es pequeña");
 } else {
-    // El ancho de la pantalla es mayor o igual a 680 píxeles
-    // Puedes realizar acciones específicas para pantallas grandes aquí
-    console.log("La pantalla es lo suficientemente grande");
+	// El ancho de la pantalla es mayor o igual a 680 píxeles
+	// Puedes realizar acciones específicas para pantallas grandes aquí
+	console.log("La pantalla es lo suficientemente grande");
 }

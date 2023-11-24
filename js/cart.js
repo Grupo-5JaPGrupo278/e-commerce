@@ -1,25 +1,39 @@
 const CONTAINER = document.getElementById('cart-list');
-const INFO = JSON.parse(localStorage.getItem('cartlist'));
 const QUANTITIES = document.getElementsByClassName('input-quantity');
+let INFO = [];
+
 // Función para borrar Items del Carrito
 function DeleteCartItem(e) {
+  
     const ITEMID = Number(e.target.getAttribute('cart-id'))
-    const NEWLSCARTLIST = [];
-    for (let i = 0; i < INFO.length; i++) {
-        if (!(INFO[i].id === ITEMID)) {
-            NEWLSCARTLIST.push(INFO[i])
-        }
-    }
-    localStorage.setItem('cartlist', JSON.stringify(NEWLSCARTLIST));
-    location.reload();
+    
+    let optsDELETE = {
+      method: "DELETE",
+      mode: "cors",
+      headers: {
+          "Content-Type": "application/json",
+          "access-token": JSON.parse(localStorage.getItem("token")),
+      },
+  }
+    fetchWithOpts(CARTLIST_URL + ITEMID, optsDELETE).then( () => { location.reload(); })
+    
 }
 // Función para cambiar las cantidades de los Items en el Carrito Y calcular el nuevo Subtotal
 function QuantityChange(e) {
   // Agregar Item Quantity al LS y reimprimirlo continuamente
+  
     for (let i = 0; i < INFO.length; i++){
       if ( INFO[i].id == e.target.id){
         INFO[i].quantity = e.target.valueAsNumber;
-        localStorage.setItem('cartlist',JSON.stringify(INFO))
+        const optsPUT = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "access-token": JSON.parse(localStorage.getItem("token")),
+          },
+          body: JSON.stringify(INFO[i]), // Convierte los datos a formato JSON
+        };
+        fetchWithOpts(CARTLIST_URL + INFO[i].id, optsPUT)
       }
     }
     const quantity = e.target.valueAsNumber;
@@ -101,7 +115,21 @@ function ShowCart() {
     CONTAINER.innerHTML = htmlContentToAppend
     
 }
-document.addEventListener('DOMContentLoaded', ShowCart);
+let optsGET = {
+	method: "GET",
+	mode: "cors",
+	headers: {
+		"Content-Type": "application/json",
+		"access-token": JSON.parse(localStorage.getItem("token")),
+	},
+}
+document.addEventListener('DOMContentLoaded', () => {
+  fetchWithOpts(CARTLIST_URL, optsGET).then( (data) => {
+    if (data.status === 'ok'){
+      INFO = data.data;
+    }
+  }).then(ShowCart).then(changeTotalCost,ChangeCostoEnvio,changeTotalFinal);
+});
 
 
 /*------------------------------Mostrando Precio Final---------------------------------*/
@@ -148,7 +176,6 @@ function ChangeCostoEnvio() {
 
 	changeTotalFinal();
 }
-document.addEventListener("DOMContentLoaded", changeTotalCost,ChangeCostoEnvio,changeTotalFinal);
 
 // Función para ocultar los metodos de pago
 

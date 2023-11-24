@@ -69,7 +69,7 @@ document.addEventListener("keyup", function (e) {
 // Funcionamiento del sistema de filtrado
 // Ejecución de función Fetch al cargar la página para hacer display de la lista de productos
 document.addEventListener("DOMContentLoaded", function (e) {
-	getJSONData(PRODUCTS_URL + localStorage.catID + ".json").then(function (resultObj) {
+	getJSONData(CATEGORIES_URL + localStorage.catID).then(function (resultObj) {
 		if (resultObj.status == "ok") {
 			currentProductArray = resultObj.data;
 			showProductList();
@@ -135,7 +135,7 @@ COUNTER.addEventListener("click", () => {
 CLEAN.addEventListener("click", () => {
 	MINQA.value = "";
 	MAXQA.value = "";
-	getJSONData(PRODUCTS_URL + localStorage.catID + ".json").then(function (resultObj) {
+	getJSONData(PRODUCTS_URL + localStorage.catID).then(function (resultObj) {
 		if (resultObj.status == "ok") {
 			currentProductArray = resultObj.data;
 			showProductList();

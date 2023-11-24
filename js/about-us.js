@@ -14,39 +14,33 @@ const EXPERIENCETITLE = document.getElementById("experienceH2Title");
 const STUDIESLIST = document.getElementById("studiesAUP");
 const EXPERIENCEPARAGRAPH = document.getElementById("experienceAUP");
 const STUDIESTITLE = document.getElementById("studiesH2Title");
-const URL = 'json/about-us.json';
+
 let DATOSABOUTUS = [];
-const OBJETIVOS = ["Desarrollarnos como profesionales en el desarrollo de paginas web", 
-                    "Aprobar el proyecto, hace una fuercita nico!",
-                    "Encontrar el One Piece"]
+const OBJETIVOS = ["Desarrollarnos como profesionales en el desarrollo de paginas web",
+    "Aprobar el proyecto, hace una fuercita nico!",
+    "Encontrar el One Piece"]
 
-async function fetchData(URL){
-    try {
-        const response = await fetch(URL);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-        const data = await response.json();
-        DATOSABOUTUS = data.integrantes;
+fetchWithOpts(URL).then(response => {
+    if (response.status === "ok") {
+        DATOSABOUTUS = response.data.integrantes;
         console.log(DATOSABOUTUS);
+    } else {
+        console.error('Error en la solicitud:', response.data);
     }
-    catch (error){
-        console.error('There was a problem with the fetch operation:', error);
-    }
-}
+});
 
-fetchData(URL);
 
-function displayData(name){
-    for(element of DATOSABOUTUS){
-        if(element.nombre === name){
+function displayData(name) {
+    for (element of DATOSABOUTUS) {
+        if (element.nombre === name) {
             return element;
         }
     }
 }
 
 
-function displayPerson(name){
+
+function displayPerson(name) {
     PERSONIMAGE.style.opacity = 0;
     INFOCONTAINER.style.opacity = 0;
     setTimeout(() => {
@@ -58,12 +52,12 @@ function displayPerson(name){
         }
         PRESENTATIONPARAGRAPH.textContent = displayData(name).descripcion;
         EXPERIENCEPARAGRAPH.textContent = displayData(name).experiencia;
-        for (element of displayData(name).estudios){
-                const listItem = document.createElement("li");
-                listItem.textContent = element;
-                STUDIESLIST.appendChild(listItem);
+        for (element of displayData(name).estudios) {
+            const listItem = document.createElement("li");
+            listItem.textContent = element;
+            STUDIESLIST.appendChild(listItem);
         }
-        PERSONIMAGE.src = displayData(name).imagen;  
+        PERSONIMAGE.src = displayData(name).imagen;
         PERSONIMAGE.style.transform = "rotate(0deg)";
         PERSONIMAGE.style.marginBottom = "0%";
         PERSONIMAGE.style.height = "80%";
@@ -71,9 +65,10 @@ function displayPerson(name){
         PERSONIMAGE.style.left = "3%";
         PERSONIMAGE.style.opacity = 1;
         INFOCONTAINER.style.opacity = 1;
-        }, 500);
+    }, 500);
 }
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", () => {
+
     HOMEBTN.checked = true;
     if (HOMEBTN.checked) {
         NAMETITLE.textContent = "Nosotros";
@@ -81,10 +76,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
         EXPERIENCETITLE.textContent = "";
         EXPERIENCEPARAGRAPH.textContent = "";
         STUDIESTITLE.textContent = "Objetivos";
-        for (element of OBJETIVOS){
-                const listItem = document.createElement("li");
-                listItem.textContent = element;
-                STUDIESLIST.appendChild(listItem);
+        for (element of OBJETIVOS) {
+            const listItem = document.createElement("li");
+            listItem.textContent = element;
+            STUDIESLIST.appendChild(listItem);
         }
         setTimeout(() => {
             PERSONIMAGE.src = "img/hexagon-shadow.png"
@@ -93,47 +88,48 @@ document.addEventListener("DOMContentLoaded", ()=>{
             PERSONIMAGE.style.top = "0%";
             PERSONIMAGE.style.left = "0%";
             PERSONIMAGE.style.opacity = 1;
-            if(window.innerWidth < 1180){
+            if (window.innerWidth < 1180) {
                 PERSONIMAGE.style.transform = "rotate(90deg) translate(-31%)";
                 PERSONIMAGE.style.marginBottom = "-45%";
                 PERSONIMAGE.style.top = "20%";
                 PERSONIMAGE.style.left = "0%";
                 PERSONIMAGE.style.opacity = 1;
                 INFOCONTAINER.style.opacity = 1;
-                }
+            }
         }, 500);
     }
-})
+});
+
 HOMEBTN.addEventListener("change", () => {
     if (HOMEBTN.checked) {
         PERSONIMAGE.style.opacity = 0;
         INFOCONTAINER.style.opacity = 0;
         setTimeout(() => {
-        PERSONIMAGE.src = "img/hexagon-shadow.png"
-        NAMETITLE.textContent = "Nosotros";
-        PRESENTATIONPARAGRAPH.textContent = "Somos un grupo de jovenes entusiastas apasionados por el mundo del desarrollo web, ansiosos por adquirir experiencia y contribuir con nuestra creatividad y habilidades tecnicas. Estamos comprometidos a mantener un aprendizaje continuo y crecer en el campo del desarrollo web, con el objetivo de ser parte de una empresa innovadora y colaborativa donde podamos aplicar nuestros conocimientos, para crear soluciones digitales de calidad";
-        EXPERIENCETITLE.textContent = "";
-        EXPERIENCEPARAGRAPH.textContent = "";
-        STUDIESTITLE.textContent = "Objetivos"
-        for (element of OBJETIVOS){
+            PERSONIMAGE.src = "img/hexagon-shadow.png"
+            NAMETITLE.textContent = "Nosotros";
+            PRESENTATIONPARAGRAPH.textContent = "Somos un grupo de jovenes entusiastas apasionados por el mundo del desarrollo web, ansiosos por adquirir experiencia y contribuir con nuestra creatividad y habilidades tecnicas. Estamos comprometidos a mantener un aprendizaje continuo y crecer en el campo del desarrollo web, con el objetivo de ser parte de una empresa innovadora y colaborativa donde podamos aplicar nuestros conocimientos, para crear soluciones digitales de calidad";
+            EXPERIENCETITLE.textContent = "";
+            EXPERIENCEPARAGRAPH.textContent = "";
+            STUDIESTITLE.textContent = "Objetivos"
+            for (element of OBJETIVOS) {
                 const listItem = document.createElement("li");
                 listItem.textContent = element;
                 STUDIESLIST.appendChild(listItem);
-        }
+            }
 
             PERSONIMAGE.style.height = "100%";
             PERSONIMAGE.style.top = "0%";
             PERSONIMAGE.style.left = "0%";
             PERSONIMAGE.style.opacity = 1;
             INFOCONTAINER.style.opacity = 1;
-            if(window.innerWidth < 1180){
+            if (window.innerWidth < 1180) {
                 PERSONIMAGE.style.transform = "rotate(90deg) translate(-31%)";
                 PERSONIMAGE.style.marginBottom = "-45%";
                 PERSONIMAGE.style.top = "20%";
                 PERSONIMAGE.style.left = "0%";
                 PERSONIMAGE.style.opacity = 1;
                 INFOCONTAINER.style.opacity = 1;
-                }
+            }
         }, 500);
     }
 });

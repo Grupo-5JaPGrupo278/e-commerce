@@ -1,9 +1,10 @@
 /*Script para realizar un Registro en vivo*/
 const BTTN = document.getElementById("sign-in-btn");
+
+
 /*Variables para almacenar los datos de los usuarios*/
 let id_num = parseInt(localStorage.getItem("IDnum")) || 1;
-const DATABASE = JSON.parse(localStorage.getItem("DataBase")) || [];
-const PASSWORD_BASE = JSON.parse(localStorage.getItem("PasswordBase")) || [];
+
 let validation = false;
 /*Extraccion de variables del html*/
 const USERNAME = document.getElementById("username");
@@ -13,8 +14,9 @@ const FPASSWORD = document.getElementById("floatingPassword");
 const SPASSWORD = document.getElementById("floatingPassword2");
 const MESSAGE = parent.document.getElementById("message");
 const CHKBOX = document.getElementById("terms");
+
 // Vaciar todos los campos del registro
-function emptyfields(){
+function emptyfields() {
     USERNAME.value = "";
     FULLNAME.value = "";
     EMAIL.value = "";
@@ -56,7 +58,7 @@ function signUp() {
 }
 // Verifica la validez de los campos rellenados
 // Trae los campos del registro al js
-document.addEventListener("DOMContentLoaded", function(e) {
+document.addEventListener("DOMContentLoaded", function (e) {
     /*Función de chequeo de datos previos al registro*/
     USERNAME.addEventListener("input", signUp);
     FULLNAME.addEventListener("input", signUp);
@@ -67,30 +69,43 @@ document.addEventListener("DOMContentLoaded", function(e) {
 });
 // Trae los campos del registro al js
 //Ingreso de datos a la DataBase
-BTTN.addEventListener("click",function(e){
+BTTN.addEventListener("click", function (e) {
     signUp();
-    if (validation === true){
+    if (validation === true) {
         // Se guardan todos los datos dentro del Array
-        
-        DATABASE.push({email_usuario: EMAIL.value, email_id: id_num, username:USERNAME.value, fullname:FULLNAME.value});
-        PASSWORD_BASE.push({contrasena:FPASSWORD.value, email_id:id_num});
-        id_num++;
-        localStorage.setItem("IDnum",id_num);
-        localStorage.setItem("DataBase",JSON.stringify(DATABASE));
-        localStorage.setItem("PasswordBase",JSON.stringify(PASSWORD_BASE));        
-        MESSAGE.innerHTML = "¡Has sido registrado con exito!";
+        let NewUser = {
+            id: id_num,
+            username: USERNAME.value,
+            fullname: FULLNAME.value,
+            email: EMAIL.value,
+            password: FPASSWORD.value
+        }
+        let optsPOST = {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json", // Puedes ajustar el encabezado según tus necesidades
+            },
+            body: JSON.stringify(NewUser), // Convierte los datos a formato JSON
+        }
+        console.log(NewUser);
+    // Hacer Fetch y Opciones
+    fetchWithOpts(SIGNUP_URL, optsPOST)
+    id_num++;
 
-        // Insertar función de movimiento del bloque
-        const btnLogin2 = parent.document.getElementById("loginbtnContainerCM")
-        setTimeout(() => {
-            btnLogin2.click()
-            },1000);
-        setTimeout(() => {
-            emptyfields()
-            },2000);
-    } else {
-        alert("Debes completar todos los campos para registrarte");
-    }
+    MESSAGE.innerHTML = "¡Has sido registrado con exito!";
+
+    // Insertar función de movimiento del bloque
+    const btnLogin2 = parent.document.getElementById("loginbtnContainerCM")
+    setTimeout(() => {
+        btnLogin2.click()
+    }, 1000);
+    setTimeout(() => {
+        emptyfields()
+    }, 2000);
+} else {
+    alert("Debes completar todos los campos para registrarte");
+}
 })
 //Ingreso de datos a la DataBase
 // Funcionalidad para mostrar el PopUp de Términos y Condiciones

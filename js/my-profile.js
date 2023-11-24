@@ -10,7 +10,6 @@ const descripcionTextarea = document.getElementById('description');
 
 
 
-
   editarBtn.addEventListener("click", function() {
     telefonoInput.removeAttribute("disabled");
     nombre_usuario.removeAttribute("disabled");
@@ -95,6 +94,21 @@ guardarBtn.addEventListener('click', function() {
    if (nuevoNombreCompleto.trim() !== '') {
      localStorage.setItem('fullname', nuevoNombreCompleto);
    } 
+
+   //COMIENZO FETCH PUT para modificar my profile
+   let modifiedUser = {
+    username: nuevoNombreUsuario,
+    fullname: nuevoNombreCompleto,
+    email: nuevoEmail
+   }
+   const optsPUT = {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json", // Puedes ajustar el encabezado según tus necesidades
+		},
+		body: JSON.stringify(modifiedUser), // Convierte los datos a formato JSON
+	};
+  fetchWithOpts(EditProfile_URL + localStorage.getItem('IDnum'), optsPUT)
    location.reload();
 });
 
@@ -122,7 +136,7 @@ imageInput.addEventListener('change', function () {
   if (imagenseleccionada) {
     const imageUrl = URL.createObjectURL(imagenseleccionada);
     profileImage.src = imageUrl;
-
+    
     localStorage.setItem('profile_image', imageUrl);
     console.log('Imagen guardada en el almacenamiento local.');
   }
