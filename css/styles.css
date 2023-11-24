@@ -522,7 +522,7 @@ a.custom-card:hover {
 	display: none; /*saco la x del input search*/
 }
 .MostrarBuscador {
-	width: 250px; /*lo hago mas grande */
+	width: 200px; /*lo hago mas grande */
 	opacity: 1; /*lo muestro */
 }
 
