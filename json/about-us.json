@@ -48,13 +48,14 @@
       },
       {
         "nombre": "German Kroger",
-        "descripcion": "Desarrollador full-stack con experiencia en la creación de aplicaciones web escalables y sistemas de gestión de contenido.",
-        "experiencia": "Trabajó como desarrollador full-stack en Tech Solutions Inc. durante 6 años. Diseñó y desarrolló sistemas de gestión de contenido personalizados.",
+        "descripcion": "desarrollador de software con enfoque Front-End. He aprendido los fundamentos de programación con JavaScript y Python. Asimismo, poseo experiencia en el desarrollo Back-end con el framework Django",
+        "experiencia": "",
         "imagen": "img/about-us-gkroger.png",
         "estudios": [
-          "Licenciatura en Ingeniería Informática en la Universidad XYZ",
-          "Curso de Desarrollo Full-Stack en la Escuela de Tecnología ABC",
-          "Diploma en Seguridad Informática en línea"
+          "Desarrollo web frontend en JAP",
+          "Desarrollador en Python y Django en coursera",
+          "Programación PHP en BIOS",
+          "Bachillerato tecnológico UTU"
         ]
       },
       {
