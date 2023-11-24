@@ -109,31 +109,32 @@ HOMEBTN.addEventListener("change", () => {
         PERSONIMAGE.style.opacity = 0;
         INFOCONTAINER.style.opacity = 0;
         setTimeout(() => {
-        PERSONIMAGE.src = "img/hexagon-shadow.png"
-        NAMETITLE.textContent = "Nosotros";
-        PRESENTATIONPARAGRAPH.textContent = "Somos un grupo de jovenes entusiastas apasionados por el mundo del desarrollo web, ansiosos por adquirir experiencia y contribuir con nuestra creatividad y habilidades tecnicas. Estamos comprometidos a mantener un aprendizaje continuo y crecer en el campo del desarrollo web, con el objetivo de ser parte de una empresa innovadora y colaborativa donde podamos aplicar nuestros conocimientos, para crear soluciones digitales de calidad";
-        EXPERIENCETITLE.textContent = "";
-        EXPERIENCEPARAGRAPH.textContent = "";
-        STUDIESTITLE.textContent = "Objetivos"
-        for (element of OBJETIVOS){
+            PERSONIMAGE.src = "img/hexagon-shadow.png";
+            NAMETITLE.textContent = "Nosotros";
+            PRESENTATIONPARAGRAPH.textContent = "Somos un grupo de jóvenes entusiastas apasionados por el mundo del desarrollo web, ansiosos por adquirir experiencia y contribuir con nuestra creatividad y habilidades técnicas. Estamos comprometidos a mantener un aprendizaje continuo y crecer en el campo del desarrollo web, con el objetivo de ser parte de una empresa innovadora y colaborativa donde podamos aplicar nuestros conocimientos, para crear soluciones digitales de calidad";
+            EXPERIENCETITLE.textContent = "";
+            EXPERIENCEPARAGRAPH.textContent = "";
+            STUDIESTITLE.textContent = "Objetivos";
+            STUDIESLIST.innerHTML = '';
+            for (element of OBJETIVOS) {
                 const listItem = document.createElement("li");
                 listItem.textContent = element;
                 STUDIESLIST.appendChild(listItem);
-        }
+            }
 
             PERSONIMAGE.style.height = "100%";
             PERSONIMAGE.style.top = "0%";
             PERSONIMAGE.style.left = "0%";
             PERSONIMAGE.style.opacity = 1;
             INFOCONTAINER.style.opacity = 1;
-            if(window.innerWidth < 1180){
+            if (window.innerWidth < 1180) {
                 PERSONIMAGE.style.transform = "rotate(90deg) translate(-31%)";
                 PERSONIMAGE.style.marginBottom = "-45%";
                 PERSONIMAGE.style.top = "20%";
                 PERSONIMAGE.style.left = "0%";
                 PERSONIMAGE.style.opacity = 1;
                 INFOCONTAINER.style.opacity = 1;
-                }
+            }
         }, 500);
     }
 });

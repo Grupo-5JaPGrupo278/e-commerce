@@ -13,13 +13,15 @@
       },
       {
         "nombre": "Bruno Mendez",
-        "descripcion": "Desarrollador web con un enfoque en el desarrollo de aplicaciones web escalables y de alto rendimiento.",
-        "experiencia": "Trabajó como desarrollador full-stack en Tech Innovators durante 5 años. Lideró proyectos de desarrollo web para empresas líderes en tecnología.",
+        "descripcion": "Soy analista de soporte desde hace 6 años, dando soporte a usuarios finales con diversos problemas de hardware y software, realice tareas relacionadas con el matenimiento de cuartos de servidores, estudie 3 años en dos carreras de testing y actualmente estoy ampliando mis horizontes enfocandome en el desarrollo frontend",
+        "experiencia": "Trabaja como analista de soporte en TCS desde hace 6 años.",
         "imagen": "img/about-us-bmendez.png",
         "estudios": [
-          "Licenciatura en Ciencias de la Computación en la Universidad 123",
-          "Certificado en Desarrollo de Aplicaciones Web en la Escuela de Tecnología XYZ",
-          "Diploma en Programación Avanzada en línea"
+          "Animacion y Modelado 3D y 2D en A+ escuela de artes visuales",
+          "Desarrollo web frontend en JAP",
+          "Testing funcional en Forge y CES",
+          "Operador Windows en BIOS",
+          "Bachillerato tecnologico UTU"
         ]
       },
       {
