@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="col-md-6">
           <label for="masterExplirationDate" class="form-label">Fecha de Expiracion</label>
-          <input type="email" class="form-control" id="masterExplirationDate" required>
+          <input type="text" class="form-control" id="masterExplirationDate" required>
           <div class="valid-feedback">
             Valido!
           </div>
