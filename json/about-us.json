@@ -60,24 +60,24 @@
       },
       {
         "nombre": "Ivan Pereira",
-        "descripcion": "Diseñador de experiencia de usuario (UX) con habilidades en diseño de interfaces atractivas y usables.",
-        "experiencia": "Trabajó como diseñador UX en User-Centered Designs Agency durante 4 años. Diseñó interfaces de usuario intuitivas para aplicaciones móviles y web.",
+        "descripcion": "Desarrollador web, orientado en Front-End. Con conocimiento en HTML, Css y JavaScript",
+        "experiencia": "Data Entry y Soporte Tecnico en ClicRural. Manejo de Bases de datos",
         "imagen": "img/about-us-ipereira.png",
         "estudios": [
-          "Licenciatura en Diseño de Interacción en la Universidad 123",
-          "Curso de Diseño de Interfaces de Usuario en la Escuela de Diseño XYZ",
-          "Certificado en Psicología de la Interacción en línea"
+          "Desarrollo web Front- End en JAP",
+          "Bachillerato cientifico",
+          "Facultad de Ingenieria - Analista de Datos 1º Año"
         ]
       },
       {
         "nombre": "Rocio De Brun",
-        "descripcion": "Desarrolladora web full-stack con experiencia en el desarrollo de aplicaciones web complejas y sistemas de gestión de contenido.",
-        "experiencia": "Trabajó como desarrolladora full-stack en WebTech Solutions durante 5 años. Lideró proyectos de desarrollo web para clientes corporativos.",
+        "descripcion": "Con 6 años de experiencia en atención al cliente y gestión de redes sociales, he perfeccionado mis habilidades en resolución de problemas y la interacción efectiva con los usuarios. Actualmente estoy ampliando mis habilidades en desarrollo frontend.",
+        "experiencia": "Trabajó como Social Media Agent en PedidosYa durante 5 años",
         "imagen": "img/about-us-rdebrun.png",
         "estudios": [
-          "Licenciatura en Ciencias de la Computación en la Universidad ABC",
-          "Diploma en Desarrollo Web Full-Stack en la Escuela de Tecnología XYZ",
-          "Certificado en Administración de Proyectos Ágiles en línea"
+          "Desarrollo web, JAP",
+          "Testing QA Manual, CoderHouse",
+          "Abogacía-Notariado, UDELAR"
         ]
       }
     ]
