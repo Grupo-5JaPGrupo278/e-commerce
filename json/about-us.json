@@ -26,13 +26,14 @@
       },
       {
         "nombre": "Bruno Moreira",
-        "descripcion": "Diseñador web y desarrollador front-end con pasión por la creación de experiencias de usuario intuitivas y atractivas.",
-        "experiencia": "Trabajó como diseñador web en Creative Designs Studio durante 3 años. Diseñó y desarrolló sitios web creativos y atractivos.",
+        "descripcion": "Soy Analista de TI, dando soporte a usuarios interno y externo de la empresa que tienen problemas con hardware y software, ABM de usuarios y mantenimiento y administracion de redes",
+        "experiencia": "Trabajo de Analista de TI hace 3 años.",
         "imagen": "img/about-us-bmoreira.png",
         "estudios": [
-          "Diploma en Diseño Gráfico en la Escuela de Diseño ABC",
-          "Curso de Desarrollo Front-End en la Escuela de Tecnología XYZ",
-          "Certificado en Diseño de Experiencia de Usuario (UX) en línea"
+          "Desarrollo web frontend en JAP",
+          "Curso de SQL Server",
+          "Tecnico en redes e IT",
+          "Bachillerato cientifico"
         ]
       },
       {
