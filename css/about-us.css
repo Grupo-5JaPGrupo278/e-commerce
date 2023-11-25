@@ -36,6 +36,9 @@
     width: 3px;
     background-color: var(--colorgris);
 }
+#studiesAUP{
+    text-align: left;
+}
 #infoContainerLeft{
     transition: all 0.5s;
     position: relative;
@@ -121,6 +124,9 @@
 }
 .personFaceBox{
     display: none;
+}
+.aboutUsMain{
+    margin-bottom: 5vh;
 }
 
 

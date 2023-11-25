@@ -81,38 +81,45 @@
         <p class="lead">Verás aquí todas las categorías del sitio.</p>
       </div>
       <div class="container">
-        <div class="row">
-          <div class="col text-end">
-            <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
-              <input type="radio" class="btn-check" name="options" id="sortAsc">
-              <label class="btn btn-light" for="sortAsc">A-Z</label>
-              <input type="radio" class="btn-check" name="options" id="sortDesc">
-              <label class="btn btn-light" for="sortDesc">Z-A</label>
-              <input type="radio" class="btn-check" name="options" id="sortByCount" checked>
-              <label class="btn btn-light" for="sortByCount"><i class="fas fa-sort-amount-down mr-1"></i></label>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
-            <div class="row container p-0 m-0">
-              <div class="col">
-                <p class="font-weight-normal text-end my-2">Cant.</p>
-              </div>
-              <div class="col">
-                <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
-              </div>
-              <div class="col">
-                <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
-              </div>
-              <div class="col-3 p-0">
-                <div class="btn-group d-flex flex-column" role="group">
-                  <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
-                  <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+        <div class="filtersContainer">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 position-relative">
+              <div class="container">
+                <div class="row">
+                  <div class="col-4">
+                    <p class="font-weight-normal text-end my-3">Cant.</p>
+                  </div>
+                  <div class="col-4">
+                    <input class="form-control my-2" type="number" placeholder="min." id="rangeFilterCountMin" />
+                  </div>
+                  <div class="col-4">
+                    <input class="form-control my-2" type="number" placeholder="máx." id="rangeFilterCountMax" />
+                  </div>
                 </div>
               </div>
             </div>
+      
+            <div class="col-lg-6 col-md-8 p-2 text-end position-relative">
+              <div class="btn-group btn-group-toggle mb-4 position-static" data-bs-toggle="buttons">
+                <input type="search" class="buscador" id="buscador" placeholder="search" size="10" />
+                <button class="busno" id="bus"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input type="radio" class="btn-check" name="options" id="sortAsc" />
+                <label class="btn btn-light" for="sortAsc"><i class="fa-solid fa-arrow-up"></i></label>
+                <input type="radio" class="btn-check" name="options" id="sortDesc" />
+                <label class="btn btn-light" for="sortDesc"><i class="fa-solid fa-arrow-down"></i></label>
+                <input type="radio" class="btn-check" name="options" id="sortByCount" checked />
+                <label class="btn btn-light" for="sortByCount"><i class="fas fa-sort-amount-down mr-1"></i></label>
+              </div>
+            </div>
+      
+            <div class="col-lg-2 col-md-12 p-2 position-relative">
+              <div class="btn-group d-flex flex-row" role="group">
+                <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
+                <button class="btn btn-light btn-sm" id="clearRangeFilter">Limpiar</button>
+              </div>
+            </div>
           </div>
+          <img src="img\filters-banner.png" alt="filters-banner" class="filters-banner">
         </div>
         <div class="row">
           <div class="list-group" id="cat-list-container">

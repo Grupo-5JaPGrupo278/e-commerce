@@ -59,7 +59,10 @@ function ShowCart() {
     }
     for (let i = 0; i < INFO.length; i++) {
         cartitemcards += `<article  class="article-preview">
-        <figure>
+        <img src="img/overlay-corner-img.png" alt="filters-banner" class="corner-banner-cart-card">
+        
+        <figure class="card-figure">
+        
             <img
                 src="${INFO[i].imgsource}"
                 alt="${INFO[i].name}"
@@ -67,6 +70,7 @@ function ShowCart() {
             />
         </figure>
         <div>
+        
             <h2>${INFO[i].name}</h2>
             <p> USD <span class="cost">${parseInt(Tousd(INFO[i].currency,INFO[i].cost))}</span></p>
             <hr>
@@ -210,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="col-md-6">
           <label for="masterExplirationDate" class="form-label">Fecha de Expiracion</label>
-          <input type="email" class="form-control" id="masterExplirationDate" required>
+          <input type="text" class="form-control" id="masterExplirationDate" required>
           <div class="valid-feedback">
             Valido!
           </div>
