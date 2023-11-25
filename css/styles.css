@@ -571,13 +571,3 @@ a.custom-card:hover {
 	right: 0;
 	top: 0;
 }
-
-#categories-container {
-    width: 50vw;
-    min-width: 400px;
-    border: 1px solid black;
-    text-align: center;
-    background: rgba(255,255,255,0.5);
-    margin-bottom: 5%;
-    padding-bottom: 5%;
-}
