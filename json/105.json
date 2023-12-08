@@ -18,7 +18,7 @@
             "cost": 800,
             "currency": "USD",
             "soldCount": 50,
-            "image": "../img/img-json/asus01.jpg"
+            "image": "img/img-json/asus01.jpg"
         },
         {
             "id": 40283,
@@ -27,7 +27,7 @@
             "cost": 1000,
             "currency": "USD",
             "soldCount": 75,
-            "image": "../img/img-json/hp1.jpg"
+            "image": "img/img-json/hp1.jpg"
         },
         {
             "id": 40284,
@@ -36,7 +36,7 @@
             "cost": 400,
             "currency": "USD",
             "soldCount": 30,
-            "image": "../img/img-json/monitor01.jpg"
+            "image": "img/img-json/monitor01.jpg"
         },
         {
             "id": 40285,
@@ -45,7 +45,7 @@
             "cost": 150,
             "currency": "USD",
             "soldCount": 40,
-            "image": "../img/img-json/teclado01.jpg"
+            "image": "img/img-json/teclado01.jpg"
         },
         {
             "id": 40286,
@@ -54,7 +54,7 @@
             "cost": 60,
             "currency": "USD",
             "soldCount": 60,
-            "image": "../img/img-json/mouse01.jpg"
+            "image": "img/img-json/mouse01.jpg"
         }
     ]
 }
