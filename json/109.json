@@ -9,7 +9,7 @@
         "cost": 999,
         "currency": "USD",
         "soldCount": 50,
-        "image": "../img/img-json/iphone1301.jpg"
+        "image": "img/img-json/iphone1301.jpg"
       },
       {
         "id": 70401,
@@ -18,7 +18,7 @@
         "cost": 899,
         "currency": "USD",
         "soldCount": 75,
-        "image": "../img/img-json/samsung2201.jpg"
+        "image": "img/img-json/samsung2201.jpg"
       },
       {
         "id": 70402,
@@ -27,7 +27,7 @@
         "cost": 799,
         "currency": "USD",
         "soldCount": 30,
-        "image": "../img/img-json/pixel701.jpg"
+        "image": "img/img-json/pixel701.jpg"
       },
       {
         "id": 70403,
@@ -36,7 +36,7 @@
         "cost": 799,
         "currency": "USD",
         "soldCount": 40,
-        "image": "../img/img-json/oneplus01.jpg"
+        "image": "img/img-json/oneplus01.jpg"
       },
       {
         "id": 70404,
@@ -45,7 +45,7 @@
         "cost": 699,
         "currency": "USD",
         "soldCount": 60,
-        "image": "../img/img-json/xiaomi1201.jpg"
+        "image": "img/img-json/xiaomi1201.jpg"
       }
     ]
 }

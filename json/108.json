@@ -9,7 +9,7 @@
         "cost": 30,
         "currency": "USD",
         "soldCount": 50,
-        "image": "../img/img-json/remerafut01.jpg"
+        "image": "img/img-json/remerafut01.jpg"
       },
       {
         "id": 70301,
@@ -18,7 +18,7 @@
         "cost": 80,
         "currency": "USD",
         "soldCount": 75,
-        "image": "../img/img-json/zapatillas01.jpg"
+        "image": "img/img-json/zapatillas01.jpg"
       },
       {
         "id": 70302,
@@ -27,7 +27,7 @@
         "cost": 40,
         "currency": "USD",
         "soldCount": 30,
-        "image": "../img/img-json/pantalones01.jpg"
+        "image": "img/img-json/pantalones01.jpg"
       },
       {
         "id": 70303,
@@ -36,7 +36,7 @@
         "cost": 60,
         "currency": "USD",
         "soldCount": 40,
-        "image": "../img/img-json/chaqueta01.jpg"
+        "image": "img/img-json/chaqueta01.jpg"
       },
       {
         "id": 70304,
@@ -45,7 +45,7 @@
         "cost": 25,
         "currency": "USD",
         "soldCount": 60,
-        "image": "../img/img-json/pelota01.jpg"
+        "image": "img/img-json/pelota01.jpg"
       }
     ]
   }

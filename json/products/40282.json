@@ -7,21 +7,21 @@
     "soldCount": 50,
     "category": "Computadoras",
     "images": [
-        "../img/img-json/asus01.jpg",
-        "../img/img-json/asus02.jpg",
-        "../img/img-json/asus03.jpg",
-        "../img/img-json/asus04.jpg"
+        "img/img-json/asus01.jpg",
+        "img/img-json/asus02.jpg",
+        "img/img-json/asus03.jpg",
+        "img/img-json/asus04.jpg"
     ],
     "relatedProducts": [
         {
             "id": 40283,
             "name": "PC de escritorio HP",
-            "image": "../img/img-json/hp1.jpg"
+            "image": "img/img-json/hp1.jpg"
         },
         {
             "id": 40284,
             "name": "Monitor LG 4K",
-            "image": "../img/img-json/monitor01.jpg"
+            "image": "img/img-json/monitor01.jpg"
         }
     ]
 }

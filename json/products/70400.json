@@ -7,21 +7,21 @@
     "soldCount": 50,
     "category": "Teléfonos móviles",
     "images": [
-        "../img/img-json/iphone1301.jpg",
-        "../img/img-json/iphone1302.jpg",
-        "../img/img-json/iphone1303.jpg",
-        "../img/img-json/iphone1304.jpg"
+        "img/img-json/iphone1301.jpg",
+        "img/img-json/iphone1302.jpg",
+        "img/img-json/iphone1303.jpg",
+        "img/img-json/iphone1304.jpg"
     ],
     "relatedProducts": [
         {
             "id": 70401,
             "name": "Samsung Galaxy S22",
-            "image": "../img/img-json/samsung2201.jpg"
+            "image": "img/img-json/samsung2201.jpg"
         },
         {
             "id": 70402,
             "name": "Google Pixel 7",
-            "image": "../img/img-json/pixel701.jpg"
+            "image": "img/img-json/pixel701.jpg"
         }
     ]
 }

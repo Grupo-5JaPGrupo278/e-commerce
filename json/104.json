@@ -9,7 +9,7 @@
         "cost": 20,
         "currency": "USD",
         "soldCount": 50,
-        "image": "../img/img-json/martillo01.jpg"
+        "image": "img/img-json/martillo01.jpg"
       },
       {
         "id": 70001,
@@ -18,7 +18,7 @@
         "cost": 15,
         "currency": "USD",
         "soldCount": 75,
-        "image": "../img/img-json/destornillador01.jpg"
+        "image": "img/img-json/destornillador01.jpg"
       },
       {
         "id": 70002,
@@ -27,7 +27,7 @@
         "cost": 80,
         "currency": "USD",
         "soldCount": 30,
-        "image": "../img/img-json/sierra01.jpg"
+        "image": "img/img-json/sierra01.jpg"
       },
       {
         "id": 70003,
@@ -36,7 +36,7 @@
         "cost": 60,
         "currency": "USD",
         "soldCount": 40,
-        "image": "../img/img-json/taladro01.jpg"
+        "image": "img/img-json/taladro01.jpg"
       },
       {
         "id": 70004,
@@ -45,7 +45,7 @@
         "cost": 25,
         "currency": "USD",
         "soldCount": 60,
-        "image": "../img/img-json/llave01.jpg"
+        "image": "img/img-json/llave01.jpg"
       }
     ]
   }

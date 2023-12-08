@@ -9,7 +9,7 @@
         "cost": 15,
         "currency": "USD",
         "soldCount": 100,
-        "image": "../img/img-json/camiseta01.jpg"
+        "image": "img/img-json/camiseta01.jpg"
       },
       {
         "id": 70101,
@@ -18,7 +18,7 @@
         "cost": 35,
         "currency": "USD",
         "soldCount": 75,
-        "image": "../img/img-json/jeans01.jpg"
+        "image": "img/img-json/jeans01.jpg"
       },
       {
         "id": 70102,
@@ -27,7 +27,7 @@
         "cost": 60,
         "currency": "USD",
         "soldCount": 50,
-        "image": "../img/img-json/zapatos01.jpg"
+        "image": "img/img-json/zapatos01.jpg"
       },
       {
         "id": 70103,
@@ -36,7 +36,7 @@
         "cost": 80,
         "currency": "USD",
         "soldCount": 30,
-        "image": "../img/img-json/vestido01.jpg"
+        "image": "img/img-json/vestido01.jpg"
       },
       {
         "id": 70104,
@@ -45,7 +45,7 @@
         "cost": 20,
         "currency": "USD",
         "soldCount": 40,
-        "image": "../img/img-json/sombrero01.jpg"
+        "image": "img/img-json/sombrero01.jpg"
       }
     ]
   }

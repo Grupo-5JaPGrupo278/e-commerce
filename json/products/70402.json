@@ -7,21 +7,21 @@
     "soldCount": 30,
     "category": "Teléfonos móviles",
     "images": [
-        "../img/img-json/pixel701.jpg",
-        "../img/img-json/pixel702.jpg",
-        "../img/img-json/pixel703.jpg",
-        "../img/img-json/pixel704.jpg"
+        "img/img-json/pixel701.jpg",
+        "img/img-json/pixel702.jpg",
+        "img/img-json/pixel703.jpg",
+        "img/img-json/pixel704.jpg"
     ],
     "relatedProducts": [
         {
             "id": 70403,
             "name": "OnePlus 9 Pro",
-            "image": "../img/img-json/oneplus01.jpg"
+            "image": "img/img-json/oneplus01.jpg"
         },
         {
             "id": 70404,
             "name": "Xiaomi Mi 12",
-            "image": "../img/img-json/xiaomi1201.jpg"
+            "image": "img/img-json/xiaomi1201.jpg"
         }
     ]
 }
